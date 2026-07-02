@@ -1,0 +1,4 @@
+/* comp/footer.css */
+:root {
+  --comp-footer-font-size-li: var(--ref-font-size-12);
+}

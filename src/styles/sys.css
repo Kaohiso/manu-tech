@@ -1,0 +1,60 @@
+/* sys.css */
+:root {
+  --sys-font-family-header: var(--ref-font-family-base);
+  --sys-font-weight-header: var(--ref-font-weight-medium);
+  --sys-font-size-header: var(--ref-font-size-13);
+
+  --sys-font-family-h1: var(--ref-font-family-condensed);
+  --sys-font-weight-h1: var(--ref-font-weight-black);
+  --sys-font-size-h1: var(--ref-font-size-88);
+  --sys-font-size-h1-accent: var(--ref-font-size-48);
+  --sys-font-weight-h1-accent: var(--ref-font-weight-semi-bold);
+
+  --sys-font-family-h2: var(--ref-font-family-condensed);
+  --sys-font-weight-h2: var(--ref-font-weight-bold);
+  --sys-font-size-h2: var(--ref-font-size-64);
+
+  --sys-font-family-h3: var(--ref-font-family-condensed);
+  --sys-font-weight-h3: var(--ref-font-weight-bold);
+  --sys-font-size-h3: var(--ref-font-size-24);
+  --sys-icon-size-h3: var(--ref-icon-size-20);
+
+  --sys-font-family-h4: var(--ref-font-family-base);
+  --sys-font-weight-h4: var(--ref-font-weight-semi-bold);
+  --sys-font-size-h4: var(--ref-font-size-15);
+
+  --sys-font-family-eyebrow: var(--ref-font-family-mono);
+  --sys-font-weight-eyebrow: var(--ref-font-weight-regular);
+  --sys-font-size-eyebrow: var(--ref-font-size-10);
+  --sys-letter-spacing-eyebrow: var(--ref-spacing-2);
+
+  --sys-font-family-li: var(--ref-font-family-base);
+  --sys-font-weight-li: var(--ref-font-weight-regular);
+  --sys-font-size-li: var(--ref-font-size-13);
+  --sys-icon-size-li: var(--ref-icon-size-12);
+
+  --sys-font-family-caption: var(--ref-font-family-base);
+  --sys-font-weight-caption: var(--ref-font-weight-regular);
+  --sys-font-size-caption: var(--ref-font-size-11);
+
+  --sys-font-family-cta: var(--ref-font-family-base);
+
+  --sys-font-weight-cta-button: var(--ref-font-weight-bold);
+  --sys-font-size-cta-button: var(--ref-font-size-13);
+  --sys-icon-size-cta-button: var(--ref-icon-size-13);
+
+  --sys-font-weight-cta-link: var(--ref-font-weight-semi-bold);
+  --sys-font-size-cta-link: var(--ref-font-size-11);
+  --sys-icon-size-cta-link: var(--ref-icon-size-11);
+
+  --sys-color-primary: var(--ref-color-bluerocratic-500);
+  --sys-color-secondary: var(--ref-color-orange-500);
+  --sys-color-background: var(--ref-color-navy-950);
+  --sys-color-text-primary: var(--ref-color-white);
+  --sys-color-text-secondary: var(--ref-color-gray-400);
+  --sys-color-status-closed: var(--ref-color-red-400);
+
+  --sys-color-brand-whatsapp: var(--ref-color-green-500);
+  --sys-color-brand-topdon: var(--ref-color-bright-blue-500);
+  --sys-color-brand-fnirsi: var(--ref-color-fresh-blue-500);
+}

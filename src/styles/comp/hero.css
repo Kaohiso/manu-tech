@@ -1,0 +1,7 @@
+/* comp/hero.css */
+:root {
+  --comp-hero-font-size-stat: var(--ref-font-size-32);
+  --comp-hero-font-weight-stat: var(--ref-font-weight-black);
+  --comp-hero-font-family-stat: var(--ref-font-family-condensed);
+  --comp-hero-font-label-stat: var(--sys-font-size-caption);
+}
