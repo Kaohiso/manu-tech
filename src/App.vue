@@ -1,11 +1,25 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import './styles/index.css'
+import HeaderMT from './features/HeaderMT.vue'
+</script>
 
-<template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
-</template>
+<template><HeaderMT /></template>
 
-<style scoped></style>
+<style>
+html {
+  background-color: var(--sys-color-background);
+}
+
+body {
+  display: grid;
+  justify-content: center;
+}
+
+#app {
+  max-width: var(--ref-size-1280);
+}
+
+a {
+  text-decoration: none;
+}
+</style>
