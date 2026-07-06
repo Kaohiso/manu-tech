@@ -1,23 +1,30 @@
 <script lang="ts"></script>
 
 <template>
-  <button class="button"><slot></slot></button>
+  <a>
+    <slot />
+  </a>
 </template>
 
 <style scoped>
-button {
+a {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--sys-color-primary);
   color: var(--sys-color-text-primary);
   padding: var(--sys-padding-vertical-cta-button) var(--sys-padding-horizontal-cta-button);
-  border-radius: var(--ref-size-4);
+  border-radius: var(--sys-radius-cta-button);
   border: none;
-  gap: var(--ref-size-8);
+  gap: var(--sys-gap-cta-button);
 }
 
-button:hover {
+a:hover {
   cursor: pointer;
+}
+
+span {
+  font-size: var(--sys-font-size-cta-button);
+  font-weight: var(--sys-font-weight-cta-button);
 }
 </style>

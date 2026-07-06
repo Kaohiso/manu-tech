@@ -1,9 +1,5 @@
 /* sys.css */
 :root {
-  --sys-font-family-header: var(--ref-font-family-base);
-  --sys-font-weight-header: var(--ref-font-weight-medium);
-  --sys-font-size-header: var(--ref-size-13);
-
   --sys-font-family-h1: var(--ref-font-family-condensed);
   --sys-font-weight-h1: var(--ref-font-weight-black);
   --sys-font-size-h1: var(--ref-size-88);
@@ -19,31 +15,28 @@
   --sys-font-size-h3: var(--ref-size-24);
   --sys-icon-size-h3: var(--ref-size-20);
 
-  --sys-font-family-h4: var(--ref-font-family-base);
   --sys-font-weight-h4: var(--ref-font-weight-semi-bold);
   --sys-font-size-h4: var(--ref-size-15);
 
   --sys-font-family-eyebrow: var(--ref-font-family-mono);
   --sys-font-weight-eyebrow: var(--ref-font-weight-regular);
   --sys-font-size-eyebrow: var(--ref-size-10);
-  --sys-letter-spacing-eyebrow: var(--ref-spacing-2);
+  --sys-letter-spacing-eyebrow: var(--ref-size-2);
 
-  --sys-font-family-li: var(--ref-font-family-base);
   --sys-font-weight-li: var(--ref-font-weight-regular);
   --sys-font-size-li: var(--ref-size-13);
   --sys-icon-size-li: var(--ref-size-12);
 
-  --sys-font-family-caption: var(--ref-font-family-base);
   --sys-font-weight-caption: var(--ref-font-weight-regular);
   --sys-font-size-caption: var(--ref-size-11);
-
-  --sys-font-family-cta: var(--ref-font-family-base);
 
   --sys-font-weight-cta-button: var(--ref-font-weight-bold);
   --sys-font-size-cta-button: var(--ref-size-13);
   --sys-icon-size-cta-button: var(--ref-size-13);
   --sys-padding-horizontal-cta-button: var(--ref-size-20);
   --sys-padding-vertical-cta-button: var(--ref-size-10);
+  --sys-radius-cta-button: var(--ref-size-4);
+  --sys-gap-cta-button: var(--ref-size-8);
 
   --sys-font-weight-cta-link: var(--ref-font-weight-semi-bold);
   --sys-font-size-cta-link: var(--ref-size-11);

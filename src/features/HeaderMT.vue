@@ -18,11 +18,6 @@ const sections = <Link[]>[
 ]
 
 const iconSize = <number>13
-const phoneNumberMT = phoneNumber
-
-function testClick() {
-  console.log('Clicked')
-}
 </script>
 
 <template>
@@ -35,21 +30,19 @@ function testClick() {
         </li>
       </ul>
     </nav>
-    <a href="tel:{{phoneNumberMT}}">
-      <ButtonMT @click="testClick()"
-        ><PhoneIcon :size="iconSize" /><text class="textButton">Demander un devis</text></ButtonMT
-      ></a
-    >
+
+    <ButtonMT :href="'tel:' + phoneNumber">
+      <PhoneIcon :size="iconSize" #icon />
+      <span>Demander un devis</span>
+    </ButtonMT>
   </header>
 </template>
 
 <style scoped>
 header {
-  font-family: var(--sys-font-family-header);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
   padding: var(--ref-size-12) var(--ref-size-32);
   gap: var(--ref-size-48);
 }
@@ -73,13 +66,7 @@ li {
 
 li > a {
   font-size: var(--sys-font-size-li);
-  font-weight: var(--ref-font-weight-medium);
-  text-decoration: none;
   color: var(--sys-color-text-secondary);
   cursor: pointer;
-}
-
-.textButton {
-  font-weight: var(--sys-font-weight-cta-button);
 }
 </style>

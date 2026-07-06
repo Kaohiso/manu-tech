@@ -3,7 +3,9 @@ import './styles/index.css'
 import HeaderMT from './features/HeaderMT.vue'
 </script>
 
-<template><HeaderMT /></template>
+<template>
+  <HeaderMT />
+</template>
 
 <style>
 html {
@@ -13,6 +15,9 @@ html {
 body {
   display: grid;
   justify-content: center;
+  font-family: var(--ref-font-family-base);
+  font-size: var(--ref-size-15);
+  font-weight: var(--ref-font-weight-regular);
 }
 
 #app {
