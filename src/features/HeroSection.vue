@@ -24,12 +24,15 @@ const chipSize = <number>6
         portables et équipements électroniques. Composants d'origine ou premium — prix transparents.
       </p>
       <div class="containerButton">
-        <ButtonMT>
-          <span>Demande un devis</span>
+        <ButtonMT icon-position="right">
           <ChevronRightIcon :size="iconSize" />
+
+          <span>Demande un devis</span>
         </ButtonMT>
-        <ButtonMT>
+
+        <ButtonMT variant="outlined">
           <PhoneIcon :size="iconSize" />
+
           <span>Nous contacter</span>
         </ButtonMT>
       </div>
