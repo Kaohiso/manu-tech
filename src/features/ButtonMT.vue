@@ -8,7 +8,7 @@
 
 <style scoped>
 a {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   background-color: var(--sys-color-primary);
@@ -17,14 +17,11 @@ a {
   border-radius: var(--sys-radius-cta-button);
   border: none;
   gap: var(--sys-gap-cta-button);
+  font-size: var(--sys-font-size-cta-button);
+  font-weight: var(--sys-font-weight-cta-button);
 }
 
 a:hover {
   cursor: pointer;
-}
-
-span {
-  font-size: var(--sys-font-size-cta-button);
-  font-weight: var(--sys-font-weight-cta-button);
 }
 </style>

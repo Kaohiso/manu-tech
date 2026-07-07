@@ -3,6 +3,7 @@
   --sys-font-family-h1: var(--ref-font-family-condensed);
   --sys-font-weight-h1: var(--ref-font-weight-black);
   --sys-font-size-h1: var(--ref-size-88);
+  --sys-letter-spacing-h1: var(--ref-size-0-6);
   --sys-font-size-h1-accent: var(--ref-size-48);
   --sys-font-weight-h1-accent: var(--ref-font-weight-semi-bold);
 
@@ -19,22 +20,19 @@
   --sys-font-size-h4: var(--ref-size-15);
 
   --sys-font-family-eyebrow: var(--ref-font-family-mono);
-  --sys-font-weight-eyebrow: var(--ref-font-weight-regular);
   --sys-font-size-eyebrow: var(--ref-size-10);
   --sys-letter-spacing-eyebrow: var(--ref-size-2);
 
-  --sys-font-weight-li: var(--ref-font-weight-regular);
   --sys-font-size-li: var(--ref-size-13);
   --sys-icon-size-li: var(--ref-size-12);
 
-  --sys-font-weight-caption: var(--ref-font-weight-regular);
   --sys-font-size-caption: var(--ref-size-11);
 
   --sys-font-weight-cta-button: var(--ref-font-weight-bold);
   --sys-font-size-cta-button: var(--ref-size-13);
   --sys-icon-size-cta-button: var(--ref-size-13);
-  --sys-padding-horizontal-cta-button: var(--ref-size-20);
-  --sys-padding-vertical-cta-button: var(--ref-size-10);
+  --sys-padding-horizontal-cta-button: var(--ref-size-32);
+  --sys-padding-vertical-cta-button: var(--ref-size-14);
   --sys-radius-cta-button: var(--ref-size-4);
   --sys-gap-cta-button: var(--ref-size-8);
 

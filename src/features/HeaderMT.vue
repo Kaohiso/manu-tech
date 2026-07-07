@@ -22,29 +22,39 @@ const iconSize = <number>13
 
 <template>
   <header>
-    <img src="../assets/logo-manu-tech.png" alt="logo-header" />
-    <nav>
-      <ul>
-        <li v-for="{ id, label } in sections" :key="id">
-          <a :href="id">{{ label }}</a>
-        </li>
-      </ul>
-    </nav>
+    <div id="content">
+      <img src="../assets/logo-manu-tech.png" alt="logo-header" />
+      <nav>
+        <ul>
+          <li v-for="{ id, label } in sections" :key="id">
+            <a :href="id">{{ label }}</a>
+          </li>
+        </ul>
+      </nav>
 
-    <ButtonMT :href="'tel:' + phoneNumber">
-      <PhoneIcon :size="iconSize" #icon />
-      <span>Demander un devis</span>
-    </ButtonMT>
+      <ButtonMT :href="'tel:' + phoneNumber">
+        <PhoneIcon :size="iconSize" />
+        <span>Demander un devis</span>
+      </ButtonMT>
+    </div>
   </header>
 </template>
 
 <style scoped>
 header {
-  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: var(--sys-color-background);
+  box-shadow: 0px 10px 30px -10px var(--sys-color-background);
+  width: 100%;
+  padding: var(--ref-size-32) 0;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
   justify-content: center;
   align-items: center;
-  padding: var(--ref-size-12) var(--ref-size-32);
-  gap: var(--ref-size-48);
 }
 
 nav {
