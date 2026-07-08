@@ -1,13 +1,13 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
+  <div class="chip-mt">
     <slot></slot>
   </div>
 </template>
 
 <style scoped lang="css">
-div {
+.chip-mt {
   display: inline-flex;
   background-color: hsl(from var(--sys-color-primary) h s l / 0.08);
   border: solid hsl(from var(--sys-color-primary) h s l / 0.2);
@@ -17,10 +17,5 @@ div {
   padding: 0 8px;
   justify-content: center;
   align-items: center;
-
-  text-transform: uppercase;
-  letter-spacing: var(--sys-letter-spacing-eyebrow);
-  font-size: var(--sys-font-size-eyebrow);
-  font-family: var(--sys-font-family-eyebrow);
 }
 </style>

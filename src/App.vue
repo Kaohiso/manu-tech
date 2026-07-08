@@ -4,8 +4,8 @@ import '@fontsource/barlow-condensed/900.css'
 import '@fontsource-variable/dm-sans/wght.css'
 import '@fontsource-variable/jetbrains-mono/wght.css'
 import './styles/index.css'
-import HeaderMT from './features/HeaderMT.vue'
-import HeroSection from './features/HeroSection.vue'
+import HeaderMT from './features/layout/AppHeader.vue'
+import HeroSection from './features/AppHero.vue'
 </script>
 
 <template>
@@ -28,7 +28,8 @@ body {
 }
 
 #app {
-  max-width: var(--ref-size-1280);
+  --app-inline-size: var(--ref-size-1280);
+  max-width: var(--app-inline-size);
 }
 
 a {
@@ -42,5 +43,10 @@ h1 {
 p {
   margin: 0;
   line-height: 24.4px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 </style>

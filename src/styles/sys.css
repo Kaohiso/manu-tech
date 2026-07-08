@@ -33,7 +33,7 @@
   --sys-icon-size-cta-button: var(--ref-size-13);
   --sys-padding-horizontal-cta-button: var(--ref-size-32);
   --sys-padding-vertical-cta-button: var(--ref-size-14);
-  --sys-radius-cta-button: var(--ref-size-4);
+  --sys-radius-cta-button: var(--ref-size-6);
   --sys-gap-cta-button: var(--ref-size-8);
 
   --sys-font-weight-cta-link: var(--ref-font-weight-semi-bold);
@@ -45,7 +45,11 @@
   --sys-color-background: var(--ref-color-navy-950);
   --sys-color-text-primary: var(--ref-color-white);
   --sys-color-text-secondary: var(--ref-color-gray-400);
+  --sys-color-text-accent-primary: var(--ref-color-fresh-blue-500);
+  --sys-color-text-accent-secondary: var(--ref-color-fresh-orange-500);
   --sys-color-status-closed: var(--ref-color-red-400);
+  --sys-color-status-closed: var(--ref-color-red-400);
+  --sys-color-status-open: var(--ref-color-green-600);
 
   --sys-color-brand-whatsapp: var(--ref-color-green-500);
   --sys-color-brand-topdon: var(--ref-color-bright-blue-500);

@@ -8,16 +8,14 @@ const { variant = 'filled', iconPosition = 'left' } = defineProps<Props>()
 </script>
 
 <template>
-  <a :data-variant="variant" :data-icon-position="iconPosition">
+  <component class="button-mt" :is="$attrs.href ? 'a' : 'button'" :class="[variant, iconPosition]">
     <slot />
-  </a>
+  </component>
 </template>
 
 <style scoped>
-a {
+.button-mt {
   display: inline-flex;
-  /* width: fit-content;
-  height: fit-content; */
   justify-content: center;
   align-items: center;
   color: var(--sys-color-text-primary);
@@ -26,23 +24,23 @@ a {
   gap: var(--sys-gap-cta-button);
   font-size: var(--sys-font-size-cta-button);
   font-weight: var(--sys-font-weight-cta-button);
-}
 
-a[data-variant='filled'] {
-  background-color: var(--sys-color-primary);
-  border: solid hsl(from var(--sys-color-primary) h s l / 0.15);
-}
+  &.filled {
+    background-color: var(--sys-color-primary);
+    border: solid hsl(from var(--sys-color-primary) h s l / 0.15);
+  }
 
-a[data-variant='outlined'] {
-  background-color: transparent;
-  border: solid hsl(from var(--ref-color-white) h s l / 0.25);
-}
+  &.outlined {
+    background-color: transparent;
+    border: solid hsl(from var(--ref-color-white) h s l / 0.25);
+  }
 
-a[data-icon-position='right'] {
-  flex-direction: row-reverse;
-}
+  &.right {
+    flex-direction: row-reverse;
+  }
 
-a:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>

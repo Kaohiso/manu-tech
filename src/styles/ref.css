@@ -3,11 +3,13 @@
   --ref-color-white: hsl(0, 0%, 100%);
   --ref-color-bluerocratic-500: hsl(221, 97%, 54%);
   --ref-color-orange-500: hsl(25, 100%, 50%);
+  --ref-color-fresh-orange-500: hsl(31, 100%, 71%);
   --ref-color-navy-950: hsl(225, 36%, 4%);
   --ref-color-gray-400: hsl(215, 23%, 65%);
   --ref-color-red-400: hsl(359, 100%, 70%);
 
   --ref-color-green-500: hsl(142, 70%, 49%);
+  --ref-color-green-600: hsl(150, 96%, 45%);
   --ref-color-bright-blue-500: hsl(217, 100%, 49%);
   --ref-color-fresh-blue-500: hsl(205, 100%, 53%);
 
