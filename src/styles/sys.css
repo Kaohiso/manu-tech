@@ -45,9 +45,9 @@
   --sys-color-background: var(--ref-color-navy-950);
   --sys-color-text-primary: var(--ref-color-white);
   --sys-color-text-secondary: var(--ref-color-gray-400);
+  --sys-color-text-tertiary: var(--ref-color-gray-600);
   --sys-color-text-accent-primary: var(--ref-color-fresh-blue-500);
   --sys-color-text-accent-secondary: var(--ref-color-fresh-orange-500);
-  --sys-color-status-closed: var(--ref-color-red-400);
   --sys-color-status-closed: var(--ref-color-red-400);
   --sys-color-status-open: var(--ref-color-green-600);
 

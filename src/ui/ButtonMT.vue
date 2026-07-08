@@ -17,6 +17,7 @@ const { variant = 'filled', iconPosition = 'left' } = defineProps<Props>()
 .button-mt {
   display: inline-flex;
   justify-content: center;
+  width: fit-content;
   align-items: center;
   color: var(--sys-color-text-primary);
   padding: var(--sys-padding-vertical-cta-button) var(--sys-padding-horizontal-cta-button);

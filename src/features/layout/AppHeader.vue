@@ -22,34 +22,40 @@ const iconSize = 13
 
 <template>
   <header class="app-header">
-    <img src="/src/assets/images/logo/logo-manu-tech.png" alt="logo-header" />
-    <nav>
-      <ul>
-        <li v-for="{ id, label } in sections" :key="id">
-          <a :href="id">{{ label }}</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="container">
+      <img src="/src/assets/images/logo/logo-manu-tech.png" alt="logo-header" />
+      <nav>
+        <ul>
+          <li v-for="{ id, label } in sections" :key="id">
+            <a :href="id">{{ label }}</a>
+          </li>
+        </ul>
+      </nav>
 
-    <ButtonMT :href="'tel:' + phoneNumber">
-      <PhoneIcon :size="iconSize" />
-      <span>Demander un devis</span>
-    </ButtonMT>
+      <ButtonMT :href="'tel:' + phoneNumber">
+        <PhoneIcon :size="iconSize" />
+        <span>Demander un devis</span>
+      </ButtonMT>
+    </div>
   </header>
 </template>
 
 <style scoped>
 .app-header {
+  z-index: 666;
   position: fixed;
   top: 0;
   background-color: var(--sys-color-background);
   box-shadow: 0px 10px 30px -10px var(--sys-color-background);
-  padding: var(--ref-size-32) 0;
-  max-inline-size: var(--app-inline-size);
   inline-size: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-inline-size: var(--app-inline-size);
+    padding: var(--ref-size-32) 0;
+  }
 
   nav {
     font-size: var(--sys-font-size-li);

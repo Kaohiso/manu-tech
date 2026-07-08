@@ -5,12 +5,14 @@ import '@fontsource-variable/dm-sans/wght.css'
 import '@fontsource-variable/jetbrains-mono/wght.css'
 import './styles/index.css'
 import HeaderMT from './features/layout/AppHeader.vue'
-import HeroSection from './features/AppHero.vue'
+import AppHero from './features/AppHero.vue'
+import AppAbout from '@/features/AppAbout.vue'
 </script>
 
 <template>
   <HeaderMT />
-  <HeroSection />
+  <AppHero />
+  <AppAbout />
 </template>
 
 <style>
@@ -29,6 +31,10 @@ body {
 
 #app {
   --app-inline-size: var(--ref-size-1280);
+  --app-radius: var(--ref-size-12);
+  --app-background-on-background: hsl(
+    from var(--sys-color-background) calc(h + 10) calc(s + 5) calc(l + 5)
+  );
   max-width: var(--app-inline-size);
 }
 
@@ -40,13 +46,41 @@ h1 {
   margin: 0;
 }
 
+h2 {
+  margin: 0;
+  font-size: var(--sys-font-size-h2);
+  font-family: var(--sys-font-family-h2);
+  font-weight: var(--sys-font-weight-h2);
+  line-height: 70px;
+  letter-spacing: -1.4px;
+
+  > span {
+    display: block;
+    color: var(--sys-color-text-primary);
+
+    &:nth-child(2) {
+      background: linear-gradient(
+        to right,
+        hsl(from var(--sys-color-primary) h s calc(l + 20)),
+        var(--sys-color-primary),
+        var(--sys-color-primary)
+      );
+      background-clip: text;
+      color: transparent;
+    }
+  }
+}
+
 p {
   margin: 0;
   line-height: 24.4px;
 }
 
+img {
+  border-radius: var(--app-radius);
+}
+
 ul {
-  margin: 0;
-  padding: 0;
+  list-style: none;
 }
 </style>

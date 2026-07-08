@@ -105,10 +105,10 @@ const chipSize = <number>6
     font-weight: var(--sys-font-weight-h1);
     font-family: var(--sys-font-family-h1);
     letter-spacing: var(--sys-letter-spacing-h1);
-  }
 
-  h1 > span {
-    line-height: 83px;
+    > span {
+      line-height: 83px;
+    }
   }
 
   .title {
@@ -165,7 +165,6 @@ const chipSize = <number>6
     .image-main-hero {
       width: 32.5rem;
       height: 23rem;
-      border-radius: var(--ref-size-12);
       object-fit: cover;
     }
 
@@ -210,7 +209,6 @@ const chipSize = <number>6
     .image-second-hero {
       width: 13rem;
       height: 11rem;
-      border-radius: var(--ref-size-12);
       object-fit: cover;
     }
   }
@@ -239,7 +237,7 @@ const chipSize = <number>6
     }
 
     ul li::before {
-      content: '✓';
+      content: '✔';
       padding-right: var(--ref-size-13);
       color: var(--sys-color-text-accent-primary);
     }
