@@ -16,7 +16,6 @@ import AppVehicles from '@/features/AppVehicles.vue'
   <AppHero />
   <AppAbout />
   <AppServices />
-  <AppVehicles />
 </template>
 
 <style>

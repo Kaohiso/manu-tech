@@ -6,8 +6,6 @@ interface Props {
 
 const { color = 'var(--sys-color-text-accent-primary)', textAlign = 'center' } =
   defineProps<Props>()
-
-console.log(color)
 </script>
 
 <template>

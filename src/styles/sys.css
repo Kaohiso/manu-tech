@@ -45,6 +45,7 @@
   --sys-color-primary: var(--ref-color-bluerocratic-500);
   --sys-color-secondary: var(--ref-color-orange-500);
   --sys-color-background: var(--ref-color-navy-950);
+  --sys-color-background-secondary: var(--ref-color-casual-navy-950);
 
   --sys-color-text-primary: var(--ref-color-white);
   --sys-color-text-secondary: var(--ref-color-gray-400);
