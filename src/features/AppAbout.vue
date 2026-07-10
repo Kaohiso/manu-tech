@@ -3,12 +3,13 @@ import { ChevronRightIcon } from '@lucide/vue'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
 import CardMT from '@/ui/CardMT.vue'
+import AppSection from '@/features/layout/AppSection.vue'
 
 const iconSize = <number>13
 </script>
 
 <template>
-  <section class="app-about">
+  <AppSection class="app-about">
     <div class="about-left">
       <img
         class="img-about"
@@ -75,13 +76,13 @@ const iconSize = <number>13
         <span>Prendre rendez-vous</span>
       </ButtonMT>
     </div>
-  </section>
+  </AppSection>
 </template>
 
 <style lang="css" scoped>
-.app-about {
+:deep(.app-about) {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
 
   .about-left {

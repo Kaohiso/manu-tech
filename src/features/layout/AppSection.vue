@@ -1,0 +1,26 @@
+<script lang="ts" setup>
+defineOptions({ inheritAttrs: false })
+</script>
+
+<template>
+  <section class="app-section">
+    <div class="content" v-bind="$attrs">
+      <slot />
+    </div>
+  </section>
+</template>
+
+<style scoped>
+.app-section {
+  display: grid;
+  justify-content: center;
+
+  > .content {
+    max-width: var(--app-inline-size);
+  }
+
+  &:nth-of-type(n + 2):nth-of-type(odd) {
+    background-color: var(--sys-color-background-secondary);
+  }
+}
+</style>

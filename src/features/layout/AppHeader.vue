@@ -42,6 +42,8 @@ const iconSize = 13
 
 <style scoped>
 .app-header {
+  display: flex;
+  justify-content: center;
   z-index: 666;
   position: fixed;
   top: 0;
@@ -53,7 +55,9 @@ const iconSize = 13
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-inline-size: var(--app-inline-size);
+    max-width: var(--app-inline-size);
+    width: 100%;
+
     padding: var(--ref-size-32) 0;
   }
 

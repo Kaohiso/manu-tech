@@ -3,6 +3,7 @@ import EyebrowMT from '@/ui/EyebrowMT.vue'
 import * as Icons from '@lucide/vue'
 import ServiceMT from '@/ui/ServiceMT.vue'
 import AppVehicles from '@/features/AppVehicles.vue'
+import AppSection from '@/features/layout/AppSection.vue'
 
 interface dataItemListProps {
   iconName: Icons.LucideIcon
@@ -26,16 +27,14 @@ const itemListRepair: dataItemListProps[] = [
   { iconName: Icons.TabletIcon, text: 'Remplacement écran tablette' },
   { iconName: Icons.BatteryIcon, text: 'Remplacement de batterie' },
   { iconName: Icons.UsbIcon, text: 'Réparation port de charge' },
-  { iconName: Icons.PlugIcon, text: 'Réparation connecteurs internes' },
-  { iconName: Icons.HeartPulseIcon, text: 'Diagnostic matériel complet' },
   { iconName: Icons.ShieldIcon, text: 'Pose de film Hydrogel' },
-  { iconName: Icons.LightbulbIcon, text: 'Remplacement kit LED' },
+  { iconName: Icons.LightbulbIcon, text: 'Remplacement rétroéclairage LED' },
   { iconName: Icons.DrillIcon, text: 'Remplacement pièce électroménager' },
 ]
 </script>
 
 <template>
-  <section class="app-services">
+  <AppSection class="app-services">
     <EyebrowMT>Nos prestations</EyebrowMT>
     <h2>
       <span>Expertise complète</span>
@@ -73,11 +72,11 @@ const itemListRepair: dataItemListProps[] = [
       price="50€"
       caption-price="+ pièce"
     />
-  </section>
+  </AppSection>
 </template>
 
 <style lang="css" scoped>
-.app-services {
+:deep(.app-services) {
   display: grid;
   gap: 30px;
   text-align: center;

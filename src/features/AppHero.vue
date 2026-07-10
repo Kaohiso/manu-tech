@@ -3,13 +3,14 @@ import { DotIcon, ChevronRightIcon, PhoneIcon } from '@lucide/vue'
 import ButtonMT from '../ui/ButtonMT.vue'
 import ChipMT from '../ui/ChipMT.vue'
 import Eyebrow from '../ui/EyebrowMT.vue'
+import AppSection from '@/features/layout/AppSection.vue'
 
 const iconSize = <number>13
 const chipSize = <number>6
 </script>
 
 <template>
-  <section class="app-hero">
+  <AppSection class="app-hero">
     <div class="left-column">
       <ChipMT>
         <DotIcon :size="iconSize * 2" color="var(--sys-color-status-open)" />
@@ -76,11 +77,11 @@ const chipSize = <number>6
         </ul>
       </div>
     </div>
-  </section>
+  </AppSection>
 </template>
 
 <style lang="css" scoped>
-.app-hero {
+:deep(.app-hero) {
   display: grid;
   grid-template-columns: 50% 50%;
   column-gap: var(--ref-size-88);

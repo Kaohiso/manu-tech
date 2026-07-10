@@ -8,7 +8,6 @@ import HeaderMT from './features/layout/AppHeader.vue'
 import AppHero from './features/AppHero.vue'
 import AppAbout from '@/features/AppAbout.vue'
 import AppServices from '@/features/AppServices.vue'
-import AppVehicles from '@/features/AppVehicles.vue'
 </script>
 
 <template>
@@ -20,16 +19,17 @@ import AppVehicles from '@/features/AppVehicles.vue'
 
 <style>
 html {
-  background-color: var(--sys-color-background);
+  color: var(--sys-color-text-secondary);
 }
 
 body {
-  display: grid;
-  justify-content: center;
+  background-color: var(--sys-color-background);
   font-family: var(--ref-font-family-base);
   font-size: var(--ref-size-15);
   font-weight: var(--ref-font-weight-regular);
-  color: var(--sys-color-text-secondary);
+
+  padding: 0;
+  margin: 0;
 }
 
 #app {
@@ -40,7 +40,6 @@ body {
     from var(--sys-color-background) calc(h + 10) calc(s + 5) calc(l + 5)
   );
   --app-pading-section: 128px 0;
-  max-width: var(--app-inline-size);
 }
 
 a {
