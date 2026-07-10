@@ -8,6 +8,7 @@ import HeaderMT from './features/layout/AppHeader.vue'
 import AppHero from './features/AppHero.vue'
 import AppAbout from '@/features/AppAbout.vue'
 import AppServices from '@/features/AppServices.vue'
+import AppVehicles from '@/features/AppVehicles.vue'
 </script>
 
 <template>
@@ -15,6 +16,7 @@ import AppServices from '@/features/AppServices.vue'
   <AppHero />
   <AppAbout />
   <AppServices />
+  <AppVehicles />
 </template>
 
 <style>
@@ -44,6 +46,10 @@ body {
 
 a {
   text-decoration: none;
+}
+
+section {
+  padding: var(--app-pading-section);
 }
 
 h1 {

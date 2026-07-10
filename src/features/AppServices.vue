@@ -86,7 +86,6 @@ const dataItemList: dataItemListProps[] = [
 .app-services {
   display: grid;
   gap: 30px;
-  padding: var(--app-pading-section);
   text-align: center;
 
   h2 {

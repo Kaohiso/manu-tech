@@ -8,8 +8,8 @@ const iconSize = <number>13
 </script>
 
 <template>
-  <main class="app-about">
-    <section class="about-left">
+  <section class="app-about">
+    <div class="about-left">
       <img
         class="img-about"
         src="../assets/images/oden-about.jpeg"
@@ -24,8 +24,8 @@ const iconSize = <number>13
           d'expertise
         </EyebrowMT>
       </div>
-    </section>
-    <section class="about-right">
+    </div>
+    <div class="about-right">
       <EyebrowMT textAlign="start">A propos de Manu-Tech</EyebrowMT>
       <h2>
         <span>L'expertise technique</span>
@@ -74,15 +74,14 @@ const iconSize = <number>13
         <ChevronRightIcon :size="iconSize" />
         <span>Prendre rendez-vous</span>
       </ButtonMT>
-    </section>
-  </main>
+    </div>
+  </section>
 </template>
 
 <style lang="css" scoped>
 .app-about {
   display: grid;
   grid-template-columns: 50% 50%;
-  padding: 128px 0;
   align-items: center;
 
   .about-left {

@@ -9,11 +9,13 @@ const chipSize = <number>6
 </script>
 
 <template>
-  <main class="app-hero">
-    <section class="left-column">
+  <section class="app-hero">
+    <div class="left-column">
       <ChipMT>
         <DotIcon :size="iconSize * 2" color="var(--sys-color-status-open)" />
-        <Eyebrow>Expert certifié · Ars-sur-moselle</Eyebrow>
+        <Eyebrow color="hsl(from var(--sys-color-primary) calc(h - 10) s calc(l + 10))"
+          >Expert certifié · Ars-sur-moselle</Eyebrow
+        >
       </ChipMT>
       <h1>
         <span class="title">Diagnostic</span>
@@ -49,8 +51,8 @@ const chipSize = <number>6
           <span class="under-tag">satisfaction clients</span>
         </div>
       </div>
-    </section>
-    <section class="right-column">
+    </div>
+    <div class="right-column">
       <div class="container-image-hero">
         <img class="image-main-hero" src="../assets/images/cat-hero.jpeg" alt="logo-header" />
         <div class="text-image-hero">Interface OBD-II Pro</div>
@@ -73,8 +75,8 @@ const chipSize = <number>6
           <li>ECU : Connectée</li>
         </ul>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 </template>
 
 <style lang="css" scoped>
