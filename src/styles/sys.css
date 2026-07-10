@@ -12,7 +12,7 @@
   --sys-font-size-h2: var(--ref-size-64);
 
   --sys-font-family-h3: var(--ref-font-family-condensed);
-  --sys-font-weight-h3: var(--ref-font-weight-bold);
+  --sys-font-weight-h3: var(--ref-font-weight-semi-bold);
   --sys-font-size-h3: var(--ref-size-24);
   --sys-icon-size-h3: var(--ref-size-20);
 
@@ -26,7 +26,9 @@
   --sys-font-size-li: var(--ref-size-13);
   --sys-icon-size-li: var(--ref-size-12);
 
+  --sys-font-family-caption: var(--ref-font-family-mono);
   --sys-font-size-caption: var(--ref-size-11);
+  --sys-color-text-caption: var(--ref-color-gray-400);
 
   --sys-font-weight-cta-button: var(--ref-font-weight-bold);
   --sys-font-size-cta-button: var(--ref-size-13);
@@ -43,11 +45,13 @@
   --sys-color-primary: var(--ref-color-bluerocratic-500);
   --sys-color-secondary: var(--ref-color-orange-500);
   --sys-color-background: var(--ref-color-navy-950);
+
   --sys-color-text-primary: var(--ref-color-white);
   --sys-color-text-secondary: var(--ref-color-gray-400);
   --sys-color-text-tertiary: var(--ref-color-gray-600);
   --sys-color-text-accent-primary: var(--ref-color-fresh-blue-500);
   --sys-color-text-accent-secondary: var(--ref-color-fresh-orange-500);
+
   --sys-color-status-closed: var(--ref-color-red-400);
   --sys-color-status-open: var(--ref-color-green-600);
 

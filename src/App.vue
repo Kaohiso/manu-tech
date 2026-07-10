@@ -7,12 +7,14 @@ import './styles/index.css'
 import HeaderMT from './features/layout/AppHeader.vue'
 import AppHero from './features/AppHero.vue'
 import AppAbout from '@/features/AppAbout.vue'
+import AppServices from '@/features/AppServices.vue'
 </script>
 
 <template>
   <HeaderMT />
   <AppHero />
   <AppAbout />
+  <AppServices />
 </template>
 
 <style>
@@ -32,9 +34,11 @@ body {
 #app {
   --app-inline-size: var(--ref-size-1280);
   --app-radius: var(--ref-size-12);
+  --app-radius-icon: var(--ref-size-6);
   --app-background-on-background: hsl(
     from var(--sys-color-background) calc(h + 10) calc(s + 5) calc(l + 5)
   );
+  --app-pading-section: 128px 0;
   max-width: var(--app-inline-size);
 }
 
@@ -71,6 +75,36 @@ h2 {
   }
 }
 
+h3 {
+  margin: 0;
+  display: block;
+  font-family: var(--sys-font-family-h3);
+  font-size: var(--sys-font-size-h3);
+  font-weight: var(--sys-font-weight-h3);
+  color: var(--sys-color-text-primary);
+
+  & + span {
+    display: block;
+    font-family: var(--sys-font-family-caption);
+    font-size: var(--sys-font-size-caption);
+    color: var(--sys-color-text-caption);
+  }
+}
+
+h4 {
+  margin: 0;
+  display: block;
+  font-weight: var(--sys-font-weight-h4);
+  color: var(--sys-color-text-primary);
+
+  & + span {
+    font-family: var(--sys-font-family-caption);
+    display: block;
+    font-size: var(--sys-font-size-caption);
+    color: var(--sys-color-text-caption);
+  }
+}
+
 p {
   margin: 0;
   line-height: 24.4px;
@@ -82,5 +116,9 @@ img {
 
 ul {
   list-style: none;
+}
+
+svg {
+  display: block;
 }
 </style>
