@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  display?: 'title' | 'list'
+  display?: 'title' | 'list' | 'on-card'
 }
 
 const { display = 'title' } = defineProps<Props>()
@@ -19,10 +19,10 @@ const { display = 'title' } = defineProps<Props>()
   height: fit-content;
   text-align: center;
   align-items: center;
+  border-radius: 100px;
 
   &.title {
     border: solid hsl(from var(--sys-color-primary) h s l / 0.2);
-    border-radius: 100px;
     padding: 0 8px;
   }
 
@@ -31,6 +31,10 @@ const { display = 'title' } = defineProps<Props>()
     color: hsl(from var(--sys-color-text-secondary) h s calc(l + 5));
     border: 2px solid hsl(from var(--sys-color-text-secondary) h s l / 0.1);
     border-radius: var(--app-radius-icon);
+  }
+
+  &.on-card {
+    padding: 4px 8px;
   }
 }
 </style>

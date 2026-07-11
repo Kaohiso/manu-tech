@@ -16,6 +16,7 @@ defineOptions({ inheritAttrs: false })
   justify-content: center;
 
   > .content {
+    width: 100vw;
     max-width: var(--app-inline-size);
   }
 

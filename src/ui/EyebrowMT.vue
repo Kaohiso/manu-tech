@@ -1,24 +1,34 @@
 <script setup lang="ts">
 interface Props {
   color?: string
-  textAlign?: 'start' | 'center'
+  variant?: 'on-card' | 'caption'
 }
 
-const { color = 'var(--sys-color-text-accent-primary)', textAlign = 'center' } =
-  defineProps<Props>()
+const { color = '', variant = '' } = defineProps<Props>()
 </script>
 
 <template>
-  <span class="app-eyebrow" :style="{ color: color }">
+  <span class="app-eyebrow" :class="variant" :style="{ color: color }">
     <slot />
   </span>
 </template>
 
-<style scoped lang="css">
+<style scoped>
 .app-eyebrow {
   text-transform: uppercase;
   letter-spacing: var(--sys-letter-spacing-eyebrow);
   font-size: var(--sys-font-size-eyebrow);
   font-family: var(--sys-font-family-eyebrow);
+  color: var(--sys-color-text-accent-primary);
+
+  &.on-card {
+    color: var(--sys-color-text-primary);
+    font-weight: var(--ref-font-weight-semi-bold);
+    font-family: var(--ref-font-family-base);
+  }
+
+  &.caption {
+    color: var(--sys-color-text-tertiary);
+  }
 }
 </style>

@@ -36,6 +36,16 @@ const { variant = 'filled', iconPosition = 'left' } = defineProps<Props>()
     border: solid hsl(from var(--ref-color-white) h s l / 0.25);
   }
 
+  &.text-only {
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    color: hsl(from var(--sys-color-primary) h s calc(l + 20));
+    text-align: center;
+    font-size: var(--ref-size-11);
+    border: none;
+  }
+
   &.right {
     flex-direction: row-reverse;
   }

@@ -8,6 +8,7 @@ import HeaderMT from './features/layout/AppHeader.vue'
 import AppHero from './features/AppHero.vue'
 import AppAbout from '@/features/AppAbout.vue'
 import AppServices from '@/features/AppServices.vue'
+import AppPrice from '@/features/AppPrice.vue'
 </script>
 
 <template>
@@ -15,9 +16,20 @@ import AppServices from '@/features/AppServices.vue'
   <AppHero />
   <AppAbout />
   <AppServices />
+  <AppPrice />
 </template>
 
 <style>
+:root {
+  --app-inline-size: var(--ref-size-1280);
+  --app-radius: var(--ref-size-12);
+  --app-radius-icon: var(--ref-size-6);
+  --app-background-on-background: hsl(
+    from var(--sys-color-background) calc(h + 10) calc(s + 5) calc(l + 5)
+  );
+  --app-pading-section: 128px 10px;
+}
+
 html {
   color: var(--sys-color-text-secondary);
 }
@@ -30,16 +42,6 @@ body {
 
   padding: 0;
   margin: 0;
-}
-
-#app {
-  --app-inline-size: var(--ref-size-1280);
-  --app-radius: var(--ref-size-12);
-  --app-radius-icon: var(--ref-size-6);
-  --app-background-on-background: hsl(
-    from var(--sys-color-background) calc(h + 10) calc(s + 5) calc(l + 5)
-  );
-  --app-pading-section: 128px 0;
 }
 
 a {
@@ -61,10 +63,10 @@ h2 {
   font-weight: var(--sys-font-weight-h2);
   line-height: 70px;
   letter-spacing: -1.4px;
+  color: var(--sys-color-text-primary);
 
   > span {
     display: block;
-    color: var(--sys-color-text-primary);
 
     &:nth-child(2) {
       background: linear-gradient(
