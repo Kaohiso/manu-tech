@@ -38,8 +38,10 @@ const tarifs: TarifProps[] = [
       </p>
     </div>
     <CardPriceMT v-for="tarif in tarifs" :key="tarif.id" :chip="tarif.chip">
-      <template #eyebrow>
-        {{ tarif.title }}
+      <template #header>
+        <EyebrowMT variant="caption">
+          {{ tarif.title }}
+        </EyebrowMT>
       </template>
       <template #price>
         {{ tarif.price }}

@@ -14,9 +14,8 @@ const { chip = '' } = defineProps<Props>()
 <template>
   <div class="card-price-mt" :class="chip">
     <div class="header-card-price-mt">
-      <EyebrowMT color="var(--sys-color-text-tertiary)">
-        <slot name="eyebrow" />
-      </EyebrowMT>
+      <slot name="header" />
+
       <span class="price">
         <slot name="price" />
         <span class="euro">€</span>

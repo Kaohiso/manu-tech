@@ -37,6 +37,7 @@ const { variant = 'filled', iconPosition = 'left' } = defineProps<Props>()
   }
 
   &.text-only {
+    padding-top: 10px;
     margin: auto;
     text-align: center;
     background-color: transparent;
