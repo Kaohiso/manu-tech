@@ -65,6 +65,8 @@ const tarifs: TarifProps[] = [
 
   .title {
     grid-column: span 3;
+    display: grid;
+    row-gap: 20px;
   }
 
   .caption {

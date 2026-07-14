@@ -10,6 +10,7 @@ import AppAbout from '@/features/AppAbout.vue'
 import AppServices from '@/features/AppServices.vue'
 import AppPrice from '@/features/AppPrice.vue'
 import AppWhyUs from '@/features/AppWhyUs.vue'
+import AppGallery from '@/features/AppGallery.vue'
 </script>
 
 <template>
@@ -19,6 +20,7 @@ import AppWhyUs from '@/features/AppWhyUs.vue'
   <AppServices />
   <AppPrice />
   <AppWhyUs />
+  <AppGallery />
 </template>
 
 <style>
