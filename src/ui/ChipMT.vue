@@ -1,13 +1,14 @@
 <script setup lang="ts">
 interface Props {
   display?: 'title' | 'list' | 'on-card'
+  color?: 'primary' | 'secondary'
 }
 
-const { display = 'title' } = defineProps<Props>()
+const { display = 'title', color = 'primary' } = defineProps<Props>()
 </script>
 
 <template>
-  <div class="chip-mt" :class="display">
+  <div class="chip-mt" :class="[display, color]">
     <slot></slot>
   </div>
 </template>
@@ -23,7 +24,14 @@ const { display = 'title' } = defineProps<Props>()
 
   &.title {
     border: solid hsl(from var(--sys-color-primary) h s l / 0.2);
-    padding: 0 8px;
+    padding: 6px 16px;
+
+    &.secondary {
+      display: flex;
+      gap: var(--ref-size-20);
+      border: solid hsl(from var(--sys-color-secondary) h s l / 0.2);
+      background-color: hsl(from var(--sys-color-secondary) h s l / 0.1);
+    }
   }
 
   &.list {

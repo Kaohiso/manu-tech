@@ -11,6 +11,7 @@ import AppServices from '@/features/AppServices.vue'
 import AppPrice from '@/features/AppPrice.vue'
 import AppWhyUs from '@/features/AppWhyUs.vue'
 import AppGallery from '@/features/AppGallery.vue'
+import AppPickup from '@/features/AppPickup.vue'
 </script>
 
 <template>
@@ -21,6 +22,7 @@ import AppGallery from '@/features/AppGallery.vue'
   <AppPrice />
   <AppWhyUs />
   <AppGallery />
+  <AppPickup />
 </template>
 
 <style>

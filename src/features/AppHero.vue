@@ -5,8 +5,8 @@ import ChipMT from '../ui/ChipMT.vue'
 import Eyebrow from '../ui/EyebrowMT.vue'
 import AppSection from '@/features/layout/AppSection.vue'
 
-const iconSize = <number>13
-const chipSize = <number>6
+const iconSize = 12
+const chipSize = 6
 </script>
 
 <template>
@@ -14,9 +14,7 @@ const chipSize = <number>6
     <div class="left-column">
       <ChipMT>
         <DotIcon :size="iconSize * 2" color="var(--sys-color-status-open)" />
-        <Eyebrow color="hsl(from var(--sys-color-primary) calc(h - 10) s calc(l + 10))"
-          >Expert certifié · Ars-sur-moselle</Eyebrow
-        >
+        <Eyebrow>Expert certifié · Ars-sur-moselle</Eyebrow>
       </ChipMT>
       <h1>
         <span class="title">Diagnostic</span>
@@ -94,155 +92,155 @@ const chipSize = <number>6
     hsl(from var(--sys-color-primary) h s l / 0.1),
     transparent
   );
-}
 
-.left-column {
-  display: grid;
-  height: fit-content;
-  width: 80%;
-  gap: 30px;
-
-  h1 {
+  .left-column {
     display: grid;
-    font-size: var(--sys-font-size-h1);
-    font-weight: var(--sys-font-weight-h1);
-    font-family: var(--sys-font-family-h1);
-    letter-spacing: var(--sys-letter-spacing-h1);
+    height: fit-content;
+    width: 80%;
+    gap: 30px;
 
-    > span {
-      line-height: 83px;
+    h1 {
+      display: grid;
+      font-size: var(--sys-font-size-h1);
+      font-weight: var(--sys-font-weight-h1);
+      font-family: var(--sys-font-family-h1);
+      letter-spacing: var(--sys-letter-spacing-h1);
+
+      > span {
+        line-height: 83px;
+      }
     }
-  }
 
-  .title {
-    background: linear-gradient(
-      to right,
-      hsl(from var(--sys-color-primary) h s calc(l + 20)),
-      var(--sys-color-primary),
-      var(--sys-color-primary)
-    );
-    background-clip: text;
-    color: transparent;
+    .title {
+      background: linear-gradient(
+        to right,
+        hsl(from var(--sys-color-primary) h s calc(l + 20)),
+        var(--sys-color-primary),
+        var(--sys-color-primary)
+      );
+      background-clip: text;
+      color: transparent;
 
-    &:first-of-type {
+      &:first-of-type {
+        color: var(--sys-color-text-primary);
+      }
+
+      &:last-child {
+        font-size: var(--sys-font-size-h1-accent);
+        font-weight: var(--sys-font-weight-h1-accent);
+        color: hsl(from var(--sys-color-text-secondary) h calc(s - 6) calc(l + 19));
+        line-height: 53px;
+      }
+    }
+
+    .container-items {
+      display: flex;
+      gap: var(--ref-size-32);
+    }
+
+    .container-tag {
+      display: grid;
+    }
+
+    .tag {
+      font-family: var(--ref-font-family-condensed);
+      font-size: var(--ref-size-32);
       color: var(--sys-color-text-primary);
+      font-weight: var(--ref-font-weight-black);
     }
 
-    &:last-child {
-      font-size: var(--sys-font-size-h1-accent);
-      font-weight: var(--sys-font-weight-h1-accent);
-      color: hsl(from var(--sys-color-text-secondary) h calc(s - 6) calc(l + 19));
-      line-height: 53px;
+    .under-tag {
+      font-size: var(--ref-size-11);
+      color: hsl(from var(--sys-color-text-secondary) h calc(s - 5) calc(l - 18));
     }
   }
 
-  .container-items {
-    display: flex;
-    gap: var(--ref-size-32);
-  }
-
-  .container-tag {
-    display: grid;
-  }
-
-  .tag {
-    font-family: var(--ref-font-family-condensed);
-    font-size: var(--ref-size-32);
-    color: var(--sys-color-text-primary);
-    font-weight: var(--ref-font-weight-black);
-  }
-
-  .under-tag {
-    font-size: var(--ref-size-11);
-    color: hsl(from var(--sys-color-text-secondary) h calc(s - 5) calc(l - 18));
-  }
-}
-
-.right-column {
-  position: relative;
-
-  .container-image-hero {
+  .right-column {
     position: relative;
-    border-radius: var(--ref-size-12);
 
-    .image-main-hero {
-      width: 32.5rem;
-      height: 23rem;
-      object-fit: cover;
-    }
-
-    &::after {
-      content: '';
+    .container-image-hero {
+      position: relative;
       border-radius: var(--ref-size-12);
+
+      .image-main-hero {
+        width: 32.5rem;
+        height: 23rem;
+        object-fit: cover;
+      }
+
+      &::after {
+        content: '';
+        border-radius: var(--ref-size-12);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: radial-gradient(transparent, hsl(from var(--sys-color-background) h s l / 0.6));
+      }
+    }
+
+    .text-image-hero {
+      z-index: 10;
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background: radial-gradient(transparent, hsl(from var(--sys-color-background) h s l / 0.6));
-    }
-  }
-
-  .text-image-hero {
-    z-index: 10;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: var(--sys-color-text-primary);
-    font-family: var(--ref-font-family-mono);
-  }
-
-  .container-image-hero-small {
-    position: absolute;
-    bottom: -50px;
-    right: 50px;
-    border-radius: var(--ref-size-12);
-
-    &::after {
-      content: '';
-      border-radius: var(--ref-size-12);
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background: radial-gradient(transparent, hsl(from var(--sys-color-background) h s l / 0.6));
-    }
-
-    .image-second-hero {
-      width: 13rem;
-      height: 11rem;
-      object-fit: cover;
-    }
-  }
-
-  .container-diagnostic {
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    display: grid;
-    width: fit-content;
-    background-color: hsl(from var(--sys-color-background) h s l / 0.95);
-    border: solid hsl(from var(--sys-color-primary) h s l / 0.2);
-    border-radius: var(--ref-size-12);
-    padding: var(--ref-size-16);
-
-    .container-diagnostic-title {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    ul {
-      list-style: none;
+      bottom: 10px;
+      left: 10px;
+      color: var(--sys-color-text-primary);
       font-family: var(--ref-font-family-mono);
-      font-size: var(--ref-size-10);
-      padding: 0 var(--ref-size-11);
     }
 
-    ul li::before {
-      content: '✔';
-      padding-right: var(--ref-size-13);
-      color: var(--sys-color-text-accent-primary);
+    .container-image-hero-small {
+      position: absolute;
+      bottom: -50px;
+      right: 50px;
+      border-radius: var(--ref-size-12);
+
+      &::after {
+        content: '';
+        border-radius: var(--ref-size-12);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: radial-gradient(transparent, hsl(from var(--sys-color-background) h s l / 0.6));
+      }
+
+      .image-second-hero {
+        width: 13rem;
+        height: 11rem;
+        object-fit: cover;
+      }
+    }
+
+    .container-diagnostic {
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      display: grid;
+      width: fit-content;
+      background-color: hsl(from var(--sys-color-background) h s l / 0.95);
+      border: solid hsl(from var(--sys-color-primary) h s l / 0.2);
+      border-radius: var(--ref-size-12);
+      padding: var(--ref-size-16);
+
+      .container-diagnostic-title {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      ul {
+        list-style: none;
+        font-family: var(--ref-font-family-mono);
+        font-size: var(--ref-size-10);
+        padding: 0 var(--ref-size-11);
+      }
+
+      ul li::before {
+        content: '✔';
+        padding-right: var(--ref-size-13);
+        color: var(--sys-color-text-accent-primary);
+      }
     }
   }
 }
