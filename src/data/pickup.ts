@@ -70,20 +70,14 @@ const pickups: Pickup[] = [
     content: ['Parking gratuit'],
   },
   {
-    id: 6,
-    type: 'schedule',
-    icon: ClockIcon,
-    title: "Horaires d'ouvertures",
-    subtitle: 'Horaires du point relais',
+    id: 7,
+    type: 'image',
+    icon: TruckIcon,
+    title: 'Partenaires logistiques',
+    subtitle: 'Marques',
     content: {
-      title: 'Ouverture',
-      rows: [
-        { key: 'Lundi - Vendredi', firstValue: '9h - 12h30', lastValue: '13h30 - 18h30' },
-        { key: 'Samedi', lastValue: '9h - 12h30' },
-        { key: 'Dimanche', lastValue: 'Fermé' },
-      ],
-      caption:
-        "Les colis peuvent être déposés ou récupérés pendant les heures d'ouverture de la boutique.",
+      title: 'Pickup',
+      images: [colissimo, chronopost, dpd, colisPrive],
     },
   },
   {
@@ -103,14 +97,20 @@ const pickups: Pickup[] = [
     content: ['7 jours ouvrés'],
   },
   {
-    id: 7,
-    type: 'image',
-    icon: TruckIcon,
-    title: 'Partenaires logistiques',
-    subtitle: 'Marques',
+    id: 6,
+    type: 'schedule',
+    icon: ClockIcon,
+    title: "Horaires d'ouvertures",
+    subtitle: 'Horaires du point relais',
     content: {
-      title: 'Pickup',
-      images: [colissimo, chronopost, dpd, colisPrive],
+      title: 'Ouverture',
+      rows: [
+        { key: 'Lundi - Vendredi', firstValue: '9h - 12h30', lastValue: '13h30 - 18h30' },
+        { key: 'Samedi', lastValue: '9h - 12h30' },
+        { key: 'Dimanche', lastValue: 'Fermé' },
+      ],
+      caption:
+        "Les colis peuvent être déposés ou récupérés pendant les heures d'ouverture de la boutique.",
     },
   },
   {
