@@ -2,10 +2,7 @@
 import ChipMT from '@/ui/ChipMT.vue'
 
 interface PropsImages {
-  content: {
-    title: string
-    images: string[]
-  }
+  content: string[]
 }
 
 defineProps<PropsImages>()
@@ -13,7 +10,7 @@ defineProps<PropsImages>()
 
 <template>
   <div class="content-image">
-    <div v-for="image in content.images" class="container-image">
+    <div v-for="image in content" class="container-image">
       <img :src="image" class="image-partner" />
     </div>
   </div>

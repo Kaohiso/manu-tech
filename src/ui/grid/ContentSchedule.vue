@@ -1,14 +1,12 @@
 <script setup lang="ts">
+interface Rows {
+  key: string
+  firstValue?: string
+  lastValue: string
+}
+
 interface PropsSchedule {
-  content: {
-    title: string
-    rows: {
-      key: string
-      firstValue?: string
-      lastValue: string
-    }[]
-    caption: string
-  }
+  content: Rows[]
 }
 
 defineProps<PropsSchedule>()
@@ -22,15 +20,13 @@ function updateColorWhenClosed(status: string) {
 
 <template>
   <div class="container">
-    <div v-for="row in content.rows" class="schedule">
+    <div v-for="row in content" class="schedule">
       <span class="key">{{ row.key }}</span>
       <span class="value first-value">{{ row.firstValue }}</span>
       <span class="value last-value" :style="updateColorWhenClosed(row.lastValue)">{{
         row.lastValue
       }}</span>
     </div>
-    <div class="line" />
-    <span class="schedule-caption">{{ content.caption }}</span>
   </div>
 </template>
 
@@ -62,17 +58,6 @@ function updateColorWhenClosed(status: string) {
       text-align: end;
       grid-column-start: 5;
     }
-  }
-
-  .line {
-    border-top: 2px solid hsl(from var(--ref-color-white) h s l / 0.05);
-  }
-
-  .schedule-caption {
-    text-align: center;
-    color: var(--sys-color-text-tertiary);
-    font-family: var(--ref-font-family-mono);
-    font-size: var(--ref-size-10);
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   color?: string
-  variant?: 'on-card' | 'caption'
+  variant?: 'on-card' | 'caption' | 'on-blue-card'
 }
 
 const { color = '', variant = '' } = defineProps<Props>()
@@ -25,6 +25,10 @@ const { color = '', variant = '' } = defineProps<Props>()
     color: var(--sys-color-text-primary);
     font-weight: var(--ref-font-weight-semi-bold);
     font-family: var(--ref-font-family-base);
+
+    &.on-blue-card {
+      color: var(--sys-color-text-primary);
+    }
   }
 
   &.caption {

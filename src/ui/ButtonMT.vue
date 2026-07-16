@@ -1,14 +1,23 @@
 <script setup lang="ts">
 interface Props {
-  variant?: 'filled' | 'outlined' | 'text-only'
+  variant?: 'filled-blue' | 'filled-green' | 'outlined' | 'text-only'
+  textPosition?: 'text-center' | 'text-start'
   iconPosition?: 'left' | 'right'
 }
 
-const { variant = 'filled', iconPosition = 'left' } = defineProps<Props>()
+const {
+  variant = 'filled-blue',
+  textPosition = 'text-center',
+  iconPosition = 'left',
+} = defineProps<Props>()
 </script>
 
 <template>
-  <component class="button-mt" :is="$attrs.href ? 'a' : 'button'" :class="[variant, iconPosition]">
+  <component
+    class="button-mt"
+    :is="$attrs.href ? 'a' : 'button'"
+    :class="[variant, textPosition, iconPosition]"
+  >
     <slot />
   </component>
 </template>
@@ -16,7 +25,6 @@ const { variant = 'filled', iconPosition = 'left' } = defineProps<Props>()
 <style scoped>
 .button-mt {
   display: inline-flex;
-  justify-content: center;
   width: fit-content;
   align-items: center;
   color: var(--sys-color-text-primary);
@@ -26,9 +34,14 @@ const { variant = 'filled', iconPosition = 'left' } = defineProps<Props>()
   font-size: var(--sys-font-size-cta-button);
   font-weight: var(--sys-font-weight-cta-button);
 
-  &.filled {
+  &.filled-blue {
     background-color: var(--sys-color-primary);
     border: solid hsl(from var(--sys-color-primary) h s l / 0.15);
+  }
+
+  &.filled-green {
+    background-color: var(--sys-color-brand-whatsapp);
+    border: solid var(--sys-color-brand-whatsapp);
   }
 
   &.outlined {
@@ -37,14 +50,20 @@ const { variant = 'filled', iconPosition = 'left' } = defineProps<Props>()
   }
 
   &.text-only {
-    padding-top: 10px;
-    margin: auto;
-    text-align: center;
+    padding: 10px 0 10px 0;
+    width: 100%;
     background-color: transparent;
-    color: hsl(from var(--sys-color-primary) h s calc(l + 20));
-    text-align: center;
     font-size: var(--ref-size-11);
     border: none;
+    color: hsl(from var(--sys-color-primary) h s calc(l + 20));
+  }
+
+  &.text-center {
+    justify-content: center;
+  }
+
+  &.text-start {
+    justify-content: start;
   }
 
   &.right {

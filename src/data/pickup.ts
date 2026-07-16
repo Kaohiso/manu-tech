@@ -13,14 +13,10 @@ import dpd from '../assets/images/logo/dpd-logo.png'
 import chronopost from '../assets/images/logo/chronopost-logo.png'
 import colisPrive from '../assets/images/logo/colis-prive-logo.png'
 
-interface PropsSchedule {
-  title: string
-  rows: {
-    key: string
-    firstValue?: string
-    lastValue: string
-  }[]
-  caption: string
+interface Rows {
+  key: string
+  firstValue?: string
+  lastValue: string
 }
 
 interface PropsImages {
@@ -42,12 +38,13 @@ interface PickupText extends PickupBase {
 
 interface PickupSchedule extends PickupBase {
   type: 'schedule'
-  content: PropsSchedule
+  content: Rows[]
+  caption: string
 }
 
 interface PickupImage extends PickupBase {
   type: 'image'
-  content: PropsImages
+  content: string[]
 }
 
 type Pickup = PickupText | PickupSchedule | PickupImage
@@ -59,7 +56,7 @@ const pickups: Pickup[] = [
     icon: MapPinIcon,
     title: 'Adresse',
     subtitle: 'Atelier',
-    content: ['16 rue Poincaré', 'Ars-sur-Moselle, 57130'],
+    content: ['16 rue Poincaré', 'Ars-sur-Moselle', '57130'],
   },
   {
     id: 2,
@@ -75,10 +72,7 @@ const pickups: Pickup[] = [
     icon: TruckIcon,
     title: 'Partenaires logistiques',
     subtitle: 'Marques',
-    content: {
-      title: 'Pickup',
-      images: [colissimo, chronopost, dpd, colisPrive],
-    },
+    content: [colissimo, chronopost, dpd, colisPrive],
   },
   {
     id: 3,
@@ -102,16 +96,14 @@ const pickups: Pickup[] = [
     icon: ClockIcon,
     title: "Horaires d'ouvertures",
     subtitle: 'Horaires du point relais',
-    content: {
-      title: 'Ouverture',
-      rows: [
-        { key: 'Lundi - Vendredi', firstValue: '9h - 12h30', lastValue: '13h30 - 18h30' },
-        { key: 'Samedi', lastValue: '9h - 12h30' },
-        { key: 'Dimanche', lastValue: 'Fermé' },
-      ],
-      caption:
-        "Les colis peuvent être déposés ou récupérés pendant les heures d'ouverture de la boutique.",
-    },
+    content: [
+      { key: 'Lundi - Vendredi', firstValue: '9h - 12h30', lastValue: '13h30 - 18h30' },
+      { key: 'Samedi', lastValue: '9h - 12h30' },
+      { key: 'Dimanche', lastValue: 'Fermé' },
+    ],
+
+    caption:
+      "Les colis peuvent être déposés ou récupérés pendant les heures d'ouverture de la boutique.",
   },
   {
     id: 5,

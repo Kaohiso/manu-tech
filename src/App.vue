@@ -12,6 +12,7 @@ import AppPrice from '@/features/AppPrice.vue'
 import AppWhyUs from '@/features/AppWhyUs.vue'
 import AppGallery from '@/features/AppGallery.vue'
 import AppPickup from '@/features/AppPickup.vue'
+import AppContact from '@/features/AppContact.vue'
 </script>
 
 <template>
@@ -23,6 +24,7 @@ import AppPickup from '@/features/AppPickup.vue'
   <AppWhyUs />
   <AppGallery />
   <AppPickup />
+  <AppContact />
 </template>
 
 <style>

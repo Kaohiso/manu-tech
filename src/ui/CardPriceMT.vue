@@ -25,7 +25,7 @@ const { chip = '' } = defineProps<Props>()
       <slot name="content" />
     </span>
     <div class="line" />
-    <ButtonMT variant="text-only" icon-position="right">
+    <ButtonMT variant="text-only" icon-position="right" color="primary">
       <ChevronRightIcon :size="11" />
       Demander un devis
     </ButtonMT>
