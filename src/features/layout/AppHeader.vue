@@ -23,7 +23,7 @@ const iconSize = 13
 <template>
   <header class="app-header">
     <div class="container">
-      <img src="/src/assets/images/logo/logo-manu-tech.png" alt="logo-header" />
+      <img src="/src/assets/images/logo/manu-tech-logo.png" alt="logo-header" class="image-logo" />
       <nav>
         <ul>
           <li v-for="{ id, label } in sections" :key="id">
@@ -57,8 +57,12 @@ const iconSize = 13
     align-items: center;
     max-width: var(--app-inline-size);
     width: 100%;
-
     padding: var(--ref-size-32) 0;
+
+    .image-logo {
+      width: 150px;
+      height: auto;
+    }
   }
 
   nav {

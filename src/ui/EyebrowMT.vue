@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  color?: string
+  color?: string | 'white'
   variant?: 'on-card' | 'caption' | 'on-blue-card'
 }
 
@@ -33,6 +33,10 @@ const { color = '', variant = '' } = defineProps<Props>()
 
   &.caption {
     color: var(--sys-color-text-tertiary);
+  }
+
+  &.white {
+    color: var(--ref-color-white);
   }
 }
 </style>

@@ -13,6 +13,7 @@ import AppWhyUs from '@/features/AppWhyUs.vue'
 import AppGallery from '@/features/AppGallery.vue'
 import AppPickup from '@/features/AppPickup.vue'
 import AppContact from '@/features/AppContact.vue'
+import AppFooter from '@/features/layout/AppFooter.vue'
 </script>
 
 <template>
@@ -25,6 +26,7 @@ import AppContact from '@/features/AppContact.vue'
   <AppGallery />
   <AppPickup />
   <AppContact />
+  <AppFooter />
 </template>
 
 <style>
