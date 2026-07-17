@@ -12,7 +12,7 @@ interface TarifProps {
 }
 
 const tarifs: TarifProps[] = [
-  { id: 1, title: 'Tarif fixe', price: '35', content: 'Diagnostic électronique' },
+  { id: 1, title: 'Tarif fixe', price: '35', content: 'Diagnostic électronique automobile' },
   { id: 2, title: 'A partir de', price: '40', content: "Activation d'option" },
   { id: 3, title: 'A partir de', price: '50', content: 'Codage' },
   { id: 4, title: 'A partir de', price: '50', content: 'Réparation électronique' },
@@ -33,7 +33,7 @@ const tarifs: TarifProps[] = [
       <EyebrowMT>Transparence tarifaire</EyebrowMT>
       <h2>Nos tarifs</h2>
       <p>
-        Prix fixes et transparents, sans mauvaise surprise. Devis avant toute intervention
+        Tarifs fixes et transparents, sans mauvaise surprise. Devis avant toute intervention
         spécifique.
       </p>
     </div>

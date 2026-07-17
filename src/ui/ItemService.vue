@@ -19,7 +19,7 @@
   gap: 12px;
   background-color: var(--app-background-on-background);
   border-radius: var(--app-radius);
-  border: solid hsl(from var(--sys-color-primary) h s l / 0.1);
+  border: 2px solid hsl(from var(--sys-color-primary) h s l / 0.1);
 
   .container-icon {
     padding: 10px;

@@ -11,13 +11,16 @@ interface dataItemListProps {
 }
 
 const itemListDiagnosis: dataItemListProps[] = [
-  { iconName: Icons.SearchIcon, text: 'Codage après remplacement de pièce' },
-  { iconName: Icons.CircleAlertIcon, text: 'Initialisation capteurs pression pneus' },
-  { iconName: Icons.ActivityIcon, text: 'Test complet de la batterie' },
+  { iconName: Icons.SearchIcon, text: 'Diagnostic électronique automobile' },
+  {
+    iconName: Icons.CircleAlertIcon,
+    text: "Lecture des codes défauts, codages, activations d'options",
+  },
+  { iconName: Icons.ActivityIcon, text: 'Test complet de la santé de la batterie' },
   { iconName: Icons.RefreshCcwIcon, text: 'Activation CarPlay / Android Auto' },
-  { iconName: Icons.SettingsIcon, text: 'Mise à jour GPS et logiciel multimédia' },
-  { iconName: Icons.RadioIcon, text: 'Calibration boîte de vitesses' },
-  { iconName: Icons.ToggleRightIcon, text: "Activation/désactivation d'options" },
+  { iconName: Icons.SettingsIcon, text: 'Mise à jour Firmware / GPS' },
+  { iconName: Icons.RadioIcon, text: 'Initialisation capteurs TPMS' },
+  { iconName: Icons.ToggleRightIcon, text: "Activation / désactivation d'options" },
   { iconName: Icons.KeyIcon, text: 'Programmation clé / carte code PIN' },
 ]
 
@@ -26,7 +29,7 @@ const itemListRepair: dataItemListProps[] = [
   { iconName: Icons.GamepadIcon, text: 'Réparation console de jeux' },
   { iconName: Icons.TabletIcon, text: 'Remplacement écran tablette' },
   { iconName: Icons.BatteryIcon, text: 'Remplacement de batterie' },
-  { iconName: Icons.UsbIcon, text: 'Réparation port de charge' },
+  { iconName: Icons.MonitorIcon, text: 'Remplacement écran PC' },
   { iconName: Icons.ShieldIcon, text: 'Pose de film Hydrogel' },
   { iconName: Icons.LightbulbIcon, text: 'Remplacement rétroéclairage LED' },
   { iconName: Icons.DrillIcon, text: 'Remplacement pièce électroménager' },

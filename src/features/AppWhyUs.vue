@@ -15,7 +15,7 @@ const reasons: ReasonProps[] = [
   {
     id: 1,
     icon: Icons.BadgeIcon,
-    title: 'Prix justes & transparents',
+    title: 'Tarifs justes & transparents',
     content: 'Tarification claire sans mauvaises surprises. Devis avant toute intervention.',
   },
   {

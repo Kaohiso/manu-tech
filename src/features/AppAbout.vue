@@ -44,7 +44,7 @@ const iconSize = <number>13
       </p>
       <ul>
         <li>Technicien certifié en électronique embarquée automobile</li>
-        <li>Outillage professionnel : diagnostic et programmation des clefs</li>
+        <li>Outillage professionnel : diagnostic et programmation de clefs</li>
         <li>Station de soudure et matériel de haute précision</li>
         <li>Composants d'origine ou qualité OEM sur toutes interventions</li>
       </ul>

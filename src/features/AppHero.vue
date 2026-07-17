@@ -23,7 +23,8 @@ const iconSize = 12
       </h1>
       <p>
         Spécialiste en diagnostic et réparation d'ECU automobiles, smartphones, tablettes, consoles
-        portables et équipements électroniques. Composants d'origine ou premium — prix transparents.
+        portables et équipements électroniques. Composants d'origine ou premium — tarifs
+        transparents.
       </p>
       <div class="container-items">
         <ButtonMT icon-position="right" :href="smsPhoneNumber">
