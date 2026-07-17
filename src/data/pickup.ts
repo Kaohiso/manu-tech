@@ -56,7 +56,7 @@ const pickups: Pickup[] = [
     icon: MapPinIcon,
     title: 'Adresse',
     subtitle: 'Atelier',
-    content: ['16 rue Poincaré', 'Ars-sur-Moselle', '57130'],
+    content: ['16 rue Poincaré, Ars-sur-Moselle', '57130'],
   },
   {
     id: 2,

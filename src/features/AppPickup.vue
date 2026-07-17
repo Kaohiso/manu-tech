@@ -63,7 +63,7 @@ function updateSpan(type: string) {
 :deep(.app-pickup) {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto repeat(6, fit-content(100px));
+  grid-template-rows: auto repeat(6, 1fr);
   gap: var(--ref-size-20);
 
   .title {
@@ -108,8 +108,6 @@ function updateSpan(type: string) {
       gap: 10px;
 
       .container-icon {
-        width: fit-content;
-        height: fit-content;
         background-color: hsl(from var(--sys-color-secondary) h s l / 0.12);
         padding: 10px;
         border-radius: var(--app-radius);
