@@ -29,17 +29,15 @@ const vehicules: string[] = [
 </script>
 
 <template>
-  <section>
-    <div class="app-vehicules">
-      <EyebrowMT>Véhicules compatibles</EyebrowMT>
-      <h3>Marques prises en charge</h3>
-      <div class="container-chips">
-        <ChipMT v-for="vehicule in vehicules" display="list">
-          <span>{{ vehicule }}</span>
-        </ChipMT>
-      </div>
+  <div class="app-vehicules">
+    <EyebrowMT>Véhicules compatibles</EyebrowMT>
+    <h3>Marques prises en charge</h3>
+    <div class="container-chips">
+      <ChipMT v-for="vehicule in vehicules" display="list">
+        <span>{{ vehicule }}</span>
+      </ChipMT>
     </div>
-  </section>
+  </div>
 </template>
 
 <style scoped>
@@ -48,6 +46,7 @@ const vehicules: string[] = [
   display: grid;
   text-align: center;
   gap: 20px;
+  margin: var(--app-pading-section);
   padding: 40px;
   border-radius: var(--app-radius);
   border: 2px solid hsl(from var(--sys-color-text-secondary) h s l / 0.1);

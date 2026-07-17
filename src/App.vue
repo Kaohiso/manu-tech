@@ -58,12 +58,17 @@ a {
   text-decoration: none;
 }
 
-section {
-  padding: var(--app-pading-section);
-}
-
 h1 {
+  display: grid;
+  font-size: var(--sys-font-size-h1);
+  font-weight: var(--sys-font-weight-h1);
+  font-family: var(--sys-font-family-h1);
+  letter-spacing: var(--sys-letter-spacing-h1);
   margin: 0;
+
+  > span {
+    line-height: 83px;
+  }
 }
 
 h2 {

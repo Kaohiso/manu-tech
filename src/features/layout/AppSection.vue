@@ -2,7 +2,7 @@
 defineOptions({ inheritAttrs: false })
 
 interface Section {
-  idSection: string
+  idSection?: string
 }
 
 defineProps<Section>()
@@ -20,6 +20,10 @@ defineProps<Section>()
 .app-section {
   display: grid;
   justify-content: center;
+
+  &:nth-of-type(n + 2) {
+    padding: var(--app-pading-section);
+  }
 
   > .content {
     width: 100vw;

@@ -7,7 +7,6 @@ import AppSection from '@/features/layout/AppSection.vue'
 import { callPhoneNumber, smsPhoneNumber } from '@/data/contact.ts'
 
 const iconSize = 12
-const chipSize = 6
 </script>
 
 <template>
@@ -82,12 +81,10 @@ const chipSize = 6
 <style lang="css" scoped>
 :deep(.app-hero) {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   column-gap: var(--ref-size-88);
   align-items: center;
-  height: 100vh;
-  width: 100%;
-
+  height: 100dvh;
   background: radial-gradient(
     closest-side,
     hsl(from var(--sys-color-primary) h s l / 0.1),
@@ -99,18 +96,6 @@ const chipSize = 6
     height: fit-content;
     width: 80%;
     gap: 30px;
-
-    h1 {
-      display: grid;
-      font-size: var(--sys-font-size-h1);
-      font-weight: var(--sys-font-weight-h1);
-      font-family: var(--sys-font-family-h1);
-      letter-spacing: var(--sys-letter-spacing-h1);
-
-      > span {
-        line-height: 83px;
-      }
-    }
 
     .title {
       background: linear-gradient(
