@@ -57,7 +57,7 @@ const reasons: ReasonProps[] = [
 </script>
 
 <template>
-  <AppSection class="app-price">
+  <AppSection class="app-price" id-section="whyUs">
     <div class="title">
       <EyebrowMT>Pourquoi nous choisir</EyebrowMT>
       <h2>La différence MANU-TECH</h2>

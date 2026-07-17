@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import EyebrowMT from '@/ui/EyebrowMT.vue'
+</script>
 
 <template>
   <div class="card-contact-large">

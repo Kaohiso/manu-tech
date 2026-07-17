@@ -4,13 +4,14 @@ import ButtonMT from '../ui/ButtonMT.vue'
 import ChipMT from '../ui/ChipMT.vue'
 import Eyebrow from '../ui/EyebrowMT.vue'
 import AppSection from '@/features/layout/AppSection.vue'
+import { callPhoneNumber, smsPhoneNumber } from '@/data/contact.ts'
 
 const iconSize = 12
 const chipSize = 6
 </script>
 
 <template>
-  <AppSection class="app-hero">
+  <AppSection class="app-hero" id-section="home">
     <div class="left-column">
       <ChipMT>
         <DotIcon :size="iconSize * 2" color="var(--sys-color-status-open)" />
@@ -26,12 +27,12 @@ const chipSize = 6
         portables et équipements électroniques. Composants d'origine ou premium — prix transparents.
       </p>
       <div class="container-items">
-        <ButtonMT icon-position="right">
+        <ButtonMT icon-position="right" :href="smsPhoneNumber">
           <ChevronRightIcon :size="iconSize" />
           <span>Demander un devis</span>
         </ButtonMT>
 
-        <ButtonMT variant="outlined">
+        <ButtonMT variant="outlined" :href="callPhoneNumber">
           <PhoneIcon :size="iconSize" />
           <span>Nous contacter</span>
         </ButtonMT>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { callPhoneNumber, whatsApp } from '@/data/contact'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import { MessageCircleIcon, PhoneIcon } from '@lucide/vue'
 
@@ -12,11 +13,11 @@ const iconSize = 14
       <span>Demande de devis — réponse rapide par SMS ou WhatsApp.</span>
     </div>
     <div class="container-buttons">
-      <ButtonMT>
+      <ButtonMT :href="callPhoneNumber">
         <PhoneIcon :size="iconSize" />
         Appeler
       </ButtonMT>
-      <ButtonMT variant="filled-green">
+      <ButtonMT variant="filled-green" :href="whatsApp">
         <MessageCircleIcon :size="iconSize" />
         WhatsApp
       </ButtonMT>

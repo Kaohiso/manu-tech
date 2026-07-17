@@ -50,7 +50,7 @@ const {
   }
 
   &.text-only {
-    padding: 10px 0 10px 0;
+    padding: 0;
     width: 100%;
     background-color: transparent;
     font-size: var(--ref-size-11);
@@ -64,6 +64,7 @@ const {
 
   &.text-start {
     justify-content: start;
+    width: fit-content;
   }
 
   &.right {

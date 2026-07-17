@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AppSection from '@/features/layout/AppSection.vue'
 import ChipMT from '@/ui/ChipMT.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
 

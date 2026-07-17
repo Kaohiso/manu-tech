@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import manuTechLogo from '@/assets/images/logo/manu-tech-logo.png'
+import { callPhoneNumber, facebookManuTech, leboncoinManuTech, mailTo } from '@/data/contact'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
 import { MailIcon, MapPinIcon, PhoneIcon } from '@lucide/vue'
@@ -7,11 +8,10 @@ type Link = { id: string; label: string }
 
 const links: Link[] = [
   { id: '#home', label: 'Accueil' },
-  { id: '#service', label: 'Services' },
-  { id: '#diagnosis', label: 'Diagnostics' },
-  { id: '#repair', label: 'Réparation' },
-  { id: '#price', label: 'Tarif' },
   { id: '#about', label: 'A propos' },
+  { id: '#services', label: 'Services' },
+  { id: '#price', label: 'Tarif' },
+  { id: '#whyUs', label: 'Pourquoi nous' },
   { id: '#gallery', label: 'Galerie' },
   { id: '#pickup', label: 'Point relais' },
   { id: '#contact', label: 'Contact' },
@@ -41,28 +41,38 @@ const links: Link[] = [
       </div>
       <div class="column">
         <EyebrowMT class="nav-eyebrow">Contact</EyebrowMT>
-        <ul>
-          <li>
-            <PhoneIcon :size="12" class="icon" />
-            <span>+33 7 87 33 43 35</span>
-          </li>
-          <li>
-            <MailIcon :size="12" class="icon" />
-            <span>manu-tech@orange.fr</span>
-          </li>
-          <li>
-            <MapPinIcon :size="12" class="icon" />
-            <span>Ars-sur-Moselle, France</span>
-          </li>
-          <li>
-            <span>Lun–Ven : 9h00–18h30 </span>
-            <span>Samedi : 9h00–14h00</span>
-          </li>
-          <li>
-            <img src="../../assets/images/logo/leboncoin-logo.png" class="brand-logo" />
-            <img src="../../assets/images/logo/facebook-logo.png" class="brand-logo" />
-          </li>
-        </ul>
+        <nav>
+          <ul>
+            <li>
+              <ButtonMT :href="callPhoneNumber" variant="text-only" text-position="text-start">
+                <PhoneIcon :size="12" class="icon" />
+                <span>+33 7 87 33 43 35</span>
+              </ButtonMT>
+            </li>
+            <li>
+              <ButtonMT :href="mailTo" variant="text-only" text-position="text-start">
+                <MailIcon :size="12" class="icon" />
+                <span>manu-tech@orange.fr</span>
+              </ButtonMT>
+            </li>
+            <li>
+              <MapPinIcon :size="12" class="icon" />
+              <span>Ars-sur-Moselle, France</span>
+            </li>
+            <li>
+              <span>Lun–Ven : 9h00–18h30 </span>
+              <span>Samedi : 9h00–14h00</span>
+            </li>
+            <li>
+              <ButtonMT :href="leboncoinManuTech" variant="text-only" text-position="text-start">
+                <img src="../../assets/images/logo/leboncoin-logo.png" class="brand-logo" />
+              </ButtonMT>
+              <ButtonMT :href="facebookManuTech" variant="text-only" text-position="text-start">
+                <img src="../../assets/images/logo/facebook-logo.png" class="brand-logo" />
+              </ButtonMT>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
 

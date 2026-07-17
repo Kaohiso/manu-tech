@@ -16,7 +16,7 @@ function updateSpan(type: string) {
 </script>
 
 <template>
-  <AppSection class="app-pickup">
+  <AppSection class="app-pickup" id-section="pickup">
     <div class="title">
       <EyebrowMT :color="orangeVariant"> Point Relais Officiel </EyebrowMT>
       <h2>

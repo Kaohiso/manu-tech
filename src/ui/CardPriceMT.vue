@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { smsPhoneNumber } from '@/data/contact'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import ChipMT from '@/ui/ChipMT.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
@@ -25,7 +26,7 @@ const { chip = '' } = defineProps<Props>()
       <slot name="content" />
     </span>
     <div class="line" />
-    <ButtonMT variant="text-only" icon-position="right" color="primary">
+    <ButtonMT variant="text-only" icon-position="right" color="primary" :href="smsPhoneNumber">
       <ChevronRightIcon :size="11" />
       Demander un devis
     </ButtonMT>
@@ -76,6 +77,7 @@ const { chip = '' } = defineProps<Props>()
 
   .line {
     border-top: 2px solid hsl(from var(--ref-color-white) h s l / 0.05);
+    margin: var(--ref-size-10) 0;
   }
 
   .content {

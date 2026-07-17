@@ -23,7 +23,7 @@ const images: Props[] = [
 </script>
 
 <template>
-  <AppSection class="app-gallery">
+  <AppSection class="app-gallery" id-section="gallery">
     <EyebrowMT>Galerie atelier</EyebrowMT>
     <div class="container-gallery">
       <img

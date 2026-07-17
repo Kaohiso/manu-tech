@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import { PhoneIcon } from '@lucide/vue'
 import ButtonMT from '@/ui/ButtonMT.vue'
-import { phoneNumber } from '@/data/contact.ts'
+import { callPhoneNumber } from '@/data/contact.ts'
 
 type Link = { id: string; label: string }
 
 const sections: Link[] = [
   { id: '#home', label: 'Accueil' },
-  { id: '#service', label: 'Services' },
-  { id: '#diagnosis', label: 'Diagnostics' },
-  { id: '#repair', label: 'Réparation' },
-  { id: '#price', label: 'Tarif' },
   { id: '#about', label: 'A propos' },
+  { id: '#services', label: 'Services' },
+  { id: '#price', label: 'Tarif' },
+  { id: '#whyUs', label: 'Pourquoi nous' },
   { id: '#gallery', label: 'Galerie' },
   { id: '#pickup', label: 'Point relais' },
   { id: '#contact', label: 'Contact' },
@@ -32,7 +31,7 @@ const iconSize = 13
         </ul>
       </nav>
 
-      <ButtonMT :href="'tel:' + phoneNumber">
+      <ButtonMT :href="callPhoneNumber">
         <PhoneIcon :size="iconSize" />
         <span>Demander un devis</span>
       </ButtonMT>

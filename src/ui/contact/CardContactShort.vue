@@ -5,12 +5,12 @@ import { ChevronRightIcon } from '@lucide/vue'
 
 interface Props {
   color?: 'classic' | 'filled-blue' | 'green'
+  redirect: string
 }
 
 const { color = 'classic' } = defineProps<Props>()
 
 function updateColor(color: string) {
-  console.log(color)
   if (color === 'classic') {
     return 'color: hsl(from var(--sys-color-primary) h s calc(l + 20))'
   } else if (color === 'filled-blue') {
@@ -43,12 +43,12 @@ function updateColor(color: string) {
         <slot name="caption" />
       </span>
     </div>
-
     <ButtonMT
       variant="text-only"
       icon-position="right"
       textPosition="text-start"
       :style="updateColor(color)"
+      :href="redirect"
     >
       <ChevronRightIcon :size="11" />
       <slot name="thirdPart" />

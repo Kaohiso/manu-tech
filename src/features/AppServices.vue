@@ -34,7 +34,7 @@ const itemListRepair: dataItemListProps[] = [
 </script>
 
 <template>
-  <AppSection class="app-services">
+  <AppSection class="app-services" id-section="services">
     <EyebrowMT>Nos prestations</EyebrowMT>
     <h2>
       <span>Expertise complète</span>

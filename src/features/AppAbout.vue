@@ -4,12 +4,13 @@ import ButtonMT from '@/ui/ButtonMT.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
 import CardMT from '@/ui/CardMT.vue'
 import AppSection from '@/features/layout/AppSection.vue'
+import { callPhoneNumber } from '@/data/contact'
 
 const iconSize = <number>13
 </script>
 
 <template>
-  <AppSection class="app-about">
+  <AppSection class="app-about" id-section="about">
     <div class="about-left">
       <img
         class="img-about"
@@ -71,7 +72,7 @@ const iconSize = <number>13
           <template #subtitle><span>Instruments de mesure</span></template>
         </CardMT>
       </div>
-      <ButtonMT icon-position="right">
+      <ButtonMT icon-position="right" :href="callPhoneNumber">
         <ChevronRightIcon :size="iconSize" />
         <span>Prendre rendez-vous</span>
       </ButtonMT>

@@ -16,6 +16,7 @@ import {
 import CardContactLarge from '@/ui/contact/CardContactLarge.vue'
 import ContentSchedule from '@/ui/grid/ContentSchedule.vue'
 import ContentText from '@/ui/grid/ContentText.vue'
+import { callPhoneNumber, mailTo, smsPhoneNumber, whatsApp } from '@/data/contact'
 
 interface ContactBase {
   id: number
@@ -35,6 +36,7 @@ interface ContactOneSpan extends ContactBase {
   }
   footer: {
     buttonText: string
+    externalLink: string
   }
 }
 
@@ -84,6 +86,7 @@ const contacts: Contact[] = [
     },
     footer: {
       buttonText: 'Appeler maintenant',
+      externalLink: callPhoneNumber,
     },
   },
   {
@@ -100,6 +103,7 @@ const contacts: Contact[] = [
     },
     footer: {
       buttonText: 'Envoyer un message',
+      externalLink: whatsApp,
     },
     color: 'green',
   },
@@ -116,6 +120,7 @@ const contacts: Contact[] = [
     },
     footer: {
       buttonText: 'Envoyer un SMS',
+      externalLink: smsPhoneNumber,
     },
     color: 'classic',
   },
@@ -132,6 +137,7 @@ const contacts: Contact[] = [
     },
     footer: {
       buttonText: 'Envoyer un email',
+      externalLink: mailTo,
     },
     color: 'classic',
   },
@@ -177,7 +183,7 @@ function updateColorWhenClosed(status: string) {
 </script>
 
 <template>
-  <AppSection class="app-contact">
+  <AppSection class="app-contact" id-section="contact">
     <div class="title">
       <EyebrowMT>Nous joindre</EyebrowMT>
       <h2>Contact</h2>
@@ -188,7 +194,12 @@ function updateColorWhenClosed(status: string) {
     </div>
 
     <template v-for="contact in contacts">
-      <CardContactShort v-if="contact.type === 'single'" :key="contact.id" :color="contact.color">
+      <CardContactShort
+        v-if="contact.type === 'single'"
+        :key="contact.id"
+        :color="contact.color"
+        :redirect="contact.footer.externalLink"
+      >
         <template #icon>
           <component
             :is="contact.header.icon"

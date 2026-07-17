@@ -1,9 +1,15 @@
 <script lang="ts" setup>
 defineOptions({ inheritAttrs: false })
+
+interface Section {
+  idSection: string
+}
+
+defineProps<Section>()
 </script>
 
 <template>
-  <section class="app-section">
+  <section class="app-section" :id="idSection">
     <div class="content" v-bind="$attrs">
       <slot />
     </div>

@@ -28,7 +28,7 @@ const tarifs: TarifProps[] = [
 </script>
 
 <template>
-  <AppSection class="app-price">
+  <AppSection class="app-price" id-section="price">
     <div class="title">
       <EyebrowMT>Transparence tarifaire</EyebrowMT>
       <h2>Nos tarifs</h2>
