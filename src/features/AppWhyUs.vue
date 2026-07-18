@@ -58,7 +58,7 @@ const reasons: ReasonProps[] = [
 
 <template>
   <AppSection class="app-price" id-section="whyUs">
-    <div class="title">
+    <div class="container-price-title">
       <EyebrowMT>Pourquoi nous choisir</EyebrowMT>
       <h2>La différence MANU-TECH</h2>
       <p>Un engagement sur la qualité, l'honnêteté et la précision — à chaque intervention.</p>
@@ -81,17 +81,13 @@ const reasons: ReasonProps[] = [
 :deep(.app-price) {
   display: grid;
   text-align: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--ref-size-20);
 
-  .title {
+  .container-price-title {
     grid-column: span 3;
     display: grid;
     row-gap: 20px;
-  }
-
-  .caption {
-    grid-column: span 3;
   }
 
   .icon-title {

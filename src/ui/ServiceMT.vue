@@ -63,6 +63,7 @@ const { direction = 'img-right' } = defineProps<Props>()
 
 <style lang="css" scoped>
 .container-content {
+  grid-column: 4 span;
   display: grid;
   text-align: start;
   grid-template-columns: 1fr 1fr;

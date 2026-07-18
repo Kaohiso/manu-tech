@@ -29,7 +29,7 @@ const tarifs: TarifProps[] = [
 
 <template>
   <AppSection class="app-price" id-section="price">
-    <div class="title">
+    <div class="container-price-title">
       <EyebrowMT>Transparence tarifaire</EyebrowMT>
       <h2>Nos tarifs</h2>
       <p>
@@ -37,7 +37,7 @@ const tarifs: TarifProps[] = [
         spécifique.
       </p>
     </div>
-    <CardPriceMT v-for="tarif in tarifs" :key="tarif.id" :chip="tarif.chip">
+    <CardPriceMT v-for="tarif in tarifs" :key="tarif.id" :chip="tarif.chip" class="card-content">
       <template #header>
         <EyebrowMT variant="caption">
           {{ tarif.title }}
@@ -60,17 +60,17 @@ const tarifs: TarifProps[] = [
 :deep(.app-price) {
   display: grid;
   text-align: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--ref-size-20);
 
-  .title {
+  .container-price-title {
     grid-column: span 3;
     display: grid;
     row-gap: 20px;
   }
 
   .caption {
-    grid-column: span 3;
+    grid-column: 3 span;
   }
 }
 </style>

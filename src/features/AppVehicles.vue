@@ -42,11 +42,11 @@ const vehicules: string[] = [
 
 <style scoped>
 .app-vehicules {
-  background-color: var(--app-background-on-background);
+  grid-column: span 4;
   display: grid;
+  background-color: var(--app-background-on-background);
   text-align: center;
   gap: 20px;
-  margin: var(--app-pading-section);
   padding: 40px;
   border-radius: var(--app-radius);
   border: 2px solid hsl(from var(--sys-color-text-secondary) h s l / 0.1);

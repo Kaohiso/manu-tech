@@ -38,15 +38,17 @@ const itemListRepair: dataItemListProps[] = [
 
 <template>
   <AppSection class="app-services" id-section="services">
-    <EyebrowMT>Nos prestations</EyebrowMT>
-    <h2>
-      <span>Expertise complète</span>
-      <span> résultats garantis</span>
-    </h2>
-    <p>
-      De l’automobile aux appareils mobiles — nous intervenons sur tous vos équipements
-      électroniques avec précision et professionnalisme.
-    </p>
+    <div class="container-services-title">
+      <EyebrowMT>Nos prestations</EyebrowMT>
+      <h2>
+        <span>Expertise complète</span>
+        <span> résultats garantis</span>
+      </h2>
+      <p>
+        De l’automobile aux appareils mobiles — nous intervenons sur tous vos équipements
+        électroniques avec précision et professionnalisme.
+      </p>
+    </div>
     <ServiceMT
       :icon-h3="Icons.CarIcon"
       title-h3="Diagnostic électronique automobile"
@@ -81,18 +83,25 @@ const itemListRepair: dataItemListProps[] = [
 <style lang="css" scoped>
 :deep(.app-services) {
   display: grid;
-  gap: 30px;
-  text-align: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 64px;
 
-  h2 {
-    > span {
-      display: inline;
+  .container-services-title {
+    display: grid;
+    grid-column: span 4;
+    gap: 30px;
+    text-align: center;
+
+    h2 {
+      > span {
+        display: inline;
+      }
     }
-  }
 
-  & > p {
-    max-width: 60ch;
-    margin-inline: auto;
+    & > p {
+      max-width: 60ch;
+      margin-inline: auto;
+    }
   }
 }
 </style>
