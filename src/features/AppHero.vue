@@ -14,12 +14,12 @@ const iconSize = 12
     <div class="left-column">
       <ChipMT>
         <DotIcon :size="iconSize * 2" color="var(--sys-color-status-open)" />
-        <Eyebrow>Expert certifié · Ars-sur-moselle</Eyebrow>
+        <Eyebrow style="padding-right: 8px">Expert certifié · Ars-sur-moselle</Eyebrow>
       </ChipMT>
       <h1>
-        <span class="title">Diagnostic</span>
-        <span class="title">Professionnel</span>
-        <span class="title">& Réparation Electronique</span>
+        <span class="titleH1">Diagnostic</span>
+        <span class="titleH1">Professionnel</span>
+        <span class="titleH1">& Réparation Electronique</span>
       </h1>
       <p>
         Spécialiste en diagnostic et réparation d'ECU automobiles, smartphones, tablettes, consoles
@@ -98,7 +98,7 @@ const iconSize = 12
     width: 80%;
     gap: 30px;
 
-    .title {
+    .titleH1 {
       background: linear-gradient(
         to right,
         hsl(from var(--sys-color-primary) h s calc(l + 20)),

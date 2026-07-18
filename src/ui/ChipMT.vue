@@ -1,19 +1,18 @@
 <script setup lang="ts">
 interface Props {
   display?: 'title' | 'list' | 'on-card'
-  color?: 'primary' | 'secondary'
 }
 
-const { display = 'title', color = 'primary' } = defineProps<Props>()
+const { display = 'title' } = defineProps<Props>()
 </script>
 
 <template>
-  <div class="chip-mt" :class="[display, color]">
-    <slot></slot>
+  <div class="chip-mt" :class="[display]">
+    <slot />
   </div>
 </template>
 
-<style scoped lang="css">
+<style scoped>
 .chip-mt {
   display: inline-flex;
   width: fit-content;
@@ -23,20 +22,13 @@ const { display = 'title', color = 'primary' } = defineProps<Props>()
   border-radius: 100px;
 
   &.title {
+    background-color: hsl(from var(--sys-color-primary) h s l / 0.08);
     border: solid hsl(from var(--sys-color-primary) h s l / 0.2);
-    padding: 6px 16px;
-
-    &.secondary {
-      display: flex;
-      gap: var(--ref-size-20);
-      border: solid hsl(from var(--sys-color-secondary) h s l / 0.2);
-      background-color: hsl(from var(--sys-color-secondary) h s l / 0.1);
-    }
+    padding: 2px 8px;
   }
 
   &.list {
     padding: 8px 16px;
-    color: hsl(from var(--sys-color-text-secondary) h s calc(l + 5));
     border: 2px solid hsl(from var(--sys-color-text-secondary) h s l / 0.1);
     border-radius: var(--app-radius-icon);
   }
