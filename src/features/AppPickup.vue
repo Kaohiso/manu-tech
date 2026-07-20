@@ -17,7 +17,7 @@ function updateSpan(type: string) {
 
 <template>
   <AppSection class="app-pickup" id-section="pickup">
-    <div class="title">
+    <div class="container-title-pickup">
       <EyebrowMT :color="orangeVariant"> Point Relais Officiel </EyebrowMT>
       <h2>
         <span>Point Relais de </span>
@@ -62,15 +62,17 @@ function updateSpan(type: string) {
 <style scoped>
 :deep(.app-pickup) {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: auto repeat(6, 1fr);
   gap: var(--ref-size-20);
 
-  .title {
+  .container-title-pickup {
     display: grid;
     gap: 20px;
-    grid-column: 2 / span 2;
+    /* grid-column: 2 / span 2; */
+    grid-column: 1 / -1;
     text-align: center;
+    justify-items: center;
 
     & + div {
       grid-column-start: 1;
@@ -90,11 +92,16 @@ function updateSpan(type: string) {
         color: transparent;
       }
     }
+
+    > p {
+      max-inline-size: 60ch;
+    }
   }
 
   .card {
     display: grid;
     align-items: start;
+    justify-items: start;
     grid-row: span 2;
     background-color: var(--app-background-on-background);
     padding: var(--ref-size-20);
@@ -113,7 +120,7 @@ function updateSpan(type: string) {
         border-radius: var(--app-radius);
       }
 
-      .title {
+      > .title {
         display: grid;
         text-align: start;
         gap: 3px;

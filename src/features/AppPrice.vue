@@ -60,17 +60,17 @@ const tarifs: TarifProps[] = [
 :deep(.app-price) {
   display: grid;
   text-align: center;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: var(--ref-size-20);
 
   .container-price-title {
-    grid-column: span 3;
+    grid-column: 1 / -1;
     display: grid;
     row-gap: 20px;
   }
 
   .caption {
-    grid-column: 3 span;
+    grid-column: 1 / -1;
   }
 }
 </style>

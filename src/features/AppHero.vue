@@ -95,7 +95,7 @@ const iconSize = 12
   .left-column {
     display: grid;
     height: fit-content;
-    width: 80%;
+    /* width: 80%; */
     gap: 30px;
 
     .titleH1 {

@@ -40,6 +40,10 @@ import AppFooter from '@/features/layout/AppFooter.vue'
   --app-pading-section: 128px 10px;
 }
 
+* {
+  text-wrap: balance;
+}
+
 html {
   color: var(--sys-color-text-secondary);
 }
