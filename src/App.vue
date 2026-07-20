@@ -41,7 +41,7 @@ import AppFooter from '@/features/layout/AppFooter.vue'
 }
 
 * {
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 html {
@@ -108,11 +108,11 @@ h3 {
   font-weight: var(--sys-font-weight-h3);
   color: var(--sys-color-text-primary);
 
-  & + span {
+  & + p {
     display: block;
     font-family: var(--sys-font-family-caption);
     font-size: var(--sys-font-size-caption);
-    color: var(--sys-color-text-caption);
+    color: var(--sys-color-text-tertiary);
   }
 }
 

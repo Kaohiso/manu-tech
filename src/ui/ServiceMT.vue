@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { CarIcon, type LucideIcon } from '@lucide/vue'
 import ItemService from '@/ui/ItemService.vue'
+import CardMT from '@/ui/CardMT.vue'
 
 interface dataItemListProps {
   iconName: LucideIcon
@@ -10,14 +11,11 @@ interface dataItemListProps {
 interface Props {
   direction?: 'img-right' | 'img-left'
   iconH3: LucideIcon
-  titleH3: string
-  captionH3: string
-  pH3: string
   itemList: dataItemListProps[]
-  titleH4: string
-  captionH4: string
-  price: string
-  captionPrice: string
+  // titleH4: string
+  // captionH4: string
+  // price: string
+  // captionPrice: string
 }
 
 const { direction = 'img-right' } = defineProps<Props>()
@@ -28,33 +26,45 @@ const { direction = 'img-right' } = defineProps<Props>()
     <div class="article-left">
       <div class="container-article-title">
         <component :is="iconH3" class="icon-title" :color="'var(--sys-color-text-primary)'" />
-        <div>
-          <h3>{{ titleH3 }}</h3>
-          <span>{{ captionH3 }}</span>
-        </div>
+        <hgroup>
+          <h3>
+            <slot name="heading" />
+          </h3>
+          <p>
+            <slot name="subheading" />
+          </p>
+        </hgroup>
       </div>
+
       <p>
-        {{ pH3 }}
+        <slot name="description" />
       </p>
+
       <div class="list-services">
-        <ItemService v-for="item in itemList">
-          <template #icon-list>
-            <component :is="item.iconName" class="icon-list" />
-          </template>
-          <template #text>{{ item.text }}</template>
-        </ItemService>
+        <CardMT v-for="item in itemList" :graphic-icon="item.iconName">
+          <template #subheading>{{ item.text }}</template>
+        </CardMT>
       </div>
     </div>
+
     <div class="article-right">
       <img src="../assets/images/oden-services.jpeg" class="image-service" />
       <div class="under-image-service">
-        <div class="container-title">
-          <h4>{{ titleH4 }}</h4>
-          <span>{{ captionH4 }}</span>
-        </div>
+        <hgroup class="container-title">
+          <h4>
+            <slot name="image-heading" />
+          </h4>
+          <p>
+            <slot name="image-subheading" />
+          </p>
+        </hgroup>
         <div class="container-price">
-          <span class="price">{{ price }}</span>
-          <span class="caption-price">{{ captionPrice }}</span>
+          <p class="price">
+            <slot name="image-price" />
+          </p>
+          <p class="caption-price">
+            <slot name="image-subprice" />
+          </p>
         </div>
       </div>
     </div>
@@ -80,7 +90,7 @@ const { direction = 'img-right' } = defineProps<Props>()
 
   .article-left {
     display: grid;
-    row-gap: 30px;
+    row-gap: 20px;
 
     .container-article-title {
       display: inline-flex;

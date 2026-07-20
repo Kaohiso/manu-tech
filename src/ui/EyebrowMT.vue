@@ -1,14 +1,13 @@
 <script setup lang="ts">
 interface Props {
-  color?: string | 'white'
-  variant?: 'on-card' | 'caption' | 'on-blue-card'
+  variant?: 'on-card' | 'caption' | 'filled-blue' | 'green-border' | 'orange'
 }
 
-const { color = '', variant = '' } = defineProps<Props>()
+defineProps<Props>()
 </script>
 
 <template>
-  <span class="app-eyebrow" :class="variant" :style="{ color: color }">
+  <span class="app-eyebrow" :class="[variant]">
     <slot />
   </span>
 </template>
@@ -21,14 +20,15 @@ const { color = '', variant = '' } = defineProps<Props>()
   font-family: var(--sys-font-family-eyebrow);
   color: var(--sys-color-text-accent-primary);
 
-  &.on-card {
-    color: var(--sys-color-text-primary);
-    font-weight: var(--ref-font-weight-semi-bold);
-    font-family: var(--ref-font-family-base);
+  &.on-card,
+  &.green-border {
+    color: var(--sys-color-text-tertiary);
+    font-family: var(--ref-font-family-mono);
+    letter-spacing: 1.5px;
+  }
 
-    &.on-blue-card {
-      color: var(--sys-color-text-primary);
-    }
+  &.filled-blue {
+    color: hsl(from var(--ref-color-white) calc(h + 213) calc(s + 87) calc(l - 13));
   }
 
   &.caption {
@@ -37,6 +37,10 @@ const { color = '', variant = '' } = defineProps<Props>()
 
   &.white {
     color: var(--ref-color-white);
+  }
+
+  &.orange {
+    color: hsl(from var(--sys-color-secondary) calc(h + 7) s calc(l + 1));
   }
 }
 </style>

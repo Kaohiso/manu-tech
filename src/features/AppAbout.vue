@@ -2,9 +2,12 @@
 import { ChevronRightIcon } from '@lucide/vue'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
-import CardMT from '@/ui/CardMT.vue'
 import AppSection from '@/features/layout/AppSection.vue'
 import { callPhoneNumber } from '@/data/contact'
+import CardMT from '@/ui/CardMT.vue'
+
+import topdon from '../assets/images/logo/topdon-logo.jpg'
+import fnirsi from '../assets/images/logo/fnirsi-logo.jpg'
 
 const iconSize = <number>13
 </script>
@@ -53,29 +56,19 @@ const iconSize = <number>13
         >Équipements de référence utilisés</EyebrowMT
       >
       <div class="container-card">
-        <CardMT>
-          <template #image-card>
-            <img src="../assets/images/logo/topdon-logo.jpg" width="36" height="36" />
-          </template>
-          <template #title>
-            <span>Topdon</span>
-          </template>
-          <template #subtitle>
-            <span>Diagnostic automobile</span>
-          </template>
+        <CardMT :graphic-img="topdon">
+          <template #heading>Topdon</template>
+          <template #subheading>Diagnostic automobile</template>
         </CardMT>
-        <CardMT>
-          <template #image-card>
-            <img src="../assets/images/logo/fnirsi-logo.jpg" width="36" height="36"
-          /></template>
-          <template #title>FNIRSI</template>
-          <template #subtitle><span>Instruments de mesure</span></template>
+        <CardMT :graphic-img="fnirsi">
+          <template #heading>FNIRSI</template>
+          <template #subheading>Instruments de mesure</template>
         </CardMT>
       </div>
-      <ButtonMT icon-position="right" :href="callPhoneNumber">
+      <!-- <ButtonMT icon-position="right" :href="callPhoneNumber">
         <ChevronRightIcon :size="iconSize" />
         <span>Prendre rendez-vous</span>
-      </ButtonMT>
+      </ButtonMT> -->
     </div>
   </AppSection>
 </template>
@@ -131,7 +124,7 @@ const iconSize = <number>13
 
     .container-card {
       display: inline-flex;
-      gap: 10px;
+      gap: 12px;
     }
 
     ul {

@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import AppSection from '@/features/layout/AppSection.vue'
 import CardContactUs from '@/ui/contact/CardContactUs.vue'
-import CardContactShort from '@/ui/contact/CardContactShort.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
-
 import {
+  ChevronRightIcon,
   ClockIcon,
   MailIcon,
   MapPinIcon,
@@ -13,24 +12,20 @@ import {
   PhoneIcon,
   type LucideIcon,
 } from '@lucide/vue'
-import CardContactLarge from '@/ui/contact/CardContactLarge.vue'
-import ContentSchedule from '@/ui/grid/ContentSchedule.vue'
-import ContentText from '@/ui/grid/ContentText.vue'
 import { callPhoneNumber, mailTo, smsPhoneNumber, whatsApp } from '@/data/contact'
+import CardMT from '@/ui/CardMT.vue'
+import ButtonMT from '@/ui/ButtonMT.vue'
+import ScheduleMT from '@/ui/ScheduleMT.vue'
 
-interface ContactBase {
+interface ContactProps {
   id: number
-}
-
-interface ContactOneSpan extends ContactBase {
   type: 'single'
-  color: 'filled-blue' | 'green' | 'classic'
+  variant?: 'filled-blue' | 'green-border'
   header: {
     icon: LucideIcon
-    iconColor?: string
   }
   content: {
-    title: string
+    heading: string
     value: string
     caption: string
   }
@@ -40,47 +35,16 @@ interface ContactOneSpan extends ContactBase {
   }
 }
 
-interface Rows {
-  key: string
-  firstValue?: string
-  lastValue: string
-}
-
-interface ContactTwoSpan extends ContactBase {
-  type: 'double'
-  header: {
-    icon: LucideIcon
-    title: string
-    subTitle: string
-  }
-  footer: {
-    caption: string
-  }
-}
-
-interface ContactTwoSpanText extends ContactTwoSpan {
-  contentType: 'text'
-  content: string[]
-}
-
-interface ContactTwoSpanSchedule extends ContactTwoSpan {
-  contentType: 'schedule'
-  content: Rows[]
-}
-
-type Contact = ContactOneSpan | ContactTwoSpanText | ContactTwoSpanSchedule
-
-const contacts: Contact[] = [
+const contacts: ContactProps[] = [
   {
     id: 1,
     type: 'single',
-    color: 'filled-blue',
+    variant: 'filled-blue',
     header: {
       icon: PhoneIcon,
-      iconColor: 'var(--ref-color-white)',
     },
     content: {
-      title: 'Telephone',
+      heading: 'Telephone',
       value: '+33 7 87 33 43 35',
       caption: 'Appel direct — Lun–Sam',
     },
@@ -91,13 +55,13 @@ const contacts: Contact[] = [
   },
   {
     id: 2,
+    variant: 'green-border',
     type: 'single',
     header: {
       icon: MessageCircleIcon,
-      iconColor: 'var(--sys-color-brand-whatsapp)',
     },
     content: {
-      title: 'WhatsApp',
+      heading: 'WhatsApp',
       value: '+33 7 87 33 43 35',
       caption: 'Réponse rapide garantie',
     },
@@ -105,7 +69,6 @@ const contacts: Contact[] = [
       buttonText: 'Envoyer un message',
       externalLink: whatsApp,
     },
-    color: 'green',
   },
   {
     id: 3,
@@ -114,7 +77,7 @@ const contacts: Contact[] = [
       icon: MessageSquareIcon,
     },
     content: {
-      title: 'SMS',
+      heading: 'SMS',
       value: '+33 7 87 33 43 35',
       caption: 'Contact préféré pour devis',
     },
@@ -122,7 +85,6 @@ const contacts: Contact[] = [
       buttonText: 'Envoyer un SMS',
       externalLink: smsPhoneNumber,
     },
-    color: 'classic',
   },
   {
     id: 4,
@@ -131,7 +93,7 @@ const contacts: Contact[] = [
       icon: MailIcon,
     },
     content: {
-      title: 'Email',
+      heading: 'Email',
       value: 'manu-tech@orange.fr',
       caption: 'Réponse sous 24h ouvrées',
     },
@@ -139,119 +101,101 @@ const contacts: Contact[] = [
       buttonText: 'Envoyer un email',
       externalLink: mailTo,
     },
-    color: 'classic',
-  },
-  {
-    id: 6,
-    type: 'double',
-    header: {
-      icon: MapPinIcon,
-      title: 'Adresse',
-      subTitle: 'Atelier & Point Relais',
-    },
-    contentType: 'text',
-    content: ['16 rue Poincaré', 'Ars-sur-Moselle', '57130'],
-    footer: {
-      caption: 'Parking gratuit à proximité',
-    },
-  },
-  {
-    id: 6,
-    type: 'double',
-    header: {
-      icon: ClockIcon,
-      title: "Horaires d'ouvertures",
-      subTitle: 'Atelier & accueil',
-    },
-    contentType: 'schedule',
-    content: [
-      { key: 'Lundi - Vendredi', firstValue: '9h - 12h30', lastValue: '13h30 - 18h30' },
-      { key: 'Samedi', lastValue: '9h - 12h30' },
-      { key: 'Dimanche', lastValue: 'Fermé' },
-    ],
-    footer: {
-      caption: 'Contact SMS préféré pour une réponse rapide hors horaires.',
-    },
   },
 ]
 
-function updateColorWhenClosed(status: string) {
-  if (status === 'Fermé') {
-    return 'color: var(--sys-color-status-closed)'
-  }
-}
+const schedule = [
+  { key: 'Lundi - Vendredi', firstValue: '9h - 12h30', lastValue: '13h30 - 18h30' },
+  { key: 'Samedi', lastValue: '9h - 12h30' },
+  { key: 'Dimanche', lastValue: 'Fermé' },
+]
+
+const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
 </script>
 
 <template>
   <AppSection class="app-contact" id-section="contact">
-    <div class="title">
+    <header class="app-contact-header">
       <EyebrowMT>Nous joindre</EyebrowMT>
       <h2>Contact</h2>
       <p>
         Choisissez le canal qui vous convient. Le contact par SMS ou WhatsApp est privilégié pour
         une réponse rapide et un devis personnalisé.
       </p>
-    </div>
+    </header>
 
-    <template v-for="contact in contacts">
-      <CardContactShort
-        v-if="contact.type === 'single'"
-        :key="contact.id"
-        :color="contact.color"
-        :redirect="contact.footer.externalLink"
-      >
-        <template #icon>
-          <component
-            :is="contact.header.icon"
-            :color="
-              contact.header.iconColor !== undefined
-                ? contact.header.iconColor
-                : 'hsl(from var(--sys-color-primary) h s calc(l + 20))'
-            "
-          />
-        </template>
-        <template #title>
-          {{ contact.content.title }}
-        </template>
-        <template #value>
-          {{ contact.content.value }}
-        </template>
-        <template #caption>
-          {{ contact.content.caption }}
-        </template>
-        <template #thirdPart>
+    <CardMT
+      v-for="contact in contacts"
+      :graphicIcon="contact.header.icon"
+      :iconSize="24"
+      cardSize="big"
+      :variant="contact.variant"
+    >
+      <template #cardMtContent>
+        <div class="card-content">
+          <EyebrowMT :variant="contact.variant ?? 'on-card'">
+            {{ contact.content.heading }}
+          </EyebrowMT>
+
+          <h4>
+            {{ contact.content.value }}
+          </h4>
+
+          <p class="caption">
+            {{ contact.content.caption }}
+          </p>
+        </div>
+      </template>
+
+      <template #cardMtFooter>
+        <ButtonMT
+          variant="text-only"
+          icon-position="right"
+          :href="smsPhoneNumber"
+          textPosition="text-start"
+        >
+          <ChevronRightIcon :size="11" />
           {{ contact.footer.buttonText }}
-        </template>
-      </CardContactShort>
+        </ButtonMT>
+      </template>
+    </CardMT>
 
-      <CardContactLarge v-if="contact.type === 'double'" :key="contact.id">
-        <template #icon>
-          <component :is="contact.header.icon" />
-        </template>
+    <CardMT
+      :graphicIcon="MapPinIcon"
+      :iconSize="24"
+      cardSize="big"
+      class="card-long"
+      footerDivider="line"
+    >
+      <template #heading>Adresse</template>
+      <template #subheading>Atelier & Point Relais</template>
+      <template #cardMtContent>
+        <p v-for="value in adress">
+          {{ value }}
+        </p>
+      </template>
 
-        <template #title>
-          {{ contact.header.title }}
-        </template>
+      <template #cardMtFooter> Parking gratuit à proximité </template>
+    </CardMT>
 
-        <template #subtitle>
-          {{ contact.header.subTitle }}
-        </template>
+    <CardMT
+      :graphicIcon="ClockIcon"
+      :iconSize="24"
+      cardSize="big"
+      class="card-long"
+      footerDivider="line"
+    >
+      <template #heading>Horaires d'ouverture</template>
+      <template #subheading>Atelier & Accueil</template>
+      <template #cardMtContent>
+        <ScheduleMT :content="schedule" />
+      </template>
 
-        <template #content>
-          <ContentSchedule v-if="contact.contentType === 'schedule'" :content="contact.content" />
-          <ContentText v-else-if="contact.contentType === 'text'" :content="contact.content" />
-        </template>
+      <template #cardMtFooter>
+        Contact SMS préféré pour une réponse rapide hors horaires.
+      </template>
+    </CardMT>
 
-        <template #footer v-if="contact.footer.caption">
-          <div class="footer">
-            <div class="line" />
-            <span class="text-caption" :class="updateColorWhenClosed(contact.footer.caption)">
-              {{ contact.footer.caption }}
-            </span>
-          </div>
-        </template>
-      </CardContactLarge>
-    </template>
     <CardContactUs />
   </AppSection>
 </template>
@@ -262,7 +206,7 @@ function updateColorWhenClosed(status: string) {
   grid-template-columns: repeat(4, 1fr);
   gap: var(--ref-size-20);
 
-  .title {
+  > .app-contact-header {
     display: grid;
     gap: 20px;
     grid-column: 2 / span 2;
@@ -271,6 +215,19 @@ function updateColorWhenClosed(status: string) {
     & + div {
       grid-column-start: 1;
     }
+  }
+
+  .card-content {
+    display: grid;
+    gap: 5px;
+
+    .caption {
+      font-size: var(--ref-size-11);
+    }
+  }
+
+  .card-long {
+    grid-column: span 2;
   }
 }
 </style>

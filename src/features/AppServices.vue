@@ -49,34 +49,35 @@ const itemListRepair: dataItemListProps[] = [
         électroniques avec précision et professionnalisme.
       </p>
     </div>
-    <ServiceMT
-      :icon-h3="Icons.CarIcon"
-      title-h3="Diagnostic électronique automobile"
-      caption-h3="Diagnostic & programmation électronique"
-      p-h3="Equipé des derniers outils de diagnostic professionnel, nous intervenons sur l'ensemble
-          des systèmes électroniques de votre véhicule : lecture des codes défauts, codage d'options
-          et bien plus encore."
-      :item-list="itemListDiagnosis"
-      title-h4="Diagnostic complet"
-      caption-h4="Toutes marques & modèles"
-      price="35€"
-      caption-price="tarif fixe"
-    />
+
+    <ServiceMT :icon-h3="Icons.CarIcon" :item-list="itemListDiagnosis">
+      <template #heading>Diagnostic électronique automobile</template>
+      <template #subheading>Diagnostic & programmation électronique</template>
+      <template #description>
+        Equipé des derniers outils de diagnostic professionnel, nous intervenons sur l'ensemble des
+        systèmes électroniques de votre véhicule : lecture des codes défauts, codage d'options et
+        bien plus encore.
+      </template>
+      <template #image-heading>Diagnostic complet</template>
+      <template #image-subheading>Toutes marques & modèles</template>
+      <template #image-price>35€</template>
+      <template #image-subprice>tarif fixe</template>
+    </ServiceMT>
 
     <AppVehicles />
 
-    <ServiceMT
-      direction="img-left"
-      :icon-h3="Icons.HammerIcon"
-      title-h3="Réparation Électronique"
-      caption-h3="Smartphones · Tablettes · Consoles"
-      p-h3="Nous intervenons sur tous les appareils électroniques grand public avec rigueur et précision. Pièces d'origine ou haute qualité, garantie sur chaque intervention."
-      :item-list="itemListRepair"
-      title-h4="Remplacement écran"
-      caption-h4="Smartphone · Tablette · Console"
-      price="50€"
-      caption-price="+ pièce"
-    />
+    <ServiceMT direction="img-left" :icon-h3="Icons.HammerIcon" :item-list="itemListRepair">
+      <template #heading>Réparation Électronique</template>
+      <template #subheading>Smartphones · Tablettes · Consoles</template>
+      <template #description>
+        Nous intervenons sur tous les appareils électroniques grand public avec rigueur et
+        précision. Pièces d'origine ou haute qualité, garantie sur chaque intervention.
+      </template>
+      <template #image-heading>Remplacement écran</template>
+      <template #image-subheading>Smartphone · Tablette · Console</template>
+      <template #image-price>50€</template>
+      <template #image-subprice>+ pièce</template>
+    </ServiceMT>
   </AppSection>
 </template>
 
@@ -89,7 +90,7 @@ const itemListRepair: dataItemListProps[] = [
   .container-services-title {
     display: grid;
     grid-column: span 4;
-    gap: 30px;
+    gap: 20px;
     text-align: center;
 
     h2 {
