@@ -5,21 +5,22 @@ import ChipMT from '../ui/ChipMT.vue'
 import Eyebrow from '../ui/EyebrowMT.vue'
 import AppSection from '@/features/layout/AppSection.vue'
 import { callPhoneNumber, smsPhoneNumber } from '@/data/contact.ts'
+import { isMobile } from '@/composables/useMediaQuery.ts'
 
 const iconSize = 12
 </script>
 
 <template>
   <AppSection class="app-hero" id-section="home">
-    <div class="left-column">
+    <div class="text-content">
       <ChipMT>
         <DotIcon :size="iconSize * 2" color="var(--sys-color-status-open)" />
         <Eyebrow style="padding-right: 8px">Expert certifié · Ars-sur-moselle</Eyebrow>
       </ChipMT>
       <h1>
-        <span class="titleH1">Diagnostic</span>
-        <span class="titleH1">Professionnel</span>
-        <span class="titleH1">& Réparation Electronique</span>
+        <span>Diagnostic</span>
+        <span>Professionnel</span>
+        <span>& Réparation Electronique</span>
       </h1>
       <p>
         Spécialiste en diagnostic et réparation d'ECU automobiles, smartphones, tablettes, consoles
@@ -52,7 +53,7 @@ const iconSize = 12
         </div>
       </div>
     </div>
-    <div class="right-column">
+    <div v-if="!isMobile" class="image-content">
       <div class="container-image-hero">
         <img class="image-main-hero" src="../assets/images/cat-hero.jpeg" alt="logo-header" />
         <div class="text-image-hero">Interface OBD-II Pro</div>
@@ -82,8 +83,8 @@ const iconSize = 12
 <style lang="css" scoped>
 :deep(.app-hero) {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: var(--ref-size-88);
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  /* column-gap: var(--ref-size-88); */
   align-items: center;
   height: 100dvh;
   background: radial-gradient(
@@ -92,13 +93,12 @@ const iconSize = 12
     transparent
   );
 
-  .left-column {
+  .text-content {
     display: grid;
     height: fit-content;
-    /* width: 80%; */
     gap: 30px;
 
-    .titleH1 {
+    > h1 > span {
       background: linear-gradient(
         to right,
         hsl(from var(--sys-color-primary) h s calc(l + 20)),
@@ -118,6 +118,10 @@ const iconSize = 12
         color: hsl(from var(--sys-color-text-secondary) h calc(s - 6) calc(l + 19));
         line-height: 53px;
       }
+    }
+
+    > h1 + p {
+      max-width: 60ch;
     }
 
     .container-items {
@@ -142,7 +146,7 @@ const iconSize = 12
     }
   }
 
-  .right-column {
+  .image-content {
     position: relative;
 
     .container-image-hero {
@@ -228,6 +232,15 @@ const iconSize = 12
         padding-right: var(--ref-size-13);
         color: var(--sys-color-text-accent-primary);
       }
+    }
+  }
+}
+
+@media (width: 712px) {
+  :deep(.app-hero) {
+    justify-items: center;
+    .image-content {
+      display: revert;
     }
   }
 }

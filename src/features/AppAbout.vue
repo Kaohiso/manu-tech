@@ -14,23 +14,23 @@ const iconSize = <number>13
 
 <template>
   <AppSection class="app-about" id-section="about">
-    <div class="about-left">
-      <img
-        class="img-about"
-        src="../assets/images/oden-about.jpeg"
-        alt="Espace de travail chez Manu-Tech."
-        width="560"
-        height="482"
-      />
-      <div class="container-tag">
-        <span class="tag">10+</span>
-        <EyebrowMT color="hsl(from var(--sys-color-text-primary) h s l / 0.5)">années</EyebrowMT>
-        <EyebrowMT color="hsl(from var(--sys-color-text-primary) h s l / 0.5)">
-          d'expertise
-        </EyebrowMT>
+    <div class="about-image">
+      <div class="fitter">
+        <img
+          class="img-about"
+          src="../assets/images/oden-about.jpeg"
+          alt="Espace de travail chez Manu-Tech."
+          width="560"
+          height="482"
+        />
+        <div class="container-tag">
+          <span class="tag">10+</span>
+          <EyebrowMT>années</EyebrowMT>
+          <EyebrowMT>d'expertise</EyebrowMT>
+        </div>
       </div>
     </div>
-    <div class="about-right">
+    <div class="about-text">
       <EyebrowMT textAlign="start">A propos de Manu-Tech</EyebrowMT>
       <h2>
         <span>L'expertise technique</span>
@@ -65,10 +65,10 @@ const iconSize = <number>13
           <template #subheading>Instruments de mesure</template>
         </CardMT>
       </div>
-      <!-- <ButtonMT icon-position="right" :href="callPhoneNumber">
+      <ButtonMT icon-position="right" :href="callPhoneNumber">
         <ChevronRightIcon :size="iconSize" />
         <span>Prendre rendez-vous</span>
-      </ButtonMT> -->
+      </ButtonMT>
     </div>
   </AppSection>
 </template>
@@ -78,57 +78,70 @@ const iconSize = <number>13
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
   align-items: center;
+  gap: 40px;
 
-  .about-left {
-    width: fit-content;
-    height: fit-content;
-    position: relative;
+  .about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 1;
 
-    .img-about {
-      object-fit: cover;
-    }
+    .fitter {
+      position: relative;
+      width: fit-content;
+      height: fit-content;
 
-    .container-tag {
-      position: absolute;
-      bottom: -30px;
-      right: -30px;
-      display: grid;
-      padding: var(--ref-size-20);
-      background-color: var(--ref-color-bluerocratic-500);
-      border-radius: var(--app-radius);
-
-      .tag {
-        font-family: var(--ref-font-family-condensed);
-        font-weight: var(--ref-font-weight-black);
-        font-size: var(--ref-size-44);
-        color: var(--sys-color-text-primary);
+      > img {
+        width: 560px;
+        height: 480px;
+        object-fit: cover;
       }
 
-      > span {
-        text-align: center;
+      .container-tag {
+        position: absolute;
+        bottom: -30px;
+        right: -30px;
+        display: grid;
+        padding: var(--ref-size-20);
+        background-color: var(--ref-color-bluerocratic-500);
+        border-radius: var(--app-radius);
+
+        .tag {
+          font-family: var(--ref-font-family-condensed);
+          font-weight: var(--ref-font-weight-black);
+          font-size: var(--ref-size-44);
+          color: var(--sys-color-text-primary);
+        }
+
+        > span {
+          text-align: center;
+        }
       }
     }
   }
 
-  .about-right {
+  .about-text {
+    order: -1;
     display: grid;
-    width: fit-content;
-    height: fit-content;
+    text-align: center;
     row-gap: 20px;
+    justify-items: center;
 
     .separate-line {
       width: 100%;
       border-top: 1px solid hsl(from var(--ref-color-white) h s l / 0.05);
-      border-radius: var(--aap-radius);
     }
 
     .container-card {
-      display: inline-flex;
+      display: flex;
+      justify-content: center;
       gap: 12px;
     }
 
     ul {
+      text-align: start;
       padding: 0;
+
       > li {
         margin: 20px 0;
         &::before {
@@ -141,6 +154,15 @@ const iconSize = <number>13
           border: 1px solid hsl(from var(--sys-color-primary) h s l / 0.15);
         }
       }
+    }
+  }
+}
+
+@media (min-width: 1160px) {
+  :deep(.app-about) {
+    .about-text {
+      text-align: start;
+      justify-items: start;
     }
   }
 }
