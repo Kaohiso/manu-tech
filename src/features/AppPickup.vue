@@ -21,7 +21,7 @@ const imagesPartners = [colissimo, dpd, chronopost, colisPrive]
 
 <template>
   <AppSection class="app-pickup" id-section="pickup">
-    <div class="container-title-pickup">
+    <header class="container-title-pickup">
       <EyebrowMT variant="orange"> Point Relais Officiel </EyebrowMT>
       <h2>
         <span>Point Relais de </span>
@@ -32,7 +32,7 @@ const imagesPartners = [colissimo, dpd, chronopost, colisPrive]
         retirez vos colis directement en boutique lors de vos visites — pratique, sécurisé, sans
         rendez-vous.
       </p>
-    </div>
+    </header>
 
     <div class="container-content-pickup">
       <CardMT
@@ -83,10 +83,9 @@ const imagesPartners = [colissimo, dpd, chronopost, colisPrive]
   grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
   gap: var(--ref-size-20);
 
-  .container-title-pickup {
+  > header {
     display: grid;
     gap: 20px;
-    /* grid-column: 2 / span 2; */
     grid-column: 1 / -1;
     text-align: center;
     justify-items: center;

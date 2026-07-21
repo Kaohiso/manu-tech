@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { CarIcon, type LucideIcon } from '@lucide/vue'
-import ItemService from '@/ui/ItemService.vue'
+import { type LucideIcon } from '@lucide/vue'
 import CardMT from '@/ui/CardMT.vue'
 
 interface dataItemListProps {
@@ -12,10 +11,6 @@ interface Props {
   direction?: 'img-right' | 'img-left'
   iconH3: LucideIcon
   itemList: dataItemListProps[]
-  // titleH4: string
-  // captionH4: string
-  // price: string
-  // captionPrice: string
 }
 
 const { direction = 'img-right' } = defineProps<Props>()
@@ -23,9 +18,9 @@ const { direction = 'img-right' } = defineProps<Props>()
 
 <template>
   <article class="container-content" :class="direction">
-    <div class="article-left">
+    <div class="container-article-text">
       <div class="container-article-title">
-        <component :is="iconH3" class="icon-title" :color="'var(--sys-color-text-primary)'" />
+        <component :is="iconH3" class="icon-title" :size="20" />
         <hgroup>
           <h3>
             <slot name="heading" />
@@ -47,24 +42,16 @@ const { direction = 'img-right' } = defineProps<Props>()
       </div>
     </div>
 
-    <div class="article-right">
+    <div class="container-article-image">
       <img src="../assets/images/oden-services.jpeg" class="image-service" />
-      <div class="under-image-service">
-        <hgroup class="container-title">
-          <h4>
-            <slot name="image-heading" />
-          </h4>
-          <p>
-            <slot name="image-subheading" />
-          </p>
+      <div class="text-on-image">
+        <hgroup>
+          <h4><slot name="image-heading" /></h4>
+          <p><slot name="image-subheading" /></p>
         </hgroup>
-        <div class="container-price">
-          <p class="price">
-            <slot name="image-price" />
-          </p>
-          <p class="caption-price">
-            <slot name="image-subprice" />
-          </p>
+        <div>
+          <p><slot name="image-price" /></p>
+          <p><slot name="image-subprice" /></p>
         </div>
       </div>
     </div>
@@ -73,24 +60,21 @@ const { direction = 'img-right' } = defineProps<Props>()
 
 <style lang="css" scoped>
 .container-content {
-  grid-column: 4 span;
   display: grid;
-  text-align: start;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  column-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 50px;
 
-  &.img-left .article-left {
+  &.img-left .container-article-text {
     order: 1;
   }
 
-  &.img-left .article-right {
+  &.img-left .container-article-image {
     order: -1;
   }
 
-  .article-left {
+  .container-article-text {
     display: grid;
-    row-gap: 20px;
+    gap: 20px;
 
     .container-article-title {
       display: inline-flex;
@@ -98,9 +82,8 @@ const { direction = 'img-right' } = defineProps<Props>()
       align-items: center;
 
       .icon-title {
+        color: var(--sys-color-text-primary);
         padding: 10px;
-        width: 20px;
-        height: 20px;
         border-radius: var(--app-radius-icon);
         background-color: var(--sys-color-primary);
       }
@@ -109,54 +92,49 @@ const { direction = 'img-right' } = defineProps<Props>()
     .list-services {
       display: grid;
       justify-content: start;
-      grid-template-columns: 50% 50%;
-      row-gap: 10px;
-      column-gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
     }
   }
 
-  .article-right {
+  .container-article-image {
     display: grid;
     align-self: center;
     height: fit-content;
 
     .image-service {
       width: 100%;
-      max-height: 350px;
+      height: 335px;
       object-fit: cover;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
 
-    .under-image-service {
+    .text-on-image {
       display: flex;
-      background-color: var(--app-background-on-background);
+      align-items: center;
       justify-content: space-between;
+      background-color: var(--app-background-on-background);
       padding: 20px;
       border-bottom-left-radius: var(--app-radius);
       border-bottom-right-radius: var(--app-radius);
 
-      .container-title {
-        display: grid;
-        align-items: flex-end;
-      }
-
-      .container-price {
+      > div {
         display: grid;
         justify-content: end;
 
-        .price {
+        > p {
           justify-self: end;
           font-family: var(--ref-font-family-condensed);
           font-size: var(--ref-size-32);
           font-weight: var(--ref-font-weight-black);
-          color: var(--sys-color-primary);
+          color: hsl(from var(--sys-color-primary) h s calc(l + 20));
         }
 
-        .caption-price {
+        > p + p {
           font-family: var(--sys-font-family-caption);
           font-size: var(--sys-font-size-caption);
-          color: var(--sys-color-text-caption);
+          color: var(--sys-color-text-tertiary);
         }
       }
     }

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import AppSection from '@/features/layout/AppSection.vue'
-import CardContactUs from '@/ui/contact/CardContactUs.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
 import {
   ChevronRightIcon,
@@ -124,77 +123,81 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
       </p>
     </header>
 
-    <CardMT
-      v-for="contact in contacts"
-      :graphicIcon="contact.header.icon"
-      :iconSize="24"
-      cardSize="big"
-      :variant="contact.variant"
-    >
-      <template #cardMtContent>
-        <div class="card-content">
-          <EyebrowMT :variant="contact.variant ?? 'on-card'">
-            {{ contact.content.heading }}
-          </EyebrowMT>
+    <div>
+      <CardMT
+        v-for="contact in contacts"
+        :graphicIcon="contact.header.icon"
+        :iconSize="24"
+        cardSize="big"
+        :variant="contact.variant"
+      >
+        <template #cardMtContent>
+          <div class="card-content">
+            <EyebrowMT :variant="contact.variant ?? 'on-card'">
+              {{ contact.content.heading }}
+            </EyebrowMT>
 
-          <h4>
-            {{ contact.content.value }}
-          </h4>
+            <h4>
+              {{ contact.content.value }}
+            </h4>
 
-          <p class="caption">
-            {{ contact.content.caption }}
+            <p class="caption">
+              {{ contact.content.caption }}
+            </p>
+          </div>
+        </template>
+
+        <template #cardMtFooter>
+          <ButtonMT
+            variant="text-only"
+            icon-position="right"
+            :href="smsPhoneNumber"
+            textPosition="text-start"
+          >
+            <ChevronRightIcon :size="11" />
+            {{ contact.footer.buttonText }}
+          </ButtonMT>
+        </template>
+      </CardMT>
+    </div>
+
+    <div>
+      <CardMT
+        :graphicIcon="MapPinIcon"
+        :iconSize="24"
+        cardSize="big"
+        class="card-long"
+        footerDivider="line"
+      >
+        <template #heading>Adresse</template>
+        <template #subheading>Atelier & Point Relais</template>
+        <template #cardMtContent>
+          <p v-for="value in adress">
+            {{ value }}
           </p>
-        </div>
-      </template>
+        </template>
 
-      <template #cardMtFooter>
-        <ButtonMT
-          variant="text-only"
-          icon-position="right"
-          :href="smsPhoneNumber"
-          textPosition="text-start"
-        >
-          <ChevronRightIcon :size="11" />
-          {{ contact.footer.buttonText }}
-        </ButtonMT>
-      </template>
-    </CardMT>
+        <template #cardMtFooter> Parking gratuit à proximité </template>
+      </CardMT>
 
-    <CardMT
-      :graphicIcon="MapPinIcon"
-      :iconSize="24"
-      cardSize="big"
-      class="card-long"
-      footerDivider="line"
-    >
-      <template #heading>Adresse</template>
-      <template #subheading>Atelier & Point Relais</template>
-      <template #cardMtContent>
-        <p v-for="value in adress">
-          {{ value }}
-        </p>
-      </template>
+      <CardMT
+        :graphicIcon="ClockIcon"
+        :iconSize="24"
+        cardSize="big"
+        class="card-long"
+        footerDivider="line"
+      >
+        <template #heading>Horaires d'ouverture</template>
+        <template #subheading>Atelier & Accueil</template>
+        <template #cardMtContent>
+          <ScheduleMT :content="schedule" />
+        </template>
 
-      <template #cardMtFooter> Parking gratuit à proximité </template>
-    </CardMT>
-
-    <CardMT
-      :graphicIcon="ClockIcon"
-      :iconSize="24"
-      cardSize="big"
-      class="card-long"
-      footerDivider="line"
-    >
-      <template #heading>Horaires d'ouverture</template>
-      <template #subheading>Atelier & Accueil</template>
-      <template #cardMtContent>
-        <ScheduleMT :content="schedule" />
-      </template>
-
-      <template #cardMtFooter>
-        Contact SMS préféré pour une réponse rapide hors horaires.
-      </template>
-    </CardMT>
+        <template #cardMtFooter>
+          Contact SMS préféré pour une réponse rapide hors horaires.
+        </template>
+      </CardMT>
+    </div>
 
     <CardContactUs />
   </AppSection>
@@ -203,18 +206,34 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
 <style scoped>
 :deep(.app-contact) {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: var(--ref-size-20);
 
-  > .app-contact-header {
+  > header {
+    grid-column: 1 / -1;
     display: grid;
     gap: 20px;
-    grid-column: 2 / span 2;
     text-align: center;
+    justify-items: center;
+
+    > p {
+      max-width: 60ch;
+    }
 
     & + div {
       grid-column-start: 1;
     }
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--ref-size-20);
+  }
+
+  > div + div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: var(--ref-size-20);
   }
 
   .card-content {

@@ -83,13 +83,12 @@ const itemListRepair: dataItemListProps[] = [
 
 <style lang="css" scoped>
 :deep(.app-services) {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 64px;
 
   .container-services-title {
     display: grid;
-    grid-column: span 4;
     gap: 20px;
     text-align: center;
 

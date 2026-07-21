@@ -76,7 +76,7 @@ const iconSize = <number>13
 <style lang="css" scoped>
 :deep(.app-about) {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
   align-items: center;
 
   .about-left {

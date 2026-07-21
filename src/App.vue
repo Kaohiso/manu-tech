@@ -53,9 +53,6 @@ body {
   font-family: var(--ref-font-family-base);
   font-size: var(--ref-size-15);
   font-weight: var(--ref-font-weight-regular);
-
-  padding: 0;
-  margin: 0;
 }
 
 a {
@@ -127,6 +124,13 @@ h4 {
     display: block;
     font-size: var(--sys-font-size-caption);
     color: var(--sys-color-text-caption);
+  }
+
+  & + p {
+    font-family: var(--sys-font-family-caption);
+    display: block;
+    font-size: var(--sys-font-size-caption);
+    color: var(--sys-color-text-tertiary);
   }
 }
 
