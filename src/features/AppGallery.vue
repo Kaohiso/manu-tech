@@ -61,7 +61,7 @@ const images: Props[] = [
       scroll-snap-align: center;
       flex-shrink: 0;
       object-fit: cover;
-      width: 350px;
+      width: min(350px, 100%);
       height: 200px;
     }
   }
