@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronRightIcon, MenuIcon, PhoneIcon } from '@lucide/vue'
+import { ChevronRightIcon, MenuIcon, PhoneIcon, XIcon } from '@lucide/vue'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import { callPhoneNumber } from '@/data/contact.ts'
 import DialogMT from '@/ui/DialogMT.vue'
@@ -19,6 +19,7 @@ const links: Link[] = [
 ]
 
 const dialogMt = useTemplateRef('dialogMobile')
+
 const iconSize = 13
 </script>
 
@@ -30,7 +31,7 @@ const iconSize = 13
         alt="logo-manu-tech"
         class="image-logo"
       />
-      <ButtonMT variant="icon" @pointerdown.stop.prevent @click.stop="dialogMt?.toggle">
+      <ButtonMT variant="icon" @click.stop="dialogMt?.toggle">
         <MenuIcon color="white" :size="21" />
       </ButtonMT>
     </div>

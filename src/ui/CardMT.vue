@@ -11,7 +11,7 @@ interface CardMtProps {
   cardSize?: 'big'
   iconSize?: 12 | 24
   footerDivider?: 'line'
-  variant?: 'filled-blue' | 'green-border' | 'orange'
+  variant?: 'filled-blue' | 'green-border' | 'orange' | 'gradient'
 }
 
 const { iconSize = 12 } = defineProps<CardMtProps>()
@@ -19,7 +19,7 @@ const { iconSize = 12 } = defineProps<CardMtProps>()
 
 <template>
   <div class="card-mt" :class="[tag, cardSize, variant]">
-    <header>
+    <header v-if="graphicIcon || imgSrc || $slots.heading || $slots.subheading">
       <div v-if="graphicIcon" class="container-icon" :class="[cardSize, variant]">
         <component :is="graphicIcon" :size="iconSize" class="icon" :class="variant" />
       </div>
@@ -167,6 +167,16 @@ const { iconSize = 12 } = defineProps<CardMtProps>()
     left: 20px;
     background-color: var(--sys-color-primary);
     border: solid var(--sys-color-primary);
+  }
+
+  &.gradient {
+    border: none;
+    background: linear-gradient(
+      to right,
+      hsl(from var(--sys-color-primary) h s l / 0.15),
+      var(--app-background-on-background),
+      hsl(from var(--sys-color-secondary) h s l / 0.15)
+    );
   }
 
   &.filled-blue {

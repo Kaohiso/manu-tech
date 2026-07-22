@@ -199,8 +199,28 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
       </CardMT>
     </div>
 
-    <CardContactUs />
-    <div>GROS OUBLIE ICI</div>
+    <div>
+      <CardMT variant="gradient" cardSize="big">
+        <template #cardMtContent>
+          <div class="card-contact-us">
+            <div class="container-title">
+              <h3>Prêt à nous contacter ?</h3>
+              <span>Demande de devis — réponse rapide par SMS ou WhatsApp.</span>
+            </div>
+            <div class="container-buttons">
+              <ButtonMT :href="callPhoneNumber">
+                <PhoneIcon :size="14" />
+                Appeler
+              </ButtonMT>
+              <ButtonMT variant="filled-green" :href="whatsApp">
+                <MessageCircleIcon :size="14" />
+                WhatsApp
+              </ButtonMT>
+            </div>
+          </div>
+        </template>
+      </CardMT>
+    </div>
   </AppSection>
 </template>
 
@@ -248,6 +268,25 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
 
   .card-long {
     grid-column: span 2;
+  }
+
+  .card-contact-us {
+    /* background-color: antiquewhite; */
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+
+    .container-title {
+      text-align: start;
+      display: grid;
+      gap: 10px;
+    }
+
+    .container-buttons {
+      display: inline-flex;
+      gap: 20px;
+      justify-content: end;
+    }
   }
 }
 </style>
