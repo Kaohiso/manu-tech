@@ -45,6 +45,8 @@ import AppFooter from '@/features/layout/AppFooter.vue'
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  max-width: 100%;
+  max-height: 100%;
   overscroll-behavior-x: none;
 }
 

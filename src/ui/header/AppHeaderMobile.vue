@@ -18,19 +18,19 @@ const links: Link[] = [
   { id: '#contact', label: 'Contact' },
 ]
 
-const dialog = useTemplateRef('dialogMobile')
+const dialogMt = useTemplateRef('dialogMobile')
 const iconSize = 13
 </script>
 
 <template>
   <header class="app-header">
-    <div class="container">
+    <div>
       <img
         src="/src/assets/images/logo/manu-tech-logo.png"
         alt="logo-manu-tech"
         class="image-logo"
       />
-      <ButtonMT variant="icon" @click="dialog?.toggleDialogMt" command="show-modal">
+      <ButtonMT variant="icon" @pointerdown.stop.prevent @click.stop="dialogMt?.toggle">
         <MenuIcon color="white" :size="21" />
       </ButtonMT>
     </div>
@@ -41,16 +41,18 @@ const iconSize = 13
           <li v-for="link in links" :key="link.id">
             <a :href="link.id" @click.stop="closeDialogMt">
               {{ link.label }}
-              <ChevronRightIcon :size="13" />
+              <ChevronRightIcon :size="13" class="icon" />
             </a>
           </li>
         </ul>
       </nav>
 
-      <ButtonMT :href="callPhoneNumber">
-        <PhoneIcon :size="iconSize" />
-        <span>Demander un devis</span>
-      </ButtonMT>
+      <div class="container-button">
+        <ButtonMT :href="callPhoneNumber" class="dialog-button">
+          <PhoneIcon :size="iconSize" />
+          Appeler maintenant
+        </ButtonMT>
+      </div>
     </DialogMT>
   </header>
 </template>
@@ -81,20 +83,13 @@ const iconSize = 13
   }
 
   > dialog {
-    position: fixed;
     position-anchor: --header;
     inset-block-start: anchor(end);
-    display: grid;
-    gap: 24px;
-    inline-size: 100dvw;
-    background-color: var(--sys-color-background);
-    margin: 0;
-    border: none;
 
     &[open]::backdrop {
       position-anchor: --header;
-      position: fixed;
       inset-block-start: anchor(end);
+      position: fixed;
       background-color: var(--sys-color-background);
       opacity: 0.75;
     }
@@ -114,9 +109,20 @@ const iconSize = 13
         display: flex;
         justify-content: space-between;
         font-size: var(--sys-font-size-li);
-        color: var(--sys-color-text-secondary);
-        font-weight: var(--sys-font-weight-cta-link);
+        color: var(--sys-color-text-primary);
+        font-weight: var(--ref-font-weight-medium);
       }
+    }
+
+    .icon {
+      color: var(--sys-color-primary);
+    }
+
+    .container-button {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      padding-block: 20px;
     }
   }
 }
