@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  variant?: 'on-card' | 'caption' | 'filled-blue' | 'green-border' | 'orange'
+  variant?: 'on-card' | 'caption' | 'filled-blue' | 'green-border' | 'orange' | 'open'
 }
 
 defineProps<Props>()
@@ -41,6 +41,10 @@ defineProps<Props>()
 
   &.orange {
     color: hsl(from var(--sys-color-secondary) calc(h + 7) s calc(l + 1));
+  }
+
+  &.open {
+    color: var(--sys-color-status-open);
   }
 }
 </style>

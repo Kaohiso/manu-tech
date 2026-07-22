@@ -16,26 +16,22 @@ const iconSize = <number>13
   <AppSection class="app-about" id-section="about">
     <div class="about-image">
       <div class="fitter">
-        <img
-          class="img-about"
-          src="../assets/images/oden-about.jpeg"
-          alt="Espace de travail chez Manu-Tech."
-          width="560"
-          height="482"
-        />
+        <img src="../assets/images/oden-about.jpeg" alt="Espace de travail chez Manu-Tech." />
         <div class="container-tag">
-          <span class="tag">10+</span>
-          <EyebrowMT>années</EyebrowMT>
-          <EyebrowMT>d'expertise</EyebrowMT>
+          <p>10+</p>
+          <EyebrowMT>années d'expertise</EyebrowMT>
         </div>
       </div>
     </div>
+
     <div class="about-text">
       <EyebrowMT textAlign="start">A propos de Manu-Tech</EyebrowMT>
+
       <h2>
         <span>L'expertise technique</span>
         <span>dédié à vos appareils</span>
       </h2>
+
       <p>
         MANU-TECH est né de la passion pour l'électronique embarquée et la réparation de précision.
         Depuis plus de 10 ans, nous accompagnons particuliers et professionnels dans le diagnostic,
@@ -45,16 +41,16 @@ const iconSize = <number>13
         Notre philosophie : des réparations fiables qui prolongent la durée de vie des appareils et
         des véhicules, avec des composants d'origine ou de qualité premium, à des prix justes.
       </p>
+
       <ul>
         <li>Technicien certifié en électronique embarquée automobile</li>
         <li>Outillage professionnel : diagnostic et programmation de clefs</li>
         <li>Station de soudure et matériel de haute précision</li>
         <li>Composants d'origine ou qualité OEM sur toutes interventions</li>
       </ul>
-      <div class="separate-line" />
-      <EyebrowMT color="var(--sys-color-text-tertiary)"
-        >Équipements de référence utilisés</EyebrowMT
-      >
+
+      <EyebrowMT variant="caption"> Équipements de référence utilisés </EyebrowMT>
+
       <div class="container-card">
         <CardMT :imgSrc="topdon">
           <template #heading>Topdon</template>
@@ -76,7 +72,7 @@ const iconSize = <number>13
 <style lang="css" scoped>
 :deep(.app-about) {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
   align-items: center;
   gap: 40px;
 
@@ -88,33 +84,39 @@ const iconSize = <number>13
 
     .fitter {
       position: relative;
-      width: fit-content;
-      height: fit-content;
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 1 / 1;
 
       > img {
-        width: 560px;
-        height: 480px;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
       }
 
       .container-tag {
         position: absolute;
-        bottom: -30px;
-        right: -30px;
-        display: grid;
-        padding: var(--ref-size-20);
+        bottom: -15px;
+        right: -15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: var(--ref-size-2);
         background-color: var(--ref-color-bluerocratic-500);
         border-radius: var(--app-radius);
+        aspect-ratio: 1/1;
+        text-align: center;
 
-        .tag {
+        > p {
           font-family: var(--ref-font-family-condensed);
           font-weight: var(--ref-font-weight-black);
-          font-size: var(--ref-size-44);
+          font-size: var(--ref-size-32);
           color: var(--sys-color-text-primary);
         }
 
         > span {
-          text-align: center;
+          width: 20ch;
         }
       }
     }
@@ -123,18 +125,18 @@ const iconSize = <number>13
   .about-text {
     order: -1;
     display: grid;
-    text-align: center;
+    text-align: start;
+    justify-items: start;
     row-gap: 20px;
-    justify-items: center;
 
-    .separate-line {
-      width: 100%;
-      border-top: 1px solid hsl(from var(--ref-color-white) h s l / 0.05);
+    > p {
+      width: min(60ch, 100%);
     }
 
     .container-card {
-      display: flex;
-      justify-content: center;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 12px;
     }
 
@@ -158,11 +160,20 @@ const iconSize = <number>13
   }
 }
 
-@media (min-width: 1160px) {
+@media (min-width: 768px) {
   :deep(.app-about) {
-    .about-text {
-      text-align: start;
-      justify-items: start;
+    .about-image {
+      .fitter {
+        .container-tag {
+          bottom: -30px;
+          right: -30px;
+          padding: var(--ref-size-20);
+
+          > p {
+            font-size: var(--ref-size-44);
+          }
+        }
+      }
     }
   }
 }

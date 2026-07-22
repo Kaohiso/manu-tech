@@ -22,11 +22,11 @@ defineProps<Section>()
   justify-content: center;
 
   &:nth-of-type(n + 2) {
-    padding: var(--app-pading-section);
+    padding-block: var(--app-pading-section);
   }
 
   > .content {
-    width: 100vw;
+    padding-inline: 15px;
     max-width: var(--app-inline-size);
   }
 

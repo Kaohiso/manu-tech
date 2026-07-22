@@ -34,7 +34,7 @@ const vehicules: string[] = [
     <h3>Marques prises en charge</h3>
     <div class="container-chips">
       <ChipMT v-for="vehicule in vehicules" display="list">
-        <span>{{ vehicule }}</span>
+        <p>{{ vehicule }}</p>
       </ChipMT>
     </div>
   </div>
@@ -42,12 +42,12 @@ const vehicules: string[] = [
 
 <style scoped>
 .app-vehicules {
-  grid-column: span 4;
+  grid-column: 1 / -1;
   display: grid;
   background-color: var(--app-background-on-background);
   text-align: center;
   gap: 20px;
-  padding: 40px;
+  padding: 20px;
   border-radius: var(--app-radius);
   border: 2px solid hsl(from var(--sys-color-text-secondary) h s l / 0.1);
 

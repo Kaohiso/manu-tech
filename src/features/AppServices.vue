@@ -38,7 +38,7 @@ const itemListRepair: dataItemListProps[] = [
 
 <template>
   <AppSection class="app-services" id-section="services">
-    <div class="container-services-title">
+    <header class="container-services-title">
       <EyebrowMT>Nos prestations</EyebrowMT>
       <h2>
         <span>Expertise complète</span>
@@ -48,9 +48,9 @@ const itemListRepair: dataItemListProps[] = [
         De l’automobile aux appareils mobiles — nous intervenons sur tous vos équipements
         électroniques avec précision et professionnalisme.
       </p>
-    </div>
+    </header>
 
-    <ServiceMT :icon-h3="Icons.CarIcon" :item-list="itemListDiagnosis">
+    <ServiceMT :graphicIcon="Icons.CarIcon" :listServices="itemListDiagnosis">
       <template #heading>Diagnostic électronique automobile</template>
       <template #subheading>Diagnostic & programmation électronique</template>
       <template #description>
@@ -66,7 +66,7 @@ const itemListRepair: dataItemListProps[] = [
 
     <AppVehicles />
 
-    <ServiceMT direction="img-left" :icon-h3="Icons.HammerIcon" :item-list="itemListRepair">
+    <ServiceMT direction="img-left" :graphicIcon="Icons.HammerIcon" :listServices="itemListRepair">
       <template #heading>Réparation Électronique</template>
       <template #subheading>Smartphones · Tablettes · Consoles</template>
       <template #description>
@@ -83,11 +83,11 @@ const itemListRepair: dataItemListProps[] = [
 
 <style lang="css" scoped>
 :deep(.app-services) {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  align-items: center;
   gap: 64px;
 
-  .container-services-title {
+  > header {
     display: grid;
     gap: 20px;
     text-align: center;

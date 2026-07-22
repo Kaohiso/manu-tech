@@ -21,12 +21,12 @@ import AppFooter from '@/features/layout/AppFooter.vue'
   <AppHero />
   <AppAbout />
   <AppServices />
-  <AppPrice />
-  <AppWhyUs />
-  <AppGallery />
-  <AppPickup />
-  <AppContact />
-  <AppFooter />
+  <!-- <AppPrice /> -->
+  <!-- <AppWhyUs /> -->
+  <!-- <AppGallery /> -->
+  <!-- <AppPickup /> -->
+  <!-- <AppContact /> -->
+  <!-- <AppFooter /> -->
 </template>
 
 <style>
@@ -37,7 +37,7 @@ import AppFooter from '@/features/layout/AppFooter.vue'
   --app-background-on-background: hsl(
     from var(--sys-color-background) calc(h + 10) calc(s + 5) calc(l + 5)
   );
-  --app-pading-section: 128px 10px;
+  --app-pading-section: 128px;
 }
 
 * {
@@ -67,22 +67,46 @@ a {
 h1 {
   margin: 0;
   display: grid;
-  font-size: var(--sys-font-size-h1);
+  font-size: var(--sys-font-size-h1-mobile);
   font-weight: var(--sys-font-weight-h1);
   font-family: var(--sys-font-family-h1);
   letter-spacing: var(--sys-letter-spacing-h1);
 
   > span {
-    line-height: 83px;
+    line-height: 39.5px;
+
+    background: linear-gradient(
+      to right,
+      hsl(from var(--sys-color-primary) h s calc(l + 20)),
+      var(--sys-color-primary),
+      var(--sys-color-primary)
+    );
+    background-clip: text;
+    color: transparent;
+
+    &:first-of-type {
+      color: var(--sys-color-text-primary);
+    }
+
+    &:last-child {
+      font-size: var(--sys-font-size-h1-accent-mobile);
+      font-weight: var(--sys-font-weight-h1-accent);
+      color: hsl(from var(--sys-color-text-secondary) h calc(s - 6) calc(l + 19));
+      line-height: 53px;
+    }
+  }
+
+  & + p {
+    max-width: 40ch;
   }
 }
 
 h2 {
   margin: 0;
-  font-size: var(--sys-font-size-h2);
+  font-size: var(--sys-font-size-h2-mobile);
   font-family: var(--sys-font-family-h2);
   font-weight: var(--sys-font-weight-h2);
-  line-height: 70px;
+  line-height: 30.4px;
   letter-spacing: -1.4px;
   color: var(--sys-color-text-primary);
 
@@ -154,5 +178,28 @@ ul {
 
 svg {
   display: block;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: var(--sys-font-size-h1);
+
+    > span {
+      line-height: 83px;
+
+      &:last-child {
+        font-size: var(--sys-font-size-h1-accent);
+      }
+    }
+
+    & + p {
+      max-width: 60ch;
+    }
+  }
+
+  h2 {
+    font-size: var(--sys-font-size-h2);
+    line-height: 70px;
+  }
 }
 </style>

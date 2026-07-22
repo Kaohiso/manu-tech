@@ -1,5 +1,23 @@
-import { ref } from 'vue'
+// composables/useMediaQuery.ts
+import { ref, onMounted, onUnmounted } from 'vue'
 
-const isMobile = ref(window.matchMedia('(max-width: 768px)').matches)
+export function useMediaQuery(query: string) {
+  const matches = ref(false)
+  let mediaQueryList: MediaQueryList
 
-export { isMobile }
+  function updateMatches(e: MediaQueryListEvent | MediaQueryList) {
+    matches.value = e.matches
+  }
+
+  onMounted(() => {
+    mediaQueryList = window.matchMedia(query)
+    matches.value = mediaQueryList.matches
+    mediaQueryList.addEventListener('change', updateMatches)
+  })
+
+  onUnmounted(() => {
+    mediaQueryList?.removeEventListener('change', updateMatches)
+  })
+
+  return matches
+}

@@ -9,8 +9,8 @@ interface dataItemListProps {
 
 interface Props {
   direction?: 'img-right' | 'img-left'
-  iconH3: LucideIcon
-  itemList: dataItemListProps[]
+  graphicIcon: LucideIcon
+  listServices: dataItemListProps[]
 }
 
 const { direction = 'img-right' } = defineProps<Props>()
@@ -19,8 +19,10 @@ const { direction = 'img-right' } = defineProps<Props>()
 <template>
   <article class="container-content" :class="direction">
     <div class="container-article-text">
-      <div class="container-article-title">
-        <component :is="iconH3" class="icon-title" :size="20" />
+      <div>
+        <div>
+          <component :is="graphicIcon" :size="20" />
+        </div>
         <hgroup>
           <h3>
             <slot name="heading" />
@@ -36,7 +38,7 @@ const { direction = 'img-right' } = defineProps<Props>()
       </p>
 
       <div class="list-services">
-        <CardMT v-for="item in itemList" :graphic-icon="item.iconName">
+        <CardMT v-for="item in listServices" :graphic-icon="item.iconName">
           <template #subheading>{{ item.text }}</template>
         </CardMT>
       </div>
@@ -61,7 +63,7 @@ const { direction = 'img-right' } = defineProps<Props>()
 <style lang="css" scoped>
 .container-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
   gap: 50px;
 
   &.img-left .container-article-text {
@@ -76,16 +78,22 @@ const { direction = 'img-right' } = defineProps<Props>()
     display: grid;
     gap: 20px;
 
-    .container-article-title {
+    > div:has(> div + hgroup) {
       display: inline-flex;
       gap: 15px;
-      align-items: center;
+      text-align: center;
+      justify-items: center;
 
-      .icon-title {
-        color: var(--sys-color-text-primary);
+      > div {
+        width: fit-content;
+        height: fit-content;
         padding: 10px;
         border-radius: var(--app-radius-icon);
         background-color: var(--sys-color-primary);
+
+        &:first-child {
+          color: var(--sys-color-text-primary);
+        }
       }
     }
 
@@ -137,6 +145,15 @@ const { direction = 'img-right' } = defineProps<Props>()
           color: var(--sys-color-text-tertiary);
         }
       }
+    }
+  }
+}
+
+@media (min-width: 1160px) {
+  :deep(.app-about) {
+    .about-text {
+      text-align: start;
+      justify-items: start;
     }
   }
 }

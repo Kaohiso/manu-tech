@@ -83,7 +83,7 @@ const tarifs: TarifProps[] = [
 :deep(.app-price) {
   display: grid;
   text-align: center;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
   gap: var(--ref-size-20);
 
   .container-price-title {

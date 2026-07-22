@@ -6,10 +6,16 @@
   --sys-letter-spacing-h1: var(--ref-size-0-6);
   --sys-font-size-h1-accent: var(--ref-size-48);
   --sys-font-weight-h1-accent: var(--ref-font-weight-semi-bold);
+  --sys-font-family-h1: var(--ref-font-family-condensed);
+
+  --sys-font-size-h1-mobile: var(--ref-size-44);
+  --sys-letter-spacing-h1-mobile: var(--ref-size-0-6);
+  --sys-font-size-h1-accent-mobile: var(--ref-size-24);
 
   --sys-font-family-h2: var(--ref-font-family-condensed);
   --sys-font-weight-h2: var(--ref-font-weight-bold);
   --sys-font-size-h2: var(--ref-size-64);
+  --sys-font-size-h2-mobile: var(--ref-size-32);
 
   --sys-font-family-h3: var(--ref-font-family-condensed);
   --sys-font-weight-h3: var(--ref-font-weight-semi-bold);

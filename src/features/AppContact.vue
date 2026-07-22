@@ -247,13 +247,13 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
 
   > div {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: var(--ref-size-20);
   }
 
   .bottom-card-contact {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: var(--ref-size-20);
   }
 
@@ -266,12 +266,7 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
     }
   }
 
-  .card-long {
-    grid-column: span 2;
-  }
-
   .card-contact-us {
-    /* background-color: antiquewhite; */
     grid-column: 1 / -1;
     display: flex;
     justify-content: space-between;

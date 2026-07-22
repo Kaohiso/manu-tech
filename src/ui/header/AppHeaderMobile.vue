@@ -24,7 +24,7 @@ const iconSize = 13
 </script>
 
 <template>
-  <header class="app-header">
+  <header class="app-header-mobile">
     <div>
       <img
         src="/src/assets/images/logo/manu-tech-logo.png"
@@ -63,7 +63,7 @@ const iconSize = 13
   overflow-y: hidden;
 }
 
-.app-header {
+.app-header-mobile {
   z-index: 666;
   position: fixed;
   top: 0;

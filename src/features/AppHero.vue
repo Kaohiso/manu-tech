@@ -5,7 +5,9 @@ import ChipMT from '../ui/ChipMT.vue'
 import Eyebrow from '../ui/EyebrowMT.vue'
 import AppSection from '@/features/layout/AppSection.vue'
 import { callPhoneNumber, smsPhoneNumber } from '@/data/contact.ts'
-import { isMobile } from '@/composables/useMediaQuery.ts'
+import { useMediaQuery } from '@/composables/useMediaQuery.ts'
+
+const isDesktop = useMediaQuery('(min-width: 1025px)')
 
 const iconSize = 12
 </script>
@@ -15,7 +17,7 @@ const iconSize = 12
     <div class="text-content">
       <ChipMT>
         <DotIcon :size="iconSize * 2" color="var(--sys-color-status-open)" />
-        <Eyebrow style="padding-right: 8px">Expert certifié · Ars-sur-moselle</Eyebrow>
+        <Eyebrow>Expert certifié · Ars-sur-moselle</Eyebrow>
       </ChipMT>
       <h1>
         <span>Diagnostic</span>
@@ -27,37 +29,38 @@ const iconSize = 12
         portables et équipements électroniques. Composants d'origine ou premium — tarifs
         transparents.
       </p>
-      <div class="container-items">
+
+      <div class="container-buttons">
         <ButtonMT icon-position="right" :href="smsPhoneNumber">
           <ChevronRightIcon :size="iconSize" />
-          <span>Demander un devis</span>
+          Demander un devis
         </ButtonMT>
 
         <ButtonMT variant="outlined" :href="callPhoneNumber">
           <PhoneIcon :size="iconSize" />
-          <span>Nous contacter</span>
+          Nous contacter
         </ButtonMT>
       </div>
-      <div class="container-items">
-        <div class="container-tag">
-          <span class="tag">10+</span>
-          <span class="under-tag">années d'expérience</span>
+
+      <div class="container-tags">
+        <div>
+          <p>10+</p>
+          <p>années d'expérience</p>
         </div>
-        <div class="container-tag">
-          <span class="tag">500+</span>
-          <span class="under-tag">véhicules traités</span>
+        <div>
+          <p>500+</p>
+          <p>véhicules traités</p>
         </div>
-        <div class="container-tag">
-          <span class="tag">100%</span>
-          <span class="under-tag">satisfaction clients</span>
+        <div>
+          <p>100%</p>
+          <p>satisfaction clients</p>
         </div>
       </div>
     </div>
-    <div v-if="!isMobile" class="image-content">
-      <div class="container-image-hero">
-        <img class="image-main-hero" src="../assets/images/cat-hero.jpeg" alt="logo-header" />
-        <div class="text-image-hero">Interface OBD-II Pro</div>
-      </div>
+    <div v-if="isDesktop" class="image-content">
+      <img class="image-main-hero" src="../assets/images/cat-hero.jpeg" alt="logo-header" />
+      <div class="text-image-hero">Interface OBD-II Pro</div>
+
       <div class="container-image-hero-small">
         <img class="image-second-hero" src="../assets/images/cat-hero-2.jpeg" alt="logo-header" />
         <div class="text-image-hero">
@@ -65,10 +68,11 @@ const iconSize = 12
           <div style="color: var(--sys-color-text-accent-primary)">Précision & qualité</div>
         </div>
       </div>
+
       <div class="container-diagnostic">
         <div class="container-diagnostic-title">
           <DotIcon :size="iconSize * 2" color="var(--sys-color-status-open)" />
-          <Eyebrow color="var(--sys-color-status-open)">Diagnostic actif</Eyebrow>
+          <Eyebrow variant="open">Diagnostic actif</Eyebrow>
         </div>
         <ul>
           <li>Lecture défauts : OK</li>
@@ -83,8 +87,7 @@ const iconSize = 12
 <style lang="css" scoped>
 :deep(.app-hero) {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-  /* column-gap: var(--ref-size-88); */
+  justify-content: center;
   align-items: center;
   height: 100dvh;
   background: radial-gradient(
@@ -98,77 +101,54 @@ const iconSize = 12
     height: fit-content;
     gap: 30px;
 
-    > h1 > span {
-      background: linear-gradient(
-        to right,
-        hsl(from var(--sys-color-primary) h s calc(l + 20)),
-        var(--sys-color-primary),
-        var(--sys-color-primary)
-      );
-      background-clip: text;
-      color: transparent;
-
-      &:first-of-type {
-        color: var(--sys-color-text-primary);
-      }
-
-      &:last-child {
-        font-size: var(--sys-font-size-h1-accent);
-        font-weight: var(--sys-font-weight-h1-accent);
-        color: hsl(from var(--sys-color-text-secondary) h calc(s - 6) calc(l + 19));
-        line-height: 53px;
-      }
-    }
-
-    > h1 + p {
-      max-width: 60ch;
-    }
-
-    .container-items {
-      display: flex;
-      gap: var(--ref-size-32);
-    }
-
-    .container-tag {
+    .container-buttons {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
     }
 
-    .tag {
-      font-family: var(--ref-font-family-condensed);
-      font-size: var(--ref-size-32);
-      color: var(--sys-color-text-primary);
-      font-weight: var(--ref-font-weight-black);
-    }
+    .container-tags {
+      display: flex;
+      gap: 10px;
 
-    .under-tag {
-      font-size: var(--ref-size-11);
-      color: hsl(from var(--sys-color-text-secondary) h calc(s - 5) calc(l - 18));
+      > div {
+        display: grid;
+
+        > p:first-child {
+          font-family: var(--ref-font-family-condensed);
+          font-size: var(--ref-size-32);
+          color: var(--sys-color-text-primary);
+          font-weight: var(--ref-font-weight-black);
+        }
+
+        > p:nth-of-type(2) {
+          font-size: var(--ref-size-11);
+          color: var(--sys-color-text-tertiary);
+        }
+      }
     }
   }
 
   .image-content {
     position: relative;
+    width: fit-content;
+    height: fit-content;
 
-    .container-image-hero {
-      position: relative;
+    .image-main-hero {
+      width: 32.5rem;
+      height: 23rem;
+      object-fit: cover;
+    }
+
+    &::after {
+      content: '';
       border-radius: var(--ref-size-12);
-
-      .image-main-hero {
-        width: 32.5rem;
-        height: 23rem;
-        object-fit: cover;
-      }
-
-      &::after {
-        content: '';
-        border-radius: var(--ref-size-12);
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: radial-gradient(transparent, hsl(from var(--sys-color-background) h s l / 0.6));
-      }
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: radial-gradient(transparent, hsl(from var(--sys-color-background) h s l / 0.6));
     }
 
     .text-image-hero {
@@ -181,9 +161,10 @@ const iconSize = 12
     }
 
     .container-image-hero-small {
+      z-index: 1;
       position: absolute;
       bottom: -50px;
-      right: 50px;
+      right: -50px;
       border-radius: var(--ref-size-12);
 
       &::after {
@@ -205,6 +186,7 @@ const iconSize = 12
     }
 
     .container-diagnostic {
+      z-index: 1;
       position: absolute;
       top: -50px;
       left: -50px;
@@ -236,12 +218,11 @@ const iconSize = 12
   }
 }
 
-@media (width: 712px) {
+@media (min-width: 1025px) {
   :deep(.app-hero) {
-    justify-items: center;
-    .image-content {
-      display: revert;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
+    justify-content: center;
   }
 }
 </style>

@@ -20,7 +20,7 @@ const iconSize = 13
 </script>
 
 <template>
-  <header class="app-header">
+  <header class="app-header-desktop">
     <div class="container">
       <img src="/src/assets/images/logo/manu-tech-logo.png" alt="logo-header" class="image-logo" />
       <nav>
@@ -40,7 +40,8 @@ const iconSize = 13
 </template>
 
 <style scoped>
-.app-header {
+.app-header-desktop {
+  padding-inline: 15px;
   display: flex;
   justify-content: center;
   z-index: 666;
