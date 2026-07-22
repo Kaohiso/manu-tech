@@ -45,6 +45,7 @@ const images: Props[] = [
   .container-gallery {
     display: flex;
     overflow-x: scroll;
+    scroll-snap-type: x mandatory;
     gap: 20px;
 
     &::-webkit-scrollbar {
@@ -57,6 +58,7 @@ const images: Props[] = [
     }
 
     .image-gallery {
+      scroll-snap-align: center;
       flex-shrink: 0;
       object-fit: cover;
       width: 350px;

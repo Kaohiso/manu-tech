@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  variant?: 'filled-blue' | 'filled-green' | 'outlined' | 'text-only'
+  variant?: 'filled-blue' | 'filled-green' | 'outlined' | 'text-only' | 'icon'
   textPosition?: 'text-center' | 'text-start'
   iconPosition?: 'left' | 'right'
 }
@@ -33,6 +33,12 @@ const {
   gap: var(--sys-gap-cta-button);
   font-size: var(--sys-font-size-cta-button);
   font-weight: var(--sys-font-weight-cta-button);
+
+  &.icon {
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+  }
 
   &.filled-blue {
     background-color: var(--sys-color-primary);

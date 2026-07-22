@@ -56,11 +56,11 @@ const iconSize = <number>13
         >Équipements de référence utilisés</EyebrowMT
       >
       <div class="container-card">
-        <CardMT :graphic-img="topdon">
+        <CardMT :imgSrc="topdon">
           <template #heading>Topdon</template>
           <template #subheading>Diagnostic automobile</template>
         </CardMT>
-        <CardMT :graphic-img="fnirsi">
+        <CardMT :imgSrc="fnirsi">
           <template #heading>FNIRSI</template>
           <template #subheading>Instruments de mesure</template>
         </CardMT>

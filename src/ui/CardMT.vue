@@ -5,7 +5,7 @@ import type { LucideIcon } from '@lucide/vue'
 
 interface CardMtProps {
   graphicIcon?: LucideIcon
-  graphicImg?: string
+  imgSrc?: string
   type?: 'price' | 'schedule' | 'images'
   tag?: 'new'
   cardSize?: 'big'
@@ -23,7 +23,7 @@ const { iconSize = 12 } = defineProps<CardMtProps>()
       <div v-if="graphicIcon" class="container-icon" :class="[cardSize, variant]">
         <component :is="graphicIcon" :size="iconSize" class="icon" :class="variant" />
       </div>
-      <component v-else-if="graphicImg" is="img" :src="graphicImg" class="card-image" />
+      <component v-else-if="imgSrc" is="img" :src="imgSrc" class="card-image" />
 
       <component
         :is="$slots.heading && $slots.subheading ? 'hgroup' : 'div'"

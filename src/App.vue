@@ -42,6 +42,10 @@ import AppFooter from '@/features/layout/AppFooter.vue'
 
 * {
   text-wrap: pretty;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior-x: none;
 }
 
 html {
@@ -53,6 +57,7 @@ body {
   font-family: var(--ref-font-family-base);
   font-size: var(--ref-size-15);
   font-weight: var(--ref-font-weight-regular);
+  margin: 0;
 }
 
 a {
