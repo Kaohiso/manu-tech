@@ -21,7 +21,7 @@ const imagesPartners = [colissimo, dpd, chronopost, colisPrive]
 
 <template>
   <AppSection class="app-pickup" id-section="pickup">
-    <header class="container-title-pickup">
+    <header>
       <EyebrowMT variant="orange"> Point Relais Officiel </EyebrowMT>
       <h2>
         <span>Point Relais de </span>
@@ -34,45 +34,49 @@ const imagesPartners = [colissimo, dpd, chronopost, colisPrive]
       </p>
     </header>
 
-    <div class="container-content-pickup">
-      <CardMT
-        v-for="pickup in pickups"
-        :key="pickup.id"
-        :graphic-icon="pickup.icon"
-        :icon-size="24"
-        card-size="big"
-        variant="orange"
-      >
-        <template #heading>
-          {{ pickup.heading }}
-        </template>
-        <template #subheading>
-          {{ pickup.subheading }}
-        </template>
-        <template #cardMtContent>
-          <p v-for="value in pickup.content">{{ value }}</p>
-        </template>
-      </CardMT>
-    </div>
-    <div class="card-mt-long">
-      <CardMT :graphic-icon="ClockIcon" :icon-size="24" card-size="big" variant="orange">
-        <template #heading>Horaires d'ouvertures</template>
-        <template #subheading>Horaires du point relais</template>
-        <template #cardMtContent>
-          <ScheduleMT :content="schedule" />
-        </template>
-      </CardMT>
-      <CardMT :graphic-icon="TruckIcon" :icon-size="24" card-size="big" variant="orange">
-        <template #heading>Partenaires logistiques</template>
-        <template #subheading>Marques</template>
-        <template #cardMtContent>
-          <div class="container-content-images-partners">
-            <div v-for="image in imagesPartners" class="container-images-partners">
-              <img :src="image" class="image-partner" />
+    <div class="content-pickup">
+      <div class="container-short-information-pickup">
+        <CardMT
+          v-for="pickup in pickups"
+          :key="pickup.id"
+          :graphic-icon="pickup.icon"
+          :icon-size="24"
+          card-size="big"
+          variant="orange"
+        >
+          <template #heading>
+            {{ pickup.heading }}
+          </template>
+          <template #subheading>
+            {{ pickup.subheading }}
+          </template>
+          <template #cardMtContent>
+            <p v-for="value in pickup.content">{{ value }}</p>
+          </template>
+        </CardMT>
+      </div>
+
+      <div class="container-schedule-image">
+        <CardMT :graphic-icon="ClockIcon" :icon-size="24" card-size="big" variant="orange">
+          <template #heading>Horaires d'ouvertures</template>
+          <template #subheading>Horaires du point relais</template>
+          <template #cardMtContent>
+            <ScheduleMT :content="schedule" />
+          </template>
+        </CardMT>
+
+        <CardMT :graphic-icon="TruckIcon" :icon-size="24" card-size="big" variant="orange">
+          <template #heading>Partenaires logistiques</template>
+          <template #subheading>Marques</template>
+          <template #cardMtContent>
+            <div class="content-images-partners">
+              <div v-for="image in imagesPartners" class="images-partners">
+                <img :src="image" class="image-partner" />
+              </div>
             </div>
-          </div>
-        </template>
-      </CardMT>
+          </template>
+        </CardMT>
+      </div>
     </div>
   </AppSection>
 </template>
@@ -80,8 +84,7 @@ const imagesPartners = [colissimo, dpd, chronopost, colisPrive]
 <style scoped>
 :deep(.app-pickup) {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
-  gap: var(--ref-size-20);
+  gap: 20px;
 
   > header {
     display: grid;
@@ -114,50 +117,41 @@ const imagesPartners = [colissimo, dpd, chronopost, colisPrive]
     }
   }
 
-  .card-mt-long {
+  .content-pickup {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
     gap: 20px;
 
-    .container-content-images-partners {
+    .container-short-information-pickup {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+      gap: var(--ref-size-20);
+    }
+
+    .container-schedule-image {
+      display: grid;
       gap: 20px;
 
-      .container-images-partners {
-        background-color: var(--sys-color-background);
-        border-radius: var(--app-radius);
-        border: 2px solid hsl(from var(--ref-color-white) h s l / 0.05);
-        padding: 16px;
+      .content-images-partners {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+        gap: 20px;
 
-        .image-partner {
-          border-radius: 0;
-          height: 25px;
-          object-fit: contain;
+        > div {
+          display: inline-flex;
+          justify-content: center;
+          background-color: var(--sys-color-background);
+          border-radius: var(--app-radius);
+          border: 2px solid hsl(from var(--ref-color-white) h s l / 0.05);
+          padding: 16px;
+
+          > img {
+            border-radius: 0;
+            height: 25px;
+            object-fit: contain;
+          }
         }
       }
-    }
-  }
-
-  .container-content-pickup {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--ref-size-20);
-  }
-
-  .footer {
-    display: grid;
-    gap: 10px;
-
-    .line {
-      border-top: 2px solid hsl(from var(--ref-color-white) h s l / 0.05);
-    }
-
-    .text-caption {
-      text-align: center;
-
-      color: var(--sys-color-text-tertiary);
-      font-family: var(--ref-font-family-mono);
-      font-size: var(--ref-size-10);
     }
   }
 }

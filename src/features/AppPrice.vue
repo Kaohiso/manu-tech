@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { smsPhoneNumber } from '@/data/contact'
+import { smsPhoneNumber } from '@/data/contactInformation'
 import AppSection from '@/features/layout/AppSection.vue'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import CardMT from '@/ui/CardMT.vue'
@@ -34,46 +34,50 @@ const tarifs: TarifProps[] = [
 
 <template>
   <AppSection class="app-price" id-section="price">
-    <div class="container-price-title">
+    <header>
       <EyebrowMT>Transparence tarifaire</EyebrowMT>
       <h2>Nos tarifs</h2>
       <p>
         Tarifs fixes et transparents, sans mauvaise surprise. Devis avant toute intervention
         spécifique.
       </p>
+    </header>
+
+    <div class="content-cards">
+      <CardMT
+        v-for="tarif in tarifs"
+        :key="tarif.id"
+        type="price"
+        :tag="tarif.tag"
+        card-size="big"
+        footer-divider="line"
+      >
+        <template #heading>
+          {{ tarif.heading }}
+        </template>
+
+        <template #cardMtContent>
+          <EyebrowMT variant="caption">
+            {{ tarif.content[0] }}
+          </EyebrowMT>
+          <p class="price">
+            <span>{{ tarif.content[1] }}</span>
+            <span class="euro">€</span>
+          </p>
+        </template>
+
+        <template #cardMtFooter>
+          <ButtonMT variant="text-only" icon-position="right" :href="smsPhoneNumber">
+            <ChevronRightIcon :size="11" />
+            Demander un devis
+          </ButtonMT>
+        </template>
+
+        <template #chip-on-card-mt> Nouveaute </template>
+      </CardMT>
     </div>
-    <CardMT
-      v-for="tarif in tarifs"
-      :key="tarif.id"
-      type="price"
-      :tag="tarif.tag"
-      card-size="big"
-      footer-divider="line"
-    >
-      <template #heading>
-        {{ tarif.heading }}
-      </template>
 
-      <template #cardMtContent>
-        <EyebrowMT variant="caption">
-          {{ tarif.content[0] }}
-        </EyebrowMT>
-        <p class="price">
-          <span>{{ tarif.content[1] }}</span>
-          <span class="euro">€</span>
-        </p>
-      </template>
-
-      <template #cardMtFooter>
-        <ButtonMT variant="text-only" icon-position="right" :href="smsPhoneNumber">
-          <ChevronRightIcon :size="11" />
-          Demander un devis
-        </ButtonMT>
-      </template>
-
-      <template #chip-on-card-mt> Nouveaute </template>
-    </CardMT>
-    <EyebrowMT variant="caption" class="caption">
+    <EyebrowMT variant="caption">
       * Tarifs indicatifs. Devis personnalisé sur demande. Contact par SMS recommandé.
     </EyebrowMT>
   </AppSection>
@@ -83,29 +87,30 @@ const tarifs: TarifProps[] = [
 :deep(.app-price) {
   display: grid;
   text-align: center;
-  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
   gap: var(--ref-size-20);
 
-  .container-price-title {
-    grid-column: 1 / -1;
+  > header {
     display: grid;
     row-gap: 20px;
   }
 
-  .price {
-    font-family: var(--ref-font-family-condensed);
-    font-weight: var(--ref-font-weight-black);
-    font-size: var(--ref-size-44);
-    color: hsl(from var(--sys-color-primary) h s calc(l + 20));
-    margin-top: var(--ref-size-8);
+  .content-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
 
-    .euro {
-      font-size: var(--ref-size-20);
+    gap: 20px;
+
+    .price {
+      font-family: var(--ref-font-family-condensed);
+      font-weight: var(--ref-font-weight-black);
+      font-size: var(--ref-size-44);
+      color: hsl(from var(--sys-color-primary) h s calc(l + 20));
+      margin-top: var(--ref-size-8);
+
+      > span:nth-of-type(2) {
+        font-size: var(--ref-size-20);
+      }
     }
-  }
-
-  .caption {
-    grid-column: 1 / -1;
   }
 }
 </style>

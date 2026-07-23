@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PhoneIcon } from '@lucide/vue'
 import ButtonMT from '@/ui/ButtonMT.vue'
-import { callPhoneNumber } from '@/data/contact.ts'
+import { callPhoneNumber } from '@/data/contactInformation'
 
 type Link = { id: string; label: string }
 

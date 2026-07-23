@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import manuTechLogo from '@/assets/images/logo/manu-tech-logo.png'
-import { callPhoneNumber, facebookManuTech, leboncoinManuTech, mailTo } from '@/data/contact'
+import {
+  callPhoneNumber,
+  facebookManuTech,
+  leboncoinManuTech,
+  mailTo,
+} from '@/data/contactInformation'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
 import { MailIcon, MapPinIcon, PhoneIcon } from '@lucide/vue'
@@ -41,6 +46,7 @@ const links: Link[] = [
             </ul>
           </nav>
         </div>
+
         <div class="column">
           <EyebrowMT class="nav-eyebrow">Contact</EyebrowMT>
           <nav>
@@ -94,10 +100,11 @@ const links: Link[] = [
   .container {
     max-width: var(--app-inline-size);
     width: 100vw;
+    padding: var(--ref-size-12);
 
     .app-footer-content {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 40px;
 
       .column {
@@ -173,6 +180,18 @@ const links: Link[] = [
     font-family: var(--ref-font-family-mono);
     color: var(--sys-color-text-tertiary);
     font-size: var(--ref-size-11);
+  }
+}
+
+@media (min-width: 768px) {
+  .app-footer {
+    .container {
+      .app-footer-content {
+        .column {
+          justify-content: center;
+        }
+      }
+    }
   }
 }
 </style>

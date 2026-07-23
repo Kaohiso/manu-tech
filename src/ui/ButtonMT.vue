@@ -26,6 +26,7 @@ const {
 .button-mt {
   display: inline-flex;
   width: fit-content;
+  height: fit-content;
   align-items: center;
   color: var(--sys-color-text-primary);
   padding: var(--sys-padding-vertical-cta-button) var(--sys-padding-horizontal-cta-button);

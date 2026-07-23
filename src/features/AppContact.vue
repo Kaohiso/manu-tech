@@ -1,120 +1,17 @@
 <script setup lang="ts">
 import AppSection from '@/features/layout/AppSection.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
-import {
-  ChevronRightIcon,
-  ClockIcon,
-  MailIcon,
-  MapPinIcon,
-  MessageCircleIcon,
-  MessageSquareIcon,
-  PhoneIcon,
-  type LucideIcon,
-} from '@lucide/vue'
-import { callPhoneNumber, mailTo, smsPhoneNumber, whatsApp } from '@/data/contact'
+import { ChevronRightIcon, ClockIcon, MapPinIcon, MessageCircleIcon, PhoneIcon } from '@lucide/vue'
+import { callPhoneNumber, smsPhoneNumber, whatsApp } from '@/data/contactInformation'
 import CardMT from '@/ui/CardMT.vue'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import ScheduleMT from '@/ui/ScheduleMT.vue'
-
-interface ContactProps {
-  id: number
-  type: 'single'
-  variant?: 'filled-blue' | 'green-border'
-  header: {
-    icon: LucideIcon
-  }
-  content: {
-    heading: string
-    value: string
-    caption: string
-  }
-  footer: {
-    buttonText: string
-    externalLink: string
-  }
-}
-
-const contacts: ContactProps[] = [
-  {
-    id: 1,
-    type: 'single',
-    variant: 'filled-blue',
-    header: {
-      icon: PhoneIcon,
-    },
-    content: {
-      heading: 'Telephone',
-      value: '+33 7 87 33 43 35',
-      caption: 'Appel direct — Lun–Sam',
-    },
-    footer: {
-      buttonText: 'Appeler maintenant',
-      externalLink: callPhoneNumber,
-    },
-  },
-  {
-    id: 2,
-    variant: 'green-border',
-    type: 'single',
-    header: {
-      icon: MessageCircleIcon,
-    },
-    content: {
-      heading: 'WhatsApp',
-      value: '+33 7 87 33 43 35',
-      caption: 'Réponse rapide garantie',
-    },
-    footer: {
-      buttonText: 'Envoyer un message',
-      externalLink: whatsApp,
-    },
-  },
-  {
-    id: 3,
-    type: 'single',
-    header: {
-      icon: MessageSquareIcon,
-    },
-    content: {
-      heading: 'SMS',
-      value: '+33 7 87 33 43 35',
-      caption: 'Contact préféré pour devis',
-    },
-    footer: {
-      buttonText: 'Envoyer un SMS',
-      externalLink: smsPhoneNumber,
-    },
-  },
-  {
-    id: 4,
-    type: 'single',
-    header: {
-      icon: MailIcon,
-    },
-    content: {
-      heading: 'Email',
-      value: 'manu-tech@orange.fr',
-      caption: 'Réponse sous 24h ouvrées',
-    },
-    footer: {
-      buttonText: 'Envoyer un email',
-      externalLink: mailTo,
-    },
-  },
-]
-
-const schedule = [
-  { key: 'Lundi - Vendredi', firstValue: '9h - 12h30', lastValue: '13h30 - 18h30' },
-  { key: 'Samedi', lastValue: '9h - 12h30' },
-  { key: 'Dimanche', lastValue: 'Fermé' },
-]
-
-const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
+import { contacts, schedule, adress } from '@/data/contact'
 </script>
 
 <template>
   <AppSection class="app-contact" id-section="contact">
-    <header class="app-contact-header">
+    <header>
       <EyebrowMT>Nous joindre</EyebrowMT>
       <h2>Contact</h2>
       <p>
@@ -123,7 +20,7 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
       </p>
     </header>
 
-    <div>
+    <div class="contact-information">
       <CardMT
         v-for="contact in contacts"
         :graphicIcon="contact.header.icon"
@@ -199,27 +96,21 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
       </CardMT>
     </div>
 
-    <div>
-      <CardMT variant="gradient" cardSize="big">
-        <template #cardMtContent>
-          <div class="card-contact-us">
-            <div class="container-title">
-              <h3>Prêt à nous contacter ?</h3>
-              <span>Demande de devis — réponse rapide par SMS ou WhatsApp.</span>
-            </div>
-            <div class="container-buttons">
-              <ButtonMT :href="callPhoneNumber">
-                <PhoneIcon :size="14" />
-                Appeler
-              </ButtonMT>
-              <ButtonMT variant="filled-green" :href="whatsApp">
-                <MessageCircleIcon :size="14" />
-                WhatsApp
-              </ButtonMT>
-            </div>
-          </div>
-        </template>
-      </CardMT>
+    <div class="card-contact-us">
+      <hgroup class="container-title">
+        <h3>Prêt à nous contacter ?</h3>
+        <p>Demande de devis — réponse rapide par SMS ou WhatsApp.</p>
+      </hgroup>
+      <div class="container-buttons">
+        <ButtonMT :href="callPhoneNumber">
+          <PhoneIcon :size="14" />
+          Appeler
+        </ButtonMT>
+        <ButtonMT variant="filled-green" :href="whatsApp">
+          <MessageCircleIcon :size="14" />
+          WhatsApp
+        </ButtonMT>
+      </div>
     </div>
   </AppSection>
 </template>
@@ -245,15 +136,15 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
     }
   }
 
-  > div {
+  .contact-information {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
     gap: var(--ref-size-20);
   }
 
   .bottom-card-contact {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
     gap: var(--ref-size-20);
   }
 
@@ -267,9 +158,19 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
   }
 
   .card-contact-us {
-    grid-column: 1 / -1;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     justify-content: space-between;
+    border: none;
+    background: linear-gradient(
+      to right,
+      hsl(from var(--sys-color-primary) h s l / 0.15),
+      var(--app-background-on-background),
+      hsl(from var(--sys-color-secondary) h s l / 0.15)
+    );
+    padding: 24px;
+    border-radius: var(--app-radius);
+    gap: 10px;
 
     .container-title {
       text-align: start;
@@ -279,8 +180,19 @@ const adress = ['16 rue Poincaré', 'Ars-sur-Moselle', '57130']
 
     .container-buttons {
       display: inline-flex;
+      align-items: center;
       gap: 20px;
-      justify-content: end;
+      justify-content: start;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  :deep(.app-contact) {
+    .card-contact-us {
+      .container-buttons {
+        justify-content: end;
+      }
     }
   }
 }

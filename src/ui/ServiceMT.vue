@@ -19,7 +19,7 @@ const { direction = 'img-right' } = defineProps<Props>()
 <template>
   <article class="container-content" :class="direction">
     <div class="container-article-text">
-      <div>
+      <header>
         <div>
           <component :is="graphicIcon" :size="20" />
         </div>
@@ -31,7 +31,7 @@ const { direction = 'img-right' } = defineProps<Props>()
             <slot name="subheading" />
           </p>
         </hgroup>
-      </div>
+      </header>
 
       <p>
         <slot name="description" />
@@ -66,23 +66,15 @@ const { direction = 'img-right' } = defineProps<Props>()
   grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
   gap: 50px;
 
-  &.img-left .container-article-text {
-    order: 1;
-  }
-
-  &.img-left .container-article-image {
-    order: -1;
-  }
-
   .container-article-text {
     display: grid;
     gap: 20px;
 
-    > div:has(> div + hgroup) {
+    > header:has(> div + hgroup) {
       display: inline-flex;
-      gap: 15px;
-      text-align: center;
+      align-items: center;
       justify-items: center;
+      gap: 15px;
 
       > div {
         width: fit-content;
@@ -147,14 +139,13 @@ const { direction = 'img-right' } = defineProps<Props>()
       }
     }
   }
-}
 
-@media (min-width: 1160px) {
-  :deep(.app-about) {
-    .about-text {
-      text-align: start;
-      justify-items: start;
-    }
+  &.img-left .container-article-text {
+    order: 1;
+  }
+
+  &.img-left .container-article-image {
+    order: -1;
   }
 }
 </style>

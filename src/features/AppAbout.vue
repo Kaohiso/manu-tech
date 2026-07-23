@@ -3,7 +3,7 @@ import { ChevronRightIcon } from '@lucide/vue'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import EyebrowMT from '@/ui/EyebrowMT.vue'
 import AppSection from '@/features/layout/AppSection.vue'
-import { callPhoneNumber } from '@/data/contact'
+import { callPhoneNumber } from '@/data/contactInformation'
 import CardMT from '@/ui/CardMT.vue'
 
 import topdon from '../assets/images/logo/topdon-logo.jpg'

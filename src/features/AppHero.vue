@@ -4,7 +4,7 @@ import ButtonMT from '../ui/ButtonMT.vue'
 import ChipMT from '../ui/ChipMT.vue'
 import Eyebrow from '../ui/EyebrowMT.vue'
 import AppSection from '@/features/layout/AppSection.vue'
-import { callPhoneNumber, smsPhoneNumber } from '@/data/contact.ts'
+import { callPhoneNumber, smsPhoneNumber } from '@/data/contactInformation.ts'
 import { useMediaQuery } from '@/composables/useMediaQuery.ts'
 
 const isDesktop = useMediaQuery('(min-width: 1025px)')

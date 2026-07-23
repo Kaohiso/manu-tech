@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ChevronRightIcon, MenuIcon, PhoneIcon, XIcon } from '@lucide/vue'
 import ButtonMT from '@/ui/ButtonMT.vue'
-import { callPhoneNumber } from '@/data/contact.ts'
+import { callPhoneNumber } from '@/data/contactInformation'
 import DialogMT from '@/ui/DialogMT.vue'
 import { useTemplateRef } from 'vue'
 

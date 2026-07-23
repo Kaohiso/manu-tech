@@ -21,12 +21,12 @@ import AppFooter from '@/features/layout/AppFooter.vue'
   <AppHero />
   <AppAbout />
   <AppServices />
-  <!-- <AppPrice /> -->
-  <!-- <AppWhyUs /> -->
-  <!-- <AppGallery /> -->
-  <!-- <AppPickup /> -->
-  <!-- <AppContact /> -->
-  <!-- <AppFooter /> -->
+  <AppPrice />
+  <AppWhyUs />
+  <AppGallery />
+  <AppPickup />
+  <AppContact />
+  <AppFooter />
 </template>
 
 <style>
@@ -38,6 +38,7 @@ import AppFooter from '@/features/layout/AppFooter.vue'
     from var(--sys-color-background) calc(h + 10) calc(s + 5) calc(l + 5)
   );
   --app-pading-section: 128px;
+  --app-pading-section-mobile: 96px;
 }
 
 * {
