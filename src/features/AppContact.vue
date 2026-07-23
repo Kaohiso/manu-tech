@@ -101,6 +101,7 @@ import { contacts, schedule, adress } from '@/data/contact'
         <h3>Prêt à nous contacter ?</h3>
         <p>Demande de devis — réponse rapide par SMS ou WhatsApp.</p>
       </hgroup>
+
       <div class="container-buttons">
         <ButtonMT :href="callPhoneNumber">
           <PhoneIcon :size="14" />
@@ -158,9 +159,10 @@ import { contacts, schedule, adress } from '@/data/contact'
   }
 
   .card-contact-us {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+
     border: none;
     background: linear-gradient(
       to right,
@@ -179,10 +181,9 @@ import { contacts, schedule, adress } from '@/data/contact'
     }
 
     .container-buttons {
-      display: inline-flex;
-      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
       gap: 20px;
-      justify-content: start;
     }
   }
 }
@@ -190,6 +191,7 @@ import { contacts, schedule, adress } from '@/data/contact'
 @media (min-width: 768px) {
   :deep(.app-contact) {
     .card-contact-us {
+      flex-direction: row;
       .container-buttons {
         justify-content: end;
       }

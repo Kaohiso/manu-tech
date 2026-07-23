@@ -83,10 +83,10 @@ const links: Link[] = [
           </nav>
         </div>
       </div>
-    </div>
 
-    <div class="bottom-footer">
-      <span>© 2025 MANU-TECH. Tous droits réservés.</span>
+      <div class="bottom-footer">
+        <p>© 2025 MANU-TECH. Tous droits réservés.</p>
+      </div>
     </div>
   </footer>
 </template>
@@ -95,11 +95,11 @@ const links: Link[] = [
 .app-footer {
   display: grid;
   background-color: var(--ref-color-authentic-black-950);
-  justify-content: center;
 
   .container {
     max-width: var(--app-inline-size);
-    width: 100vw;
+    justify-self: center;
+    width: 100%;
     padding: var(--ref-size-12);
 
     .app-footer-content {
@@ -174,7 +174,7 @@ const links: Link[] = [
   }
 
   .bottom-footer {
-    grid-column: 1 / -1;
+    /* grid-column: 1 / -1; */
     border-top: 2px solid hsl(from var(--ref-color-white) h s l / 0.05);
     padding-block: var(--ref-size-12);
     font-family: var(--ref-font-family-mono);
