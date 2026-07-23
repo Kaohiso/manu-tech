@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  variant?: 'on-card' | 'caption' | 'filled-blue' | 'green-border' | 'orange' | 'open'
+  variant?: 'on-card' | 'caption' | 'filled-blue' | 'green-border' | 'orange' | 'open' | 'on-chip'
 }
 
 defineProps<Props>()
@@ -35,7 +35,8 @@ defineProps<Props>()
     color: var(--sys-color-text-tertiary);
   }
 
-  &.white {
+  &.on-chip {
+    font-weight: var(--ref-font-weight-bold);
     color: var(--ref-color-white);
   }
 
