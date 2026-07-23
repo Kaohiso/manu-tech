@@ -32,7 +32,7 @@ const vehicules: string[] = [
     <EyebrowMT>Véhicules compatibles</EyebrowMT>
     <h3>Marques prises en charge</h3>
     <div class="container-chips">
-      <ChipMT v-for="vehicule in vehicules" display="list">
+      <ChipMT v-for="vehicule in vehicules" variant="list">
         <p>{{ vehicule }}</p>
       </ChipMT>
     </div>

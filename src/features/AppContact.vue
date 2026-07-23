@@ -30,7 +30,7 @@ import { contacts, schedule, adress } from '@/data/contact'
       >
         <template #cardMtContent>
           <div class="card-content">
-            <EyebrowMT :variant="contact.variant ?? 'on-card'">
+            <EyebrowMT :variant="contact.variant ?? 'in-card'">
               {{ contact.content.heading }}
             </EyebrowMT>
 
@@ -162,6 +162,7 @@ import { contacts, schedule, adress } from '@/data/contact'
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 
     border: none;
     background: linear-gradient(

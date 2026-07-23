@@ -174,7 +174,6 @@ const links: Link[] = [
   }
 
   .bottom-footer {
-    /* grid-column: 1 / -1; */
     border-top: 2px solid hsl(from var(--ref-color-white) h s l / 0.05);
     margin-top: var(--ref-size-20);
     padding-block: var(--ref-size-12);
