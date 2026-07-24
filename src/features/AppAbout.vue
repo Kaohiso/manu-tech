@@ -16,10 +16,13 @@ const iconSize = <number>13
   <AppSection class="app-about" id-section="about">
     <div class="about-image">
       <div class="fitter">
-        <img src="../assets/images/oden-about.jpeg" alt="Espace de travail chez Manu-Tech." />
+        <img
+          src="../assets/images/electronics-workshop.jpg"
+          alt="Réparation et maintenance électroniques pratiques, avec un accent particulier sur les cartes de circuits imprimés."
+        />
         <div class="container-tag">
           <p>10+</p>
-          <EyebrowMT>années d'expertise</EyebrowMT>
+          <EyebrowMT variant="on-card">années d'expertise</EyebrowMT>
         </div>
       </div>
     </div>
@@ -77,10 +80,10 @@ const iconSize = <number>13
   gap: 40px;
 
   .about-image {
+    order: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    order: 1;
 
     .fitter {
       position: relative;
@@ -102,7 +105,7 @@ const iconSize = <number>13
         flex-direction: column;
         justify-content: center;
         gap: 20px;
-        padding: var(--ref-size-2);
+        /* padding: var(--ref-size-2); */
         background-color: var(--ref-color-bluerocratic-500);
         border-radius: var(--app-radius);
         aspect-ratio: 1/1;
@@ -163,17 +166,23 @@ const iconSize = <number>13
 @media (min-width: 768px) {
   :deep(.app-about) {
     .about-image {
+      order: -1;
+
       .fitter {
         .container-tag {
           bottom: -30px;
           right: -30px;
-          padding: var(--ref-size-20);
+          /* padding: var(--ref-size-4); */
 
           > p {
             font-size: var(--ref-size-44);
           }
         }
       }
+    }
+
+    .about-text {
+      order: 1;
     }
   }
 }

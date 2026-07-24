@@ -11,6 +11,8 @@ interface Props {
   direction?: 'img-right' | 'img-left'
   graphicIcon: LucideIcon
   listServices: dataItemListProps[]
+  imgSrc: string
+  altSrc: string
 }
 
 const { direction = 'img-right' } = defineProps<Props>()
@@ -45,7 +47,7 @@ const { direction = 'img-right' } = defineProps<Props>()
     </div>
 
     <div class="container-article-image">
-      <img src="../assets/images/oden-services.jpeg" class="image-service" />
+      <img :src="imgSrc" :alt="altSrc" class="image-service" />
       <div class="text-on-image">
         <hgroup>
           <h4><slot name="image-heading" /></h4>

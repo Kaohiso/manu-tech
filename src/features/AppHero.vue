@@ -58,14 +58,22 @@ const iconSize = 12
       </div>
     </div>
     <div v-if="isDesktop" class="image-content">
-      <img class="image-main-hero" src="../assets/images/cat-hero.jpeg" alt="logo-header" />
+      <img
+        class="image-main-hero"
+        src="../assets/images/electronic-soldering.jpg"
+        alt="Image détaillée de mains soudant et réparant une carte de circuit imprimé électronique."
+      />
       <div class="text-image-hero">Interface OBD-II Pro</div>
 
       <div class="container-image-hero-small">
-        <img class="image-second-hero" src="../assets/images/cat-hero-2.jpeg" alt="logo-header" />
+        <img
+          class="image-second-hero"
+          src="../assets/images/pcb.jpg"
+          alt="Vue macro détaillée d'une carte de circuit imprimé mettant en avant des microchips et des composants électroniques."
+        />
         <div class="text-image-hero">
           <div>Réparation PCB</div>
-          <div style="color: var(--sys-color-text-accent-primary)">Précision & qualité</div>
+          <div>Précision & qualité</div>
         </div>
       </div>
 
@@ -158,6 +166,10 @@ const iconSize = 12
       left: 10px;
       color: var(--sys-color-text-primary);
       font-family: var(--ref-font-family-mono);
+
+      > div + div {
+        color: var(--sys-color-text-accent-primary);
+      }
     }
 
     .container-image-hero-small {
