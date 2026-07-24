@@ -3,7 +3,6 @@ import { ChevronRightIcon, MenuIcon, PhoneIcon, XIcon } from '@lucide/vue'
 import ButtonMT from '@/ui/ButtonMT.vue'
 import { callPhoneNumber } from '@/data/contactInformation'
 import DialogMT from '@/ui/DialogMT.vue'
-import { useTemplateRef } from 'vue'
 
 type Link = { id: string; label: string }
 
@@ -17,10 +16,6 @@ const links: Link[] = [
   { id: '#pickup', label: 'Point relais' },
   { id: '#contact', label: 'Contact' },
 ]
-
-const dialogMt = useTemplateRef('dialogMobile')
-
-const iconSize = 13
 </script>
 
 <template>
@@ -28,19 +23,19 @@ const iconSize = 13
     <div>
       <img
         src="/src/assets/images/logo/manu-tech-logo.png"
-        alt="logo-manu-tech"
+        alt="Logo de l'entreprise MANU-TECH"
         class="image-logo"
       />
-      <ButtonMT variant="icon" @click.stop="dialogMt?.toggle">
+      <ButtonMT variant="icon" popovertarget="dialog-menu">
         <MenuIcon color="white" :size="21" />
       </ButtonMT>
     </div>
 
-    <DialogMT id="dialog-mobile" v-slot="{ closeDialogMt }" ref="dialogMobile" backdrop>
+    <DialogMT id="dialog-menu" popover backdrop>
       <nav>
         <ul>
           <li v-for="link in links" :key="link.id">
-            <a :href="link.id" @click.stop="closeDialogMt">
+            <a :href="link.id" interestfor="dialog-menu">
               {{ link.label }}
               <ChevronRightIcon :size="13" class="icon" />
             </a>
@@ -50,7 +45,7 @@ const iconSize = 13
 
       <div class="container-button">
         <ButtonMT :href="callPhoneNumber" class="dialog-button">
-          <PhoneIcon :size="iconSize" />
+          <PhoneIcon :size="13" />
           Appeler maintenant
         </ButtonMT>
       </div>
@@ -59,7 +54,7 @@ const iconSize = 13
 </template>
 
 <style scoped>
-:global(html:has(#dialog-mobile[open])) {
+:global(:has(#dialog-menu:popover-open)) {
   overflow-y: hidden;
 }
 
@@ -87,7 +82,7 @@ const iconSize = 13
     position-anchor: --header;
     inset-block-start: anchor(end);
 
-    &[open]::backdrop {
+    &::backdrop {
       position-anchor: --header;
       inset-block-start: anchor(end);
       position: fixed;
@@ -96,8 +91,6 @@ const iconSize = 13
     }
 
     > nav > ul > li {
-      padding: 16px 24px;
-
       &:first-child {
         border-top: 2px solid hsl(from var(--sys-color-text-primary) h s l / 0.05);
       }
@@ -109,9 +102,11 @@ const iconSize = 13
       > a {
         display: flex;
         justify-content: space-between;
+        padding: 16px 24px;
         font-size: var(--sys-font-size-li);
         color: var(--sys-color-text-primary);
         font-weight: var(--ref-font-weight-medium);
+        interest-delay-end: 0.01s;
       }
     }
 

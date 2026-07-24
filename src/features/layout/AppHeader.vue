@@ -6,7 +6,7 @@ import AppHeaderMobile from '@/ui/header/AppHeaderMobile.vue'
 <template>
   <div class="app-header-mt">
     <AppHeaderMobile class="header-mobile" />
-    <AppHeaderDesktop class="header-desktop" />
+    <!-- <AppHeaderDesktop class="header-desktop" /> -->
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import AppHeaderMobile from '@/ui/header/AppHeaderMobile.vue'
   }
 }
 
-@media (min-width: 1025px) {
+/* @media (min-width: 1025px) {
   .app-header-mt {
     .header-mobile {
       visibility: hidden;
@@ -27,5 +27,5 @@ import AppHeaderMobile from '@/ui/header/AppHeaderMobile.vue'
       visibility: visible;
     }
   }
-}
+} */
 </style>
